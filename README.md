@@ -7,6 +7,8 @@ Dominic Walter T, A Deepti, Ahamed Aamina Banu Y, Saratha Selvi K, Aarka Christa
 Problem Statement : (INTL-DA-08)
 Build a solution that is able to track the origin of a given social media post (provided as an input URL or content) and identify the account, along with its details, which posted it first on that particular platform
 
+Presentation Video Link: https://www.youtube.com/watch?v=r-HmjKApXIs
+
 # 1. Abstract:
 
 Images/ videos of individuals, taken with or without consent and often of a sexually-explicit nature, are posted on various social media platforms as a tactic of abuse by perpetrators with the intent to harass, impersonate, humiliate and cause harm. Such content has a tendency to instantly become viral and causes a lot of distress to the victim.
@@ -27,7 +29,7 @@ We tend to take advantage of the vast and interactive platform of social media, 
 
 
 
-# 3. Language used: 
+# 3. Techstack: 
 
 Language: Python 3.0
 Libraries: ImageHash, Ipyplot, Numpy, Pandas, BeautifulSoup
@@ -55,6 +57,7 @@ IPyPlot is a small python package offering fast and efficient plotting of images
 
 Numpy
 NumPy stands for Numerical Python. It is a Python library used for working with arrays. It also has functions for working in the domain of linear algebra, Fourier transform, and matrices. It is an open-source project and we can use it freely. In Python, we have lists that serve the purpose of arrays, but they are slow to process.NumPy aims to provide an array object that is up to 50x faster than traditional Python lists.
+
 Pandas
 pandas is a Python package providing fast, flexible, and expressive data structures designed to make working with “relational” or “labeled” data both easy and intuitive. It aims to be the fundamental high-level building block for doing practical, real-world data analysis in Python. Additionally, it has the broader goal of becoming the most powerful and flexible open-source data analysis/manipulation tool available in any language
 
@@ -63,10 +66,10 @@ pandas is a Python package providing fast, flexible, and expressive data structu
 # 4.1 Overall design:
 
 Our algorithm is divided into four stages as follows: 
-Data scraping
-Sanitizing & Organising data
-Origin Computation
-Compiling Report.
+1. Data scraping
+2. Sanitizing & Organising data
+3. Origin Computation
+4. Compiling Report.
 
 
 # 4.1.1 Data Scraping:
@@ -74,9 +77,6 @@ Compiling Report.
 # 4.1.1.1 Effective way of searching:
 
 In order to make scraping for images more effective, we have developed an algorithm that uses hashtags ( # tags )  to navigate to the main page and narrows the scope of the search, this helps in reducing the waste of computational power spent on a broader search. However, if the algorithm cannot find any hashtags associated with the given post, it can get manual input from the user at the time of triggering else will launch a broader search based on location and other aspects
-
-
-In this example, we show how to extract hashtags using developer console, in the actual project this will be automated.
 
 
 
@@ -89,10 +89,6 @@ The URL of the image involved in the post
 Account username
 Social interactions (number of likes and comments)
 Hashtags used (or the equivalent - depending on the social media platform)
-
-
-In this picture, we show how to retrieve time and date from an Instagram post using chrome developer console, the same will be automated in the actual project. We can extract time accurately up to minutes and sometimes even the exact second can be retrieved. 
-
 
 # 4.1.2 Sanitizing & Organising data
 
@@ -114,12 +110,13 @@ Node data can be exported into JSON files after exploration directly. These data
 # 4.1.2.4 Data structure:
 
 Project Bucket
-{
+
+
+      {
         “Search ID”:
         {
                 “Root”: “URL”;
-
-                “Nodes”:
+		“Nodes”:
                 {
                        “HashValue1”: 
                        {
@@ -133,8 +130,7 @@ Project Bucket
                        “HashValue2”: {……….} 
                };
         };
-}
-
+     }
 
 
 # Explanation: 
