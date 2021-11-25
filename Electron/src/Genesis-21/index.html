@@ -3,10 +3,10 @@
 
 <head>
   <link rel="stylesheet" href="dashboard.css" />
+  <script src="https://use.fontawesome.com/0b70c28bf1.js"></script>
   <meta charset="UTF-8">
   <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
-  <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+
   <title>Genesis-21</title>
 </head>
 
@@ -15,7 +15,7 @@
       <div id="drag-region">
 
         <div id="window-title">
-          <span>Electron quick start</span>
+          <span></span>
         </div>
 
         
@@ -38,22 +38,108 @@
         <div class="menu">
           <div class="title">Navigation</div>
           <ul>
-            <li> <i class="fa fa-home"></i>Dashboard</li>
-            <li><i class="fa fa-signal"></i>Activity</li>
-            <li class="active"> <i class="fa fa-tasks"></i>Manage Searches</li>
-            <li> <i class="fa fa-envelope"></i>Configuration</li>
+            <li id = "dashboardButton" class = "test"  onclick="OpenPage('dashboard')" ><i class="fa fa-home"></i>Dashboard</li>
+            <li id = "activityButton" class = "test" onclick="OpenPage('activity')"><i class="fa fa-signal"></i>Activity</li>
+            <li id = "manageSearchButton" class="active" onclick="OpenPage('manageSearch')"> <i class="fa fa-tasks"></i>Manage Searches</li>
+            <li id = "ConfigurationButton" class = "test" onclick="OpenPage('Configuration')"> <i class="fa fa-envelope"></i>Configuration</li>
           </ul>
         </div>
       </div>
 
 
 
+      <div class="view" id="dashboard" style="display: none">
+        <div class="viewHeader">
+          <div class="title">Dashboard</div>
+          <div class="functions">
+            <div class="button active">New Search</div>
+            <div class="button">Completed</div>
+            <div class="button inverz"><i class="fa fa-trash-o"></i></div>
+          </div>
+        </div>
+        <div class="content">
+          <div class="list">
+            <div class="title">Recent</div>
+            <ul>
+              <li class="checked"><i class="fa fa-check-square-o"></i><span>POST ID : 12r1315T3</span>
+                <div class="info">
+                  <div class="button green">In progress</div><span>INITIATED on 25/11/2021</span>
+                </div>
+              </li>
+              <li><i class="fa fa-square-o"></i><span>POST ID : 12r1qe4T3</span>
+                <div class="info">
+                  <div class="button">Pending</div><span>INITIATED on 25/11/2021</span>
+                </div>
+              </li>
+              <li><i class="fa fa-square-o"></i><span>POST ID : 12giuU3f2g</span>
+                <div class="info">
+                  <div class="button">INITIATE</div><span>Ready to Search...</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="list">
+            <div class="title">Completed</div>
+            <ul>
+              <li class="checked"><i class="fa fa-check-square-o"></i><span>POST ID : 12r24T15T3</span>
+                <div class="info">
+                  <div class="button green">INFO</div><span>INITIATED on 24/11/2021</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="view" id = "activity" style="display: none">
+        <div class="viewHeader">
+          <div class="title">Activity</div>
+          <div class="functions">
+            <div class="button active">New Search</div>
+            <div class="button">Completed</div>
+            <div class="button inverz"><i class="fa fa-trash-o"></i></div>
+          </div>
+        </div>
+        <div class="content">
+          <div class="list">
+            <div class="title">Recent</div>
+            <ul>
+              <li class="checked"><i class="fa fa-check-square-o"></i><span>POST ID : 12r1315T3</span>
+                <div class="info">
+                  <div class="button green">In progress</div><span>INITIATED on 25/11/2021</span>
+                </div>
+              </li>
+              <li><i class="fa fa-square-o"></i><span>POST ID : 12r1qe4T3</span>
+                <div class="info">
+                  <div class="button">Pending</div><span>INITIATED on 25/11/2021</span>
+                </div>
+              </li>
+              <li><i class="fa fa-square-o"></i><span>POST ID : 12giuU3f2g</span>
+                <div class="info">
+                  <div class="button">INITIATE</div><span>Ready to Search...</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="list">
+            <div class="title">Completed</div>
+            <ul>
+              <li class="checked"><i class="fa fa-check-square-o"></i><span>POST ID : 12r24T15T3</span>
+                <div class="info">
+                  <div class="button green">INFO</div><span>INITIATED on 24/11/2021</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
 
 
 
 
-
-      <div class="view" id="manageSearch">
+      <div class="view" id="manageSearch" style="display: none">
         <div class="viewHeader">
           <div class="title">Manage Searches</div>
           <div class="functions">
@@ -98,9 +184,9 @@
 
 
 
-      <div class="view" id = "Configuration">
+      <div class="view" id = "Configuration" style="display: none">
         <div class="viewHeader">
-          <div class="title">Manage Searches</div>
+          <div class="title">Configuration</div>
           <div class="functions">
             <div class="button active">New Search</div>
             <div class="button">Completed</div>

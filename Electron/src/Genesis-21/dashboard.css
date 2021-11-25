@@ -1,7 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Dosis:300|Lato:300,400,600,700|Roboto+Condensed:300,700|Open+Sans+Condensed:300,600|Open+Sans:400,300,600,700|Maven+Pro:400,700);
-@import url("https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css");
 html {
-  background-image: url(http://www.ultraimg.com/images/2UeGfhZ.jpg);
   user-select: none;
 }
 
@@ -138,7 +136,7 @@ body {
   border-radius: 4px;
   transition: 0.25s all;
 }
-.main .nav .menu ul li.active {
+.main .nav .menu ul li.active1 {
   color: #F87060;
 }
 .main .nav .menu ul li:hover {
@@ -414,9 +412,17 @@ body::-webkit-scrollbar {
 }
 
 #manageSearch{
-  visibility: visible;
+  display: block;
 }
 
 #Configuration {
-  visibility: hidden;
+  display: none;
+}
+
+#dashboard{
+  display: none;
+}
+
+#activity {
+  display: none
 }

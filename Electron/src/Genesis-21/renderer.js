@@ -1,6 +1,25 @@
+const pages = ["Configuration", "manageSearch", "dashboard", "activity"];
+
+
+function OpenPage(id){
+    for(let x in pages){
+        document.getElementById(pages[x]).style.display = "none";
+        document.getElementById(pages[x] + "Button").className = 'test';
+    }
+    document.getElementById(id).style.display = "block";
+    console.log(document.getElementById(id + "Button"));
+    document.getElementById(id + "Button").className = "active1";
+}
+
+
+
+
+
 const remote = require('electron').remote;
 
 const win = remote.getCurrentWindow(); 
+
+
 
 document.onreadystatechange = (event) => {
     if (document.readyState == "complete") {
@@ -13,6 +32,8 @@ document.onreadystatechange = (event) => {
 window.onbeforeunload = (event) => {
     win.removeAllListeners();
 }
+
+
 
 
 
