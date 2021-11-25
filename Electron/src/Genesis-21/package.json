@@ -1,0 +1,16 @@
+{
+  "name": "filthy-produce-attain-m8ekt",
+  "productName": "filthy-produce-attain-m8ekt",
+  "description": "My Electron application description",
+  "keywords": [],
+  "main": "./main.js",
+  "version": "1.0.0",
+  "author": "HP",
+  "scripts": {
+    "start": "electron ."
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "electron": "13.1.7"
+  }
+}
