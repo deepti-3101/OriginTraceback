@@ -2,11 +2,14 @@
 @import url("https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css");
 html {
   background-image: url(http://www.ultraimg.com/images/2UeGfhZ.jpg);
+  user-select: none;
 }
 
 body {
   padding: 0px;
   margin: 0px;
+  overflow-y: hidden;
+  overflow-x: hidden;
   font-family: "Open Sans";
   font-size: 14px;
   font-smoothing: antialiased;
@@ -31,7 +34,7 @@ body {
   width: 100%;
   height: 50px;
   line-height: 50px;
-  background-color: #54b9cd;
+  background-color: #102542;
   color: White;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -72,6 +75,8 @@ body {
 .main {
   position: relative;
   width: 100%;
+  overflow-y: hidden;
+  overflow-x: hidden;
   height: 100%;
   clear: both;
   background-color: white;
@@ -134,10 +139,11 @@ body {
   transition: 0.25s all;
 }
 .main .nav .menu ul li.active {
-  color: #79BC46;
+  color: #F87060;
 }
 .main .nav .menu ul li:hover {
   background-color: #999;
+  color: white;
 }
 .main .nav .menu ul li i {
   font-size: 1.4em;
@@ -183,7 +189,7 @@ body {
   font-weight: 700;
 }
 .main .view .viewHeader .functions .button.active {
-  background-color: #54b9cd;
+  background-color: #102542;
 }
 .main .view .viewHeader .functions .button.inverz {
   background-color: inherit;
@@ -207,7 +213,7 @@ body {
   padding: 10px;
   text-transform: uppercase;
   font-weight: 700;
-  color: #54b9cd;
+  color: #102542;
 }
 .main .view .content .list ul {
   width: 100%;
@@ -261,7 +267,7 @@ body {
   font-weight: 700;
 }
 .main .view .content .list ul li .info .button.green {
-  background-color: #85C157;
+  background-color: #F87060;
 }
 
 .clear {
@@ -405,4 +411,12 @@ body {
 
 body::-webkit-scrollbar {
   display: none;
+}
+
+#manageSearch{
+  visibility: visible;
+}
+
+#Configuration {
+  visibility: hidden;
 }

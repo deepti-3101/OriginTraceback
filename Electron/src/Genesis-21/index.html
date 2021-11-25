@@ -18,30 +18,15 @@
           <span>Electron quick start</span>
         </div>
 
-        <div id="window-controls">
-
-          <div class="button" id="min-button">
-            <img class="icon" srcset="icons/min-w-10.png 1x, icons/min-w-12.png 1.25x, icons/min-w-15.png 1.5x, icons/min-w-15.png 1.75x, icons/min-w-20.png 2x, icons/min-w-20.png 2.25x, icons/min-w-24.png 2.5x, icons/min-w-30.png 3x, icons/min-w-30.png 3.5x" draggable="false" />
-          </div>
-          <div class="button" id="max-button">
-            <img class="icon" srcset="icons/max-w-10.png 1x, icons/max-w-12.png 1.25x, icons/max-w-15.png 1.5x, icons/max-w-15.png 1.75x, icons/max-w-20.png 2x, icons/max-w-20.png 2.25x, icons/max-w-24.png 2.5x, icons/max-w-30.png 3x, icons/max-w-30.png 3.5x" draggable="false" />
-          </div>
-          <div class="button" id="restore-button">
-            <img class="icon" srcset="icons/restore-w-10.png 1x, icons/restore-w-12.png 1.25x, icons/restore-w-15.png 1.5x, icons/restore-w-15.png 1.75x, icons/restore-w-20.png 2x, icons/restore-w-20.png 2.25x, icons/restore-w-24.png 2.5x, icons/restore-w-30.png 3x, icons/restore-w-30.png 3.5x" draggable="false" />
-          </div>
-          <div class="button" id="close-button">
-            <img class="icon" srcset="icons/close-w-10.png 1x, icons/close-w-12.png 1.25x, icons/close-w-15.png 1.5x, icons/close-w-15.png 1.75x, icons/close-w-20.png 2x, icons/close-w-20.png 2.25x, icons/close-w-24.png 2.5x, icons/close-w-30.png 3x, icons/close-w-30.png 3.5x" draggable="false" />
-          </div>
-
-        </div>
+        
       </div>
     </header>
 
   <div class="page">
     <div class="pageHeader">
-      <div class="title">Dashboard</div>
+      <div class="title">Genesis-21</div>
       <div class="userPanel">
-        <i class="fa fa-chevron-down"></i><span class="username">John Doe </span><img src="https://s3.amazonaws.com/uifaces/faces/twitter/kolage/73.jpg" width="40" height="40"/></div>
+        <i class="fa fa-chevron-down"></i><span class="username">ADMIN</span></div>
     </div>
     <div class="main">
       <div class="nav">
@@ -53,51 +38,121 @@
         <div class="menu">
           <div class="title">Navigation</div>
           <ul>
-            <li> <i class="fa fa-home"></i>Home</li>
+            <li> <i class="fa fa-home"></i>Dashboard</li>
             <li><i class="fa fa-signal"></i>Activity</li>
-            <li class="active"> <i class="fa fa-tasks"></i>Manage Tasks</li>
-            <li> <i class="fa fa-envelope"></i>Messages</li>
+            <li class="active"> <i class="fa fa-tasks"></i>Manage Searches</li>
+            <li> <i class="fa fa-envelope"></i>Configuration</li>
           </ul>
         </div>
       </div>
-      <div class="view">
+
+
+
+
+
+
+
+
+      <div class="view" id="manageSearch">
         <div class="viewHeader">
-          <div class="title">Manage Tasks</div>
+          <div class="title">Manage Searches</div>
           <div class="functions">
-            <div class="button active">Add New Task</div>
+            <div class="button active">New Search</div>
             <div class="button">Completed</div>
             <div class="button inverz"><i class="fa fa-trash-o"></i></div>
           </div>
         </div>
         <div class="content">
           <div class="list">
-            <div class="title">Today</div>
+            <div class="title">Recent</div>
             <ul>
-              <li class="checked"><i class="fa fa-check-square-o"></i><span>Update team page</span>
+              <li class="checked"><i class="fa fa-check-square-o"></i><span>POST ID : 12r1315T3</span>
                 <div class="info">
-                  <div class="button green">In progress</div><span>Complete by 25/04/2014</span>
+                  <div class="button green">In progress</div><span>INITIATED on 25/11/2021</span>
                 </div>
               </li>
-              <li><i class="fa fa-square-o"></i><span>Design a new logo</span>
+              <li><i class="fa fa-square-o"></i><span>POST ID : 12r1qe4T3</span>
                 <div class="info">
-                  <div class="button">Pending</div><span>Complete by 10/04/2014</span>
+                  <div class="button">Pending</div><span>INITIATED on 25/11/2021</span>
                 </div>
               </li>
-              <li><i class="fa fa-square-o"></i><span>Find a front end developer</span>
-                <div class="info"></div>
+              <li><i class="fa fa-square-o"></i><span>POST ID : 12giuU3f2g</span>
+                <div class="info">
+                  <div class="button">INITIATE</div><span>Ready to Search...</span>
+                </div>
               </li>
             </ul>
           </div>
           <div class="list">
-            <div class="title">Tomorrow</div>
+            <div class="title">Completed</div>
             <ul>
-              <li><i class="fa fa-square-o"></i><span>Find front end developer</span>
-                <div class="info"></div>
+              <li class="checked"><i class="fa fa-check-square-o"></i><span>POST ID : 12r24T15T3</span>
+                <div class="info">
+                  <div class="button green">INFO</div><span>INITIATED on 24/11/2021</span>
+                </div>
               </li>
             </ul>
           </div>
         </div>
       </div>
+
+
+
+      <div class="view" id = "Configuration">
+        <div class="viewHeader">
+          <div class="title">Manage Searches</div>
+          <div class="functions">
+            <div class="button active">New Search</div>
+            <div class="button">Completed</div>
+            <div class="button inverz"><i class="fa fa-trash-o"></i></div>
+          </div>
+        </div>
+        <div class="content">
+          <div class="list">
+            <div class="title">Recent</div>
+            <ul>
+              <li class="checked"><i class="fa fa-check-square-o"></i><span>POST ID : 12r1315T3</span>
+                <div class="info">
+                  <div class="button green">In progress</div><span>INITIATED on 25/11/2021</span>
+                </div>
+              </li>
+              <li><i class="fa fa-square-o"></i><span>POST ID : 12r1qe4T3</span>
+                <div class="info">
+                  <div class="button">Pending</div><span>INITIATED on 25/11/2021</span>
+                </div>
+              </li>
+              <li><i class="fa fa-square-o"></i><span>POST ID : 12giuU3f2g</span>
+                <div class="info">
+                  <div class="button">INITIATE</div><span>Ready to Search...</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="list">
+            <div class="title">Completed</div>
+            <ul>
+              <li class="checked"><i class="fa fa-check-square-o"></i><span>POST ID : 12r24T15T3</span>
+                <div class="info">
+                  <div class="button green">INFO</div><span>INITIATED on 24/11/2021</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
     </div>
   </div>
   <script src="./renderer.js"></script>
