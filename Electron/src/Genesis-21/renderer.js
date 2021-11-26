@@ -12,7 +12,7 @@ function OpenPage(id){
 }
 
 
-
+OpenPage("dashboard");
 
 
 const remote = require('electron').remote;

@@ -59,7 +59,7 @@
           <div class="functions">
             <div class="button active">New Search</div>
             <div class="button">Completed</div>
-            <div class="button inverz"><i class="fa fa-trash-o"></i></div>
+            <div class="button inverz" style="padding:0px; width: auto; padding-left:5px; padding-right:5px;"><i class="fa fa-trash-o"></i></div>
           </div>
         </div>
         <!-- user donation card -->
@@ -70,7 +70,7 @@
             <div class="card-user-hero" :style="'background-image: url(' + userInfo.hero + ')'"></div>
             <div class="card-user-row">
               <div class="card-user-avatar">
-                <img src="icon.jpg" alt="userInfo.name" />
+                <img src="https://dominicwalterlof.github.io/OriginTraceback/Electron/src/Genesis-21/icon.jpg" alt="pic" />
               </div>
               <div class="card-user-details">
                 <div class="card-user-name">Agent-21D</div>
@@ -81,11 +81,9 @@
               </div>
           </header>
 
-          <!-- tabs -->
           <main class="tabs-wrap">
             <section class="tabs-info">
-              <!-- qr image -->
-              <div class="tabs-info-row">
+                <div class="tabs-info-row">
                 <div class="tabs-info-qr">
                   <img :src="getQrImage()" :alt="wallet.name" />
                 </div>
@@ -94,16 +92,12 @@
                   <div class="tabs-info-warn">Detailed Description</div>
                 </div>
               </div>
-              <!-- address input -->
+           
               <div class="tabs-info-input">
                 <span>Token</span>
                 <input type="text" :value="wallet.address" />
-                <button type="button" @click="copyText( wallet.address )">
-                  <span v-if="wallet.copied">✔ Copied</span>
-                  <span v-else>✚ Copy</span>
-                </button>
               </div>
-              <!-- coin stats -->
+            
               <div class="tabs-info-stats">
                 <div>
                   <span class="txt-label">Posts Analysed</span> <br />
@@ -132,7 +126,7 @@
           <div class="functions">
             <div class="button active">New Search</div>
             <div class="button">Completed</div>
-            <div class="button inverz"><i class="fa fa-trash-o"></i></div>
+            <div class="button inverz" style="padding:0px; width: auto; padding-left:5px; padding-right:5px;"><i class="fa fa-trash-o"></i></div>
           </div>
         </div>
         <div class="content">
@@ -178,7 +172,7 @@
           <div class="functions">
             <div class="button active">New Search</div>
             <div class="button">Completed</div>
-            <div class="button inverz"><i class="fa fa-trash-o"></i></div>
+            <div class="button inverz" style="padding:0px; width: auto; padding-left:5px; padding-right:5px;"><i class="fa fa-trash-o"></i></div>
           </div>
         </div>
         <div class="content">
@@ -223,7 +217,7 @@
           <div class="functions">
             <div class="button active">New Search</div>
             <div class="button">Completed</div>
-            <div class="button inverz"><i class="fa fa-trash-o"></i></div>
+            <div class="button inverz" style="padding:0px; width: auto; padding-left:5px; padding-right:5px;"><i class="fa fa-trash-o"></i></div>
           </div>
         </div>
         <div class="content">
