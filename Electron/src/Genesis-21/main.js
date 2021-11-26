@@ -12,7 +12,7 @@ function createWindow() {
     height: 600,
     backgroundColor:'#0000ffff',
     frame: false,
-    transparent: false,
+    transparent: true,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
       nodeIntegration: true
