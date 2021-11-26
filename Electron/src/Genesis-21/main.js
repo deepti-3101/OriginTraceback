@@ -10,11 +10,14 @@ function createWindow() {
   mainWindow = new BrowserWindow({
     width: 1000,
     height: 600,
+    backgroundColor:'#0000ffff',
     frame: false,
+    transparent: false,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
       nodeIntegration: true
-    }
+    },
+    resizable: false,
   })
 
   mainWindow.loadFile('index.html')
@@ -37,7 +40,7 @@ function createPreviewWindow() {
 
 app.whenReady().then(() => {
   createWindow()
-  createPreviewWindow()
+  //createPreviewWindow()
   app.on('activate', function () {
     if (BrowserWindow.getAllWindows().length === 0) {
       createWindow();
@@ -49,3 +52,4 @@ app.whenReady().then(() => {
 app.on('window-all-closed', function () {
   if (process.platform !== 'darwin') app.quit()
 })
+

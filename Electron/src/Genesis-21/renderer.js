@@ -1,4 +1,4 @@
-const pages = ["Configuration", "manageSearch", "dashboard", "activity"];
+const pages = ["Configuration", "manageSearch", "dashboard", "activity", "documentation"];
 
 
 function OpenPage(id){
@@ -11,9 +11,16 @@ function OpenPage(id){
     document.getElementById(id + "Button").className = "active1";
 }
 
+function launchSoftware(){
+    document.getElementById("loadingOverlayContainer").style.display = "none";
+    document.getElementById("mainPage").style.display = "block";
+    
+}
 
 OpenPage("dashboard");
-
+console.log("here");
+setTimeout(launchSoftware, 3000);
+console.log("here1");
 
 const remote = require('electron').remote;
 

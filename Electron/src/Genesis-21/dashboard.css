@@ -33,7 +33,7 @@ body {
   height: 50px;
   line-height: 50px;
   background-color: #102542;
-  color: White;
+  color: white;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
@@ -302,7 +302,7 @@ body {
 }
 
 #titlebar {
-  color: #FFF;
+  color: rgba(255, 255, 255, 0);
 }
 
 #titlebar #drag-region {
@@ -619,4 +619,40 @@ input, textarea, select, options, button {
   font-size: 80%;
   text-transform: uppercase;
   opacity: 0.5;
+}
+
+.scrollable{
+  height: 450px;
+  overflow-y: scroll;
+}
+
+.loadingMain {
+  background-color: #102542;
+  height: 300px;
+  position: absolute;
+  width: 500px;
+  padding: 50px;
+  margin: 0;
+  top: 50%;
+left: 50%;
+-ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  border-bottom: #F87060 solid 10px ;
+}
+
+.loadingOverlay{
+  height: 100%;
+  width: 100%;
+z-index: 100;
+margin: 0;
+position: absolute;
+
+}
+
+.loadingText{
+  color: white;
+}
+
+.whiteLine{
+  border: 0.1px solid white;
 }
