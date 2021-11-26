@@ -11,37 +11,42 @@
 </head>
 
 <body>
- <header id="titlebar">
-      <div id="drag-region">
+  <header id="titlebar">
+    <div id="drag-region">
 
-        <div id="window-title">
-          <span></span>
-        </div>
-
-        
+      <div id="window-title">
+        <span></span>
       </div>
-    </header>
+
+
+    </div>
+  </header>
 
   <div class="page">
     <div class="pageHeader">
       <div class="title">Genesis-21</div>
       <div class="userPanel">
-        <i class="fa fa-chevron-down"></i><span class="username">ADMIN</span></div>
+        <i class="fa fa-chevron-down"></i><span class="username">ADMIN</span>
+      </div>
     </div>
     <div class="main">
       <div class="nav">
         <div class="searchbox">
           <div><i class="fa fa-search"></i>
-            <input type="search" placeholder="Search"/>
-        </div>
+            <input type="search" placeholder="Search" />
+          </div>
         </div>
         <div class="menu">
           <div class="title">Navigation</div>
           <ul>
-            <li id = "dashboardButton" class = "test"  onclick="OpenPage('dashboard')" ><i class="fa fa-home"></i>Dashboard</li>
-            <li id = "activityButton" class = "test" onclick="OpenPage('activity')"><i class="fa fa-signal"></i>Activity</li>
-            <li id = "manageSearchButton" class="active" onclick="OpenPage('manageSearch')"> <i class="fa fa-tasks"></i>Manage Searches</li>
-            <li id = "ConfigurationButton" class = "test" onclick="OpenPage('Configuration')"> <i class="fa fa-envelope"></i>Configuration</li>
+            <li id="dashboardButton" class="test" onclick="OpenPage('dashboard')"><i class="fa fa-home"></i>Dashboard
+            </li>
+            <li id="activityButton" class="test" onclick="OpenPage('activity')"><i class="fa fa-signal"></i>Activity
+            </li>
+            <li id="manageSearchButton" class="active" onclick="OpenPage('manageSearch')"> <i
+                class="fa fa-tasks"></i>Manage Searches</li>
+            <li id="ConfigurationButton" class="test" onclick="OpenPage('Configuration')"> <i
+                class="fa fa-envelope"></i>Configuration</li>
           </ul>
         </div>
       </div>
@@ -57,43 +62,71 @@
             <div class="button inverz"><i class="fa fa-trash-o"></i></div>
           </div>
         </div>
-        <div class="content">
-          <div class="list">
-            <div class="title">Recent</div>
-            <ul>
-              <li class="checked"><i class="fa fa-check-square-o"></i><span>POST ID : 12r1315T3</span>
-                <div class="info">
-                  <div class="button green">In progress</div><span>INITIATED on 25/11/2021</span>
+        <!-- user donation card -->
+        <div class="card-wrap" id="card">
+
+          <!-- user info -->
+          <header class="card-user">
+            <div class="card-user-hero" :style="'background-image: url(' + userInfo.hero + ')'"></div>
+            <div class="card-user-row">
+              <div class="card-user-avatar">
+                <img src="icon.jpg" alt="userInfo.name" />
+              </div>
+              <div class="card-user-details">
+                <div class="card-user-name">Agent-21D</div>
+                <div class="card-user-info">Demo Account for testing</div>
+              </div>
+              <div class="card-user-cta">
+                <a :href="userInfo.website" target="_blank">Profile</a>
+              </div>
+          </header>
+
+          <!-- tabs -->
+          <main class="tabs-wrap">
+            <section class="tabs-info">
+              <!-- qr image -->
+              <div class="tabs-info-row">
+                <div class="tabs-info-qr">
+                  <img :src="getQrImage()" :alt="wallet.name" />
                 </div>
-              </li>
-              <li><i class="fa fa-square-o"></i><span>POST ID : 12r1qe4T3</span>
-                <div class="info">
-                  <div class="button">Pending</div><span>INITIATED on 25/11/2021</span>
+                <div class="tabs-info-details">
+                  <div class="tabs-info-title">Description</div>
+                  <div class="tabs-info-warn">Detailed Description</div>
                 </div>
-              </li>
-              <li><i class="fa fa-square-o"></i><span>POST ID : 12giuU3f2g</span>
-                <div class="info">
-                  <div class="button">INITIATE</div><span>Ready to Search...</span>
+              </div>
+              <!-- address input -->
+              <div class="tabs-info-input">
+                <span>Token</span>
+                <input type="text" :value="wallet.address" />
+                <button type="button" @click="copyText( wallet.address )">
+                  <span v-if="wallet.copied">✔ Copied</span>
+                  <span v-else>✚ Copy</span>
+                </button>
+              </div>
+              <!-- coin stats -->
+              <div class="tabs-info-stats">
+                <div>
+                  <span class="txt-label">Posts Analysed</span> <br />
+                  <span>185913</span>
                 </div>
-              </li>
-            </ul>
-          </div>
-          <div class="list">
-            <div class="title">Completed</div>
-            <ul>
-              <li class="checked"><i class="fa fa-check-square-o"></i><span>POST ID : 12r24T15T3</span>
-                <div class="info">
-                  <div class="button green">INFO</div><span>INITIATED on 24/11/2021</span>
+                <div>
+                  <span class="txt-label">Searches</span> <br />
+                  <span>2</span>
                 </div>
-              </li>
-            </ul>
-          </div>
+                <div>
+                  <span class="txt-label">Reported</span> <br />
+                  <span>95</span>
+                </div>
+              </div>
+            </section>
+          </main>
+
         </div>
       </div>
 
 
 
-      <div class="view" id = "activity" style="display: none">
+      <div class="view" id="activity" style="display: none">
         <div class="viewHeader">
           <div class="title">Activity</div>
           <div class="functions">
@@ -164,7 +197,7 @@
               </li>
               <li><i class="fa fa-square-o"></i><span>POST ID : 12giuU3f2g</span>
                 <div class="info">
-                  <div class="button">INITIATE</div><span>Ready to Search...</span>
+                  <div class="button" id="testtesttest">INITIATE</div><span>Ready to Search...</span>
                 </div>
               </li>
             </ul>
@@ -184,7 +217,7 @@
 
 
 
-      <div class="view" id = "Configuration" style="display: none">
+      <div class="view" id="Configuration" style="display: none">
         <div class="viewHeader">
           <div class="title">Configuration</div>
           <div class="functions">
@@ -243,11 +276,27 @@
   </div>
   <script src="./renderer.js"></script>
   <script>
+    createPreviewWindow();
+
+    function createPreviewWindow() {
+      mainPreviewWindow = new BrowserWindow({
+        width: 400,
+        height: 600,
+        webPreferences: {
+          preload: path.join(__dirname, 'preloadPreview.js')
+        }
+      })
+
+
+      mainPreviewWindow.loadURL('http://instagram.com')
+    }
+  </script>
+  <script>
     const customTitlebar = require('custom-electron-titlebar');
-let MyTitleBar = new customTitlebar.Titlebar({
-    backgroundColor: customTitlebar.Color.fromHex('#03a9f4')
-});
-MyTitleBar.updateTitle('Our Code World Tutorials Rock !');
+    let MyTitleBar = new customTitlebar.Titlebar({
+      backgroundColor: customTitlebar.Color.fromHex('#03a9f4')
+    });
+    MyTitleBar.updateTitle('Our Code World Tutorials Rock !');
   </script>
 </body>
 

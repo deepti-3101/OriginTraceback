@@ -37,6 +37,7 @@ window.onbeforeunload = (event) => {
 
 
 
+
 /*
 function handleWindowControls() {
     // Make minimise/maximise/restore/close buttons work when they are clicked
