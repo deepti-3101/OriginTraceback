@@ -10,8 +10,8 @@ def time_retrive(content):
         for i,j in content:
             if(j['postTime']==k):
                 main[i]=j
-    print(main)
-    return 0
+    
+    return main
 
 
   
