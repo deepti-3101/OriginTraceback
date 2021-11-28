@@ -1,16 +1,17 @@
 from collections import OrderedDict
 main = OrderedDict()
 
-def sort(a_dictionary):
-    sorted_keys = sorted(a_dictionary.keys())
+def time_retrive(content):
+    l=[]
+    for i,j in content:
+        l.append(j['postTime'])
+    l.sort()
+    for k in l:
+        for i,j in content:
+            if(j['postTime']==k):
+                main[i]=j
+    print(main)
+    return 0
 
-    for i in sorted_keys:
-        data=a_dictionary[i]
-        main[i]=data
-    return main
 
-main=sort({1:3,22:4,5:3})
-
-
-    
-
+  
