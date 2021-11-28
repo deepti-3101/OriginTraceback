@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <title>Document</title>
+</head>
+    <body>
+        <style>
+            html,
+body {
+  background: #000;
+  margin: 0;
+}
+
+#FPS {
+  color: rgba(255, 255, 155, 0.6);
+  font-family: "Roboto";
+}
+
+canvas {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1em;
+  height: 1em;
+  margin-top: -1em;
+  margin-left: -2em;
+  color: rgba(255, 255, 255, 0.5);
+  font-family: "Roboto";
+}
+
+#FPS {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: auto;
+  height: auto;
+  margin-top: -2em;
+  margin-right: 5px;
+  color: rgba(255, 255, 255, 0.5);
+  font-family: "Helvetica";
+  padding-bottom: 0;
+  margin-bottom: 0;
+  display:none;
+}
+
+        </style>
+      
+        <canvas></canvas>
+        <H1 class="loading">Loading...</H1>
+        <H2 class="loading" ></H2>
+    </body>    
+    <script src="loading.js"></script>
+</html>
