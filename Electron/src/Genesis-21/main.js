@@ -29,6 +29,8 @@ function createPreviewWindow() {
   mainPreviewWindow = new BrowserWindow({
     width: 400,
     height: 600,
+    show: true,
+    parent: mainWindow,
     webPreferences: {
       preload: path.join(__dirname, 'preloadPreview.js')
     }
@@ -40,7 +42,7 @@ function createPreviewWindow() {
 
 app.whenReady().then(() => {
   createWindow()
-  //createPreviewWindow()
+  createPreviewWindow()
   app.on('activate', function () {
     if (BrowserWindow.getAllWindows().length === 0) {
       createWindow();
@@ -52,4 +54,3 @@ app.whenReady().then(() => {
 app.on('window-all-closed', function () {
   if (process.platform !== 'darwin') app.quit()
 })
-

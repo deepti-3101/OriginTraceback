@@ -17,7 +17,7 @@ function launchSoftware(){
     
 }
 
-OpenPage("dashboard");
+OpenPage("manageSearch");
 console.log("here");
 setTimeout(launchSoftware, 3000);
 console.log("here1");
@@ -39,9 +39,6 @@ document.onreadystatechange = (event) => {
 window.onbeforeunload = (event) => {
     win.removeAllListeners();
 }
-
-
-
 
 
 

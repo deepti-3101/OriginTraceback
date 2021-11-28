@@ -9,7 +9,9 @@
   "scripts": {
     "start": "electron ."
   },
-  "dependencies": {},
+  "dependencies": {
+    "puppeteer": "*"
+  },
   "devDependencies": {
     "electron": "13.1.7"
   }
