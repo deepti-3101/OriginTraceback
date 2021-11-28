@@ -2,7 +2,7 @@
 Hackathon Repo
 Team Name:   
 Team Members: 
-Dominic Walter T, A Deepti, Ahamed Aamina Banu Y, Saratha Selvi K, Aarka Christal Suja
+ A Deepti, Dominic Walter T, Ahamed Aamina Banu Y, Saratha Selvi K, Aarka Christal Suja
 
 Problem Statement : (INTL-DA-08)
 Build a solution that is able to track the origin of a given social media post (provided as an input URL or content) and identify the account, along with its details, which posted it first on that particular platform
