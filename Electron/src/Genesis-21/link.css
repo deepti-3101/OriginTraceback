@@ -4,7 +4,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  height: 80vh;
   font-family: Montserrat;
   background: #102542;
 }
@@ -48,4 +48,55 @@ body {
   padding: 10px;
   transition: all 0.3s ease-out;
   transition-delay: 0.2s;
+}
+
+.raise:hover,
+.raise:focus {
+  box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
+  transform: translateY(-0.25em);
+}
+button {
+  
+  color: var(--color);
+  transition: 0.25s;
+}
+button:hover, button:focus {
+  border-color: var(--hover);
+  color: #fff;
+}
+button {
+  display: inline-block;
+  background: none;
+  border: 2px solid;
+  font: inherit;
+  line-height: 1;
+  margin: 0.5em;
+  padding: 0.5em 1.5em;
+}
+.pulse:hover,
+.pulse:focus {
+  -webkit-animation: pulse 1s;
+          animation: pulse 1s;
+  box-shadow: 0 0 0 2em rgba(255, 255, 255, 0);
+}
+.raise {
+    margin-right: 3em;
+  --color: #ffa260;
+  --hover: #e5ff60;
+}
+.pulse {
+  margin-left: 3em;
+  --color: #ef6eae;
+  --hover: #ef8f6e;
+}
+@-webkit-keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 var(--hover);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 var(--hover);
+  }
 }
