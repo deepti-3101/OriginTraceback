@@ -10,9 +10,26 @@ import pandas as pd
 import time
 from os import listdir
 from os.path import isfile, join
+from collections import OrderedDict
 
-username = "dem.odummy"
-password = "origin12"  # Be careful, don't accidentally expose your password
+main = OrderedDict()
+
+
+def time_retrive(content):
+    l = []
+    for i, j in content:
+        l.append(j['postTime'])
+    l.sort()
+    for k in l:
+        for i, j in content:
+            if j['postTime'] == k:
+                main[i] = j
+
+    return main
+
+
+username = "**********"
+password = "**********"  # Be careful, don't accidentally expose your password
 
 
 def hashProbe(threshold, original):
