@@ -11,21 +11,25 @@ import time
 from os import listdir
 from os.path import isfile, join
 
-username = "************"
-password = "************"  # Be careful, don't accidentally expose your password wnen commiting 
+username = "dem.odummy"
+password = "origin12"  # Be careful, don't accidentally expose your password
 
 
 def hashProbe(threshold, original):
+    with Image.open(original) as imgOri:
+        hash1 = imagehash.average_hash(imgOri, 8).hash
     path = "C:\\tmp\\Genesis-21\\"
     files = [f for f in listdir(path) if isfile(join(path, f))]
     pList = []
     for x in files:
-        if sim(threshold, original, x):
-            pList.append(x)
+        if sim(threshold, hash1, x):
+            pList.append(x.split(".jpg")[0])
     print(pList)
+    postDataScrapper(pList)
 
 
 def login(driver):
+
     time.sleep(1)
 
     driver.maximize_window()
@@ -57,7 +61,6 @@ def login(driver):
 
 
 def initScrapper(tag, timeLimit):
-
     options = Options()
     options.page_load_strategy = 'eager'
 
@@ -79,7 +82,7 @@ def initScrapper(tag, timeLimit):
     time.sleep(5.4)
 
     for i in range(int(timeLimit)):
-        time.sleep(4)
+        time.sleep(6)
         print(i)
         driver.execute_script("window.scrollTo(0,150)")
 
@@ -89,10 +92,14 @@ def initScrapper(tag, timeLimit):
 
         soup = BeautifulSoup(content, features="lxml")
 
-        for link in soup.find_all('a'):
-            name = link.get('href')
+        for link in content.split('" tabindex="0"><div class="eLAPa">'):
+            name = ""
+            try:
+                name = link.split('<a href="')[1]
+            except:
+                pass
             if "/p/" in name and name not in products:
-                products.append(name.split("/p/")[1].split("/")[0])
+                products.append(name)
 
         for link in soup.find_all('img'):
             name = link.get('src')
@@ -114,7 +121,7 @@ def initScrapper(tag, timeLimit):
 
     if len(posts) == len(products):
         for x in range(len(posts)):
-            posDic[products[x]] = posts[x]
+            posDic[products[x].split("/p/")[1]] = posts[x]
 
         return download(posDic)
 
@@ -123,10 +130,10 @@ def initScrapper(tag, timeLimit):
         print(len(posts), len(products))
         if len(posts) <= len(products):
             for x in range(len(posts)):
-                posDic[products[x]] = posts[x]
+                posDic[products[x].split("/p/")[1]] = posts[x]
         else:
             for x in range(len(products)):
-                posDic[products[x]] = posts[x]
+                posDic[products[x].split("/p/")[1]] = posts[x]
 
     f = open("jsonLog.txt", "w")
     f.write(str(posDic))
@@ -138,7 +145,7 @@ def initScrapper(tag, timeLimit):
 def download(pack):
     for x in pack.keys():
         while True:
-            filename = "C:\\tmp\\Genesis-21\\" + x + ".jpg"
+            filename = "C:\\tmp\\Genesis-21\\" + x[:-1] + ".jpg"
             file_exists = os.path.isfile(filename)
 
             if not file_exists:
@@ -155,21 +162,65 @@ def download(pack):
             break
 
 
-def sim(similarity, img1, img2):
-    with Image.open(img1) as imgOri:
-        hash1 = imagehash.average_hash(imgOri, 8).hash
+def sim(similarity, hash1, img2):
     with Image.open("C:\\tmp\\Genesis-21\\" + img2) as imgCK:
         hash2 = imagehash.average_hash(imgCK, 8).hash
     threshold = 1 - similarity / 100
     diff_limit = int(threshold * (8 ** 2))
     if np.count_nonzero(hash1 != hash2) <= diff_limit:
-        print(True)
         return True
     else:
-        print(False)
         return False
 
 
+def postDataScrapper(postsList):
+    options = Options()
+    options.page_load_strategy = 'eager'
 
-#initScrapper("dolittlemovie", 50)
-hashProbe(80, "C:\\tmp\\B3iMTb9lcfY.jpg")
+    driver = webdriver.Chrome("D:\Python\chromedriver", options=options)
+
+    postDetails = {}
+
+    time.sleep(10)
+
+    login(driver)
+
+    time.sleep(10)
+
+    for x in postsList:
+        y = 'https://www.instagram.com/p/' + x + '/'
+
+        postDetails[x] = {}
+
+        postDetails[x]["link"] = y
+
+        driver.get(y)
+
+        time.sleep(5)
+
+        driver.execute_script("window.scrollTo(0,document.body.scrollHeight)")
+
+        content = driver.execute_script("return document.body.innerHTML;")
+
+        postDetails[x]["postTime"] = content.split('datetime="')[-1].split('"')[0]
+
+        postDetails[x]["account"] = \
+        content.split('<a class="sqdOP yWX7d     _8A5w5   ZIAjV " href="')[1].split("</a>")[0].split('tabindex="0">')[1]
+
+    print(postDetails)
+
+
+def generateHTML(postDetails):
+
+    innerHTML = ""
+    for post in postDetails.keys():
+        innerHTML += '<a class="card" href="#"><span class="card-header"><iframe src = "' + postDetails[post]["link"] + 'embed"></iframe></span><span class="card-summary"> Account Name : ' + postDetails[post]["account"] + '<br><hr>Posted:<p>' + postDetails[post]["postTime"] + '</p></span></a>'
+
+
+
+    pass
+
+
+initScrapper("samsungleaks", 20)
+hashProbe(82, "C:\\tmp\\1.jpg")
+# postDataScrapper(["CWvktj3ophu"])
