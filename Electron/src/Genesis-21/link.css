@@ -1,5 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Montserrat);
-bod {
+.bod {
   display: flex;
   flex-direction: column;
   align-items: center;
