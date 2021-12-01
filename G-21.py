@@ -12,6 +12,60 @@ from os import listdir
 from os.path import isfile, join
 from collections import OrderedDict
 
+username = "************"
+password = "************"  # Be careful, don't accidentally expose your password when committing
+
+
+class hashQueue:
+    pQueue = {}
+    processed = []
+
+    def __init__(self, initial_list):
+        self.pQueue = initial_list
+
+    def addHash(self, hash_list):
+        for i in hash_list:
+            if i in self.pQueue.keys():
+                self.pQueue[i] += 1
+            elif i not in self.processed:
+                self.pQueue[i] = 1
+
+    def nextHash(self, mode):
+        sort_orders = sorted(self.pQueue.items(), key=lambda x: x[1], reverse=True)
+        if len(sort_orders) > 0:
+            current = sort_orders[0][0]
+            self.processed.append(current)
+            if mode == 1:
+                self.assignHash(current)
+            return current
+        else:
+            return False
+
+    def assignHash(self, hash):
+        del self.pQueue[hash]
+
+    def getProcessedList(self):
+        return self.processed
+
+    def getHashQueue(self):
+        return self.pQueue
+
+    def getHashPriority(self, tag):
+        if tag in self.pQueue:
+            return self.pQueue[tag]
+        else:
+            return False
+
+    def getCurrentHash(self):
+        size = len(self.processed)
+        if size > 1:
+            return self.processed[-1]
+        elif size == 1:
+            return self.processed[0]
+        else:
+            return False
+
+
 main = OrderedDict()
 
 
@@ -28,10 +82,6 @@ def time_retrive(content):
     return main
 
 
-username = "**********"
-password = "**********"  # Be careful, don't accidentally expose your password
-
-
 def hashProbe(threshold, original):
     with Image.open(original) as imgOri:
         hash1 = imagehash.average_hash(imgOri, 8).hash
@@ -46,7 +96,6 @@ def hashProbe(threshold, original):
 
 
 def login(driver):
-
     time.sleep(1)
 
     driver.maximize_window()
@@ -222,22 +271,22 @@ def postDataScrapper(postsList):
         postDetails[x]["postTime"] = content.split('datetime="')[-1].split('"')[0]
 
         postDetails[x]["account"] = \
-        content.split('<a class="sqdOP yWX7d     _8A5w5   ZIAjV " href="')[1].split("</a>")[0].split('tabindex="0">')[1]
+            content.split('<a class="sqdOP yWX7d     _8A5w5   ZIAjV " href="')[1].split("</a>")[0].split(
+                'tabindex="0">')[1]
 
     print(postDetails)
 
 
-def generateHTML(postDetails):
-
+def generateHTML(post_Details):
     innerHTML = ""
-    for post in postDetails.keys():
-        innerHTML += '<a class="card" href="#"><span class="card-header"><iframe src = "' + postDetails[post]["link"] + 'embed"></iframe></span><span class="card-summary"> Account Name : ' + postDetails[post]["account"] + '<br><hr>Posted:<p>' + postDetails[post]["postTime"] + '</p></span></a>'
-
-
+    for post in post_Details.keys():
+        innerHTML += '<a class="card" href="#"><span class="card-header"><iframe src = "' + post_Details[post][
+            "link"] + 'embed"></iframe></span><span class="card-summary"> Account Name : ' + post_Details[post][
+                         "account"] + '<br><hr>Posted:<p>' + post_Details[post]["postTime"] + '</p></span></a>'
 
     pass
 
 
-initScrapper("samsungleaks", 20)
+initScrapper(input("Enter the Hashtag to search"), 20)
 hashProbe(82, "C:\\tmp\\1.jpg")
 # postDataScrapper(["CWvktj3ophu"])
