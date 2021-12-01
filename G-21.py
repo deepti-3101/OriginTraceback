@@ -322,8 +322,4 @@ agent1 = agent(1)
 
 for i in range(10):
     x = tag_bucket.nextHash(1)
-<<<<<<< Updated upstream
     print(x)
-=======
-    print(x)
->>>>>>> Stashed changes
