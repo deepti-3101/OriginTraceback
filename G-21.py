@@ -17,7 +17,7 @@ from pathlib import Path
 Path("D:/Genesis-21/Searches").mkdir(parents=True, exist_ok=True)
 
 username = "dem.odummy"
-password = "orproject5"  # Be careful, don't accidentally expose your password when committing
+password = "***********"  # Be careful, don't accidentally expose your password when committing
 name = "D:/Genesis-21/Searches"
 target = "C:\\tmp\\1.jpg"
 main = OrderedDict()
