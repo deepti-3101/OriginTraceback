@@ -17,7 +17,7 @@ from pathlib import Path
 Path("D:/Genesis-21/Searches").mkdir(parents=True, exist_ok=True)
 
 username = "dem.odummy"
-password = "***********"  # Be careful, don't accidentally expose your password when committing
+password = "************"  # Be careful, don't accidentally expose your password when committing
 name = "D:/Genesis-21/Searches"
 target = "C:\\tmp\\1.jpg"
 main = OrderedDict()
@@ -50,7 +50,9 @@ class hashQueue:
 
     def nextHash(self, mode):
         sort_orders = sorted(self.pQueue.items(), key=lambda x: x[1], reverse=True)
-        if len(sort_orders) > 0:
+        print("Sort order length : ")
+        print(len(sort_orders))
+        if len(sort_orders) >= 0:
             current = sort_orders[0][0]
             if mode == 1:
                 self.processed.append(current)
@@ -86,22 +88,21 @@ class hashQueue:
         else:
             return False
 
+
 class agent:
     options = Options()
 
     options.page_load_strategy = 'eager'
 
-    driver = webdriver.Chrome("D:\Python\chromedriver", options=options)
-
     posDic = {}
 
     products = []
 
+    driver = webdriver.Chrome("D:\Python\chromedriver", options=options)
+
     posts = []
 
     fetch = 0
-
-
 
     def __init__(self, fetch):
         self.login()
@@ -133,27 +134,29 @@ class agent:
         # navigate to the url
         self.driver.get("https://www.instagram.com/")
         time.sleep(4)
+        try:
+            # finds the username box
+            usern = self.driver.find_element_by_name("username")
+            # sends the entered username
+            usern.send_keys(username)
 
-        # finds the username box
-        usern = self.driver.find_element_by_name("username")
-        # sends the entered username
-        usern.send_keys(username)
+            # finds the password box
+            passw = self.driver.find_element_by_name("password")
 
-        # finds the password box
-        passw = self.driver.find_element_by_name("password")
+            # sends the entered password
+            passw.send_keys(password)
 
-        # sends the entered password
-        passw.send_keys(password)
+            time.sleep(2)
 
-        time.sleep(2)
-
-        # finds the login button
-        log_cl = self.driver.find_element_by_xpath(
-            "/html/body/div[1]/section/main/article/div[2]/div[1]/div/form/div/div[3]/button/div")
-        log_cl.click()  # clicks the login button
-        time.sleep(6)
-        ntnow = self.driver.find_element_by_xpath("/html/body/div[1]/section/main/div/div/div/section/div/button")
-        ntnow.click()
+            # finds the login button
+            log_cl = self.driver.find_element_by_xpath(
+                "/html/body/div[1]/section/main/article/div[2]/div[1]/div/form/div/div[3]/button/div")
+            log_cl.click()  # clicks the login button
+            time.sleep(6)
+            ntnow = self.driver.find_element_by_xpath("/html/body/div[1]/section/main/div/div/div/section/div/button")
+            ntnow.click()
+        except:
+            print("Already Logged in")
 
         self.initScrapper(tag_bucket.nextHash(1), self.fetch)
 
@@ -176,19 +179,19 @@ class agent:
             soup = BeautifulSoup(content, features="lxml")
 
             for link in content.split('" tabindex="0"><div class="eLAPa">'):
-                name = ""
+                name1 = ""
                 try:
-                    name = link.split('<a href="')[1]
+                    name1 = link.split('<a href="')[1]
                 except:
                     pass
-                if "/p/" in name and name not in self.products:
-                    self.products.append(name)
+                if "/p/" in name1 and name1 not in self.products:
+                    self.products.append(name1)
 
             for link in soup.find_all('img'):
-                name = link.get('src')
+                name1 = link.get('src')
                 try:
-                    if "fbcdn.net/v" in name and "2885-19" not in name and name not in self.posts:
-                        self.posts.append(name)
+                    if "fbcdn.net/v" in name1 and "2885-19" not in name1 and name1 not in self.posts:
+                        self.posts.append(name1)
                 except:
                     print("Exception Occurred")
 
@@ -202,10 +205,10 @@ class agent:
             print("Didn't match")
             print(len(self.posts), len(self.products))
             if len(self.posts) <= len(self.products):
-                for x in range(len(posts)):
+                for x in range(len(self.posts)):
                     self.posDic[self.products[x].split("/p/")[1]] = self.posts[x]
             else:
-                for x in range(len(products)):
+                for x in range(len(self.products)):
                     self.posDic[self.products[x].split("/p/")[1]] = self.posts[x]
 
         f = open("jsonLog.txt", "w")
@@ -286,8 +289,6 @@ class agent:
         # print(postDetails)
 
 
-
-
 def time_retrive(content):
     l = []
     for i, j in content:
@@ -301,9 +302,6 @@ def time_retrive(content):
     return main
 
 
-
-
-
 def generateHTML(post_Details):
     innerHTML = ""
     for post in post_Details.keys():
@@ -314,10 +312,12 @@ def generateHTML(post_Details):
     pass
 
 
-
-
 tag_bucket = hashQueue({"samsungleaks": 1, "samsungfan": 1})
 
-agent = agent(1)
 
+agent1 = agent(1)
+#agent2 = agent(2)
 
+for i in range(10):
+    x = tag_bucket.nextHash(1)
+    print(x,tag_bucket.getHashPriority(x))
