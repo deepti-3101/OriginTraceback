@@ -12,8 +12,8 @@ from os import listdir
 from os.path import isfile, join
 from collections import OrderedDict
 
-username = "dem.odummy"
-password = "orproject5"  # Be careful, don't accidentally expose your password when committing
+username = "************"
+password = "************"  # Be careful, don't accidentally expose your password when committing
 
 
 class hashQueue:
