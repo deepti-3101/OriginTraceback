@@ -86,6 +86,207 @@ class hashQueue:
         else:
             return False
 
+class agent:
+    options = Options()
+
+    options.page_load_strategy = 'eager'
+
+    driver = webdriver.Chrome("D:\Python\chromedriver", options=options)
+
+    posDic = {}
+
+    products = []
+
+    posts = []
+
+    fetch = 0
+
+
+
+    def __init__(self, fetch):
+        self.login()
+        self.fetch = fetch
+
+    def hashProbe(self, threshold, original):
+        print("IN HASHPROBE")
+        targetListFile = open(name + "/test.txt", "a")
+        with Image.open(original) as imgOri:
+            hash1 = imagehash.average_hash(imgOri, 8).hash
+        path = "C:\\tmp\\Genesis-21\\"
+        files = [f for f in listdir(path) if isfile(join(path, f))]
+        pList = []
+        for x in files:
+            if self.sim(threshold, hash1, x):
+                url = x.split(".jpg")[0]
+                pList.append(url)
+                targetListFile.write(url)
+        print(pList)
+        self.postDataScrapper(pList)
+        targetListFile.close()
+
+    def login(self):
+        print("Loggin in ")
+        time.sleep(1)
+
+        self.driver.maximize_window()
+
+        # navigate to the url
+        self.driver.get("https://www.instagram.com/")
+        time.sleep(4)
+
+        # finds the username box
+        usern = self.driver.find_element_by_name("username")
+        # sends the entered username
+        usern.send_keys(username)
+
+        # finds the password box
+        passw = self.driver.find_element_by_name("password")
+
+        # sends the entered password
+        passw.send_keys(password)
+
+        time.sleep(2)
+
+        # finds the login button
+        log_cl = self.driver.find_element_by_xpath(
+            "/html/body/div[1]/section/main/article/div[2]/div[1]/div/form/div/div[3]/button/div")
+        log_cl.click()  # clicks the login button
+        time.sleep(6)
+        ntnow = self.driver.find_element_by_xpath("/html/body/div[1]/section/main/div/div/div/section/div/button")
+        ntnow.click()
+
+        self.initScrapper(tag_bucket.nextHash(1), self.fetch)
+
+    def initScrapper(self, tag, timeLimit):
+        print("Init Scrapper")
+        time.sleep(5.4)
+        self.driver.execute_script('location.replace("https://www.instagram.com/explore/tags/' + tag + '/")')
+
+        time.sleep(5.4)
+
+        for i in range(int(timeLimit)):
+            time.sleep(6)
+            print(i)
+            self.driver.execute_script("window.scrollTo(0,150)")
+
+            self.driver.execute_script("window.scrollTo(0,document.body.scrollHeight)")
+
+            content = self.driver.execute_script("return document.body.innerHTML;")
+
+            soup = BeautifulSoup(content, features="lxml")
+
+            for link in content.split('" tabindex="0"><div class="eLAPa">'):
+                name = ""
+                try:
+                    name = link.split('<a href="')[1]
+                except:
+                    pass
+                if "/p/" in name and name not in self.products:
+                    self.products.append(name)
+
+            for link in soup.find_all('img'):
+                name = link.get('src')
+                try:
+                    if "fbcdn.net/v" in name and "2885-19" not in name and name not in self.posts:
+                        self.posts.append(name)
+                except:
+                    print("Exception Occurred")
+
+        if len(self.posts) == len(self.products):
+            for x in range(len(self.posts)):
+                self.posDic[self.products[x].split("/p/")[1]] = self.posts[x]
+
+            return self.download(self.posDic)
+
+        else:
+            print("Didn't match")
+            print(len(self.posts), len(self.products))
+            if len(self.posts) <= len(self.products):
+                for x in range(len(posts)):
+                    self.posDic[self.products[x].split("/p/")[1]] = self.posts[x]
+            else:
+                for x in range(len(products)):
+                    self.posDic[self.products[x].split("/p/")[1]] = self.posts[x]
+
+        f = open("jsonLog.txt", "w")
+        f.write(str(self.posDic))
+        f.close()
+
+        return self.download(self.posDic)
+
+    def download(self, pack):
+        print("Downloading")
+        for x in pack.keys():
+            while True:
+                filename = "C:\\tmp\\Genesis-21\\" + x[:-1] + ".jpg"
+                file_exists = os.path.isfile(filename)
+
+                if not file_exists:
+                    with open(filename, 'wb+') as handle:
+                        response = requests.get(pack[x], stream=True)
+                        if not response.ok:
+                            print(response)
+                        for block in response.iter_content(1024):
+                            if not block:
+                                break
+                            handle.write(block)
+                else:
+                    continue
+                break
+        self.hashProbe(82, target)
+
+    def sim(self, similarity, hash1, img2):
+        try:
+            with Image.open("C:\\tmp\\Genesis-21\\" + img2) as imgCK:
+                hash2 = imagehash.average_hash(imgCK, 8).hash
+            threshold = 1 - similarity / 100
+            diff_limit = int(threshold * (8 ** 2))
+            if np.count_nonzero(hash1 != hash2) <= diff_limit:
+                return True
+            else:
+                return False
+        except:
+            return False
+
+    def postDataScrapper(self, postsList):
+
+        postDetails = {}
+
+        hash_list = []
+
+        for x in postsList:
+            y = 'https://www.instagram.com/p/' + x + '/'
+
+            postDetails[x] = {}
+
+            postDetails[x]["link"] = y
+
+            self.driver.get(y)
+
+            time.sleep(5)
+
+            self.driver.execute_script("window.scrollTo(0,document.body.scrollHeight)")
+
+            content = self.driver.execute_script("return document.body.innerHTML;")
+
+            postDetails[x]["postTime"] = content.split('datetime="')[-1].split('"')[0]
+
+            postDetails[x]["account"] = \
+                content.split('<a class="sqdOP yWX7d     _8A5w5   ZIAjV " href="')[1].split("</a>")[0].split(
+                    'tabindex="0">')[1]
+
+            soup = BeautifulSoup(content, features="lxml")
+            hash_list = []
+            for url in soup.find_all('a'):
+                tags = url.get('href')
+                if "/explore/tags/" in tags:
+                    hash_list.append(tags.split("/explore/tags/")[1][0:-1])
+            postDetails[x]["hash"] = hash_list
+        tag_bucket.addHashList(postDetails)
+        # print(postDetails)
+
+
+
 
 def time_retrive(content):
     l = []
@@ -100,219 +301,7 @@ def time_retrive(content):
     return main
 
 
-def hashProbe(threshold, original):
-    print("IN HASHPROBE")
-    targetListFile = open(name + "/test.txt", "a")
-    with Image.open(original) as imgOri:
-        hash1 = imagehash.average_hash(imgOri, 8).hash
-    path = "C:\\tmp\\Genesis-21\\"
-    files = [f for f in listdir(path) if isfile(join(path, f))]
-    pList = []
-    for x in files:
-        if sim(threshold, hash1, x):
-            url = x.split(".jpg")[0]
-            pList.append(url)
-            targetListFile.write(url)
-    print(pList)
-    postDataScrapper(pList)
-    targetListFile.close()
 
-
-def login(driver):
-    time.sleep(1)
-
-    driver.maximize_window()
-
-    # navigate to the url
-    driver.get("https://www.instagram.com/")
-    time.sleep(4)
-
-    # finds the username box
-    usern = driver.find_element_by_name("username")
-    # sends the entered username
-    usern.send_keys(username)
-
-    # finds the password box
-    passw = driver.find_element_by_name("password")
-
-    # sends the entered password
-    passw.send_keys(password)
-
-    time.sleep(2)
-
-    # finds the login button
-    log_cl = driver.find_element_by_xpath(
-        "/html/body/div[1]/section/main/article/div[2]/div[1]/div/form/div/div[3]/button/div")
-    log_cl.click()  # clicks the login button
-    time.sleep(14)
-    ntnow = driver.find_element_by_xpath("/html/body/div[1]/section/main/div/div/div/section/div/button")
-    ntnow.click()
-
-
-def initScrapper(tag, timeLimit):
-    options = Options()
-    options.page_load_strategy = 'eager'
-
-    driver = webdriver.Chrome("D:\Python\chromedriver", options=options)
-
-    posDic = {}
-
-    products = []
-    posts = []
-
-    time.sleep(10.4)
-
-    login(driver)
-
-    time.sleep(10.4)
-
-    driver.get('https://www.instagram.com/explore/tags/' + tag + '/')
-
-    time.sleep(5.4)
-
-    for i in range(int(timeLimit)):
-        time.sleep(6)
-        print(i)
-        driver.execute_script("window.scrollTo(0,150)")
-
-        driver.execute_script("window.scrollTo(0,document.body.scrollHeight)")
-
-        content = driver.execute_script("return document.body.innerHTML;")
-
-        soup = BeautifulSoup(content, features="lxml")
-
-        for link in content.split('" tabindex="0"><div class="eLAPa">'):
-            name = ""
-            try:
-                name = link.split('<a href="')[1]
-            except:
-                pass
-            if "/p/" in name and name not in products:
-                products.append(name)
-
-        for link in soup.find_all('img'):
-            name = link.get('src')
-            try:
-                if "fbcdn.net/v" in name and "2885-19" not in name and name not in posts:
-                    posts.append(name)
-            except:
-                df = pd.DataFrame({'links': products})
-                df1 = pd.DataFrame({'photo': posts})
-
-                df.to_csv('products4.csv', index=False, encoding='utf-8')
-                df1.to_csv('posts4.csv', index=False, encoding='utf-8')
-
-    df = pd.DataFrame({'links': products})
-    df1 = pd.DataFrame({'photo': posts})
-
-    df.to_csv('products4.csv', index=False, encoding='utf-8')
-    df1.to_csv('posts4.csv', index=False, encoding='utf-8')
-
-    if len(posts) == len(products):
-        for x in range(len(posts)):
-            posDic[products[x].split("/p/")[1]] = posts[x]
-
-        return download(posDic)
-
-    else:
-        print("Didn't match")
-        print(len(posts), len(products))
-        if len(posts) <= len(products):
-            for x in range(len(posts)):
-                posDic[products[x].split("/p/")[1]] = posts[x]
-        else:
-            for x in range(len(products)):
-                posDic[products[x].split("/p/")[1]] = posts[x]
-
-    f = open("jsonLog.txt", "w")
-    f.write(str(posDic))
-    f.close()
-
-    return download(posDic)
-
-
-def download(pack):
-    print("Downloading")
-    for x in pack.keys():
-        while True:
-            filename = "C:\\tmp\\Genesis-21\\" + x[:-1] + ".jpg"
-            file_exists = os.path.isfile(filename)
-
-            if not file_exists:
-                with open(filename, 'wb+') as handle:
-                    response = requests.get(pack[x], stream=True)
-                    if not response.ok:
-                        print(response)
-                    for block in response.iter_content(1024):
-                        if not block:
-                            break
-                        handle.write(block)
-            else:
-                continue
-            break
-    hashProbe(82, target)
-
-
-def sim(similarity, hash1, img2):
-    try:
-        with Image.open("C:\\tmp\\Genesis-21\\" + img2) as imgCK:
-            hash2 = imagehash.average_hash(imgCK, 8).hash
-        threshold = 1 - similarity / 100
-        diff_limit = int(threshold * (8 ** 2))
-        if np.count_nonzero(hash1 != hash2) <= diff_limit:
-            return True
-        else:
-            return False
-    except:
-        return False
-
-
-def postDataScrapper(postsList):
-    options = Options()
-    options.page_load_strategy = 'eager'
-
-    driver = webdriver.Chrome("D:\Python\chromedriver", options=options)
-
-    postDetails = {}
-
-    hash_list = []
-
-    time.sleep(10)
-
-    login(driver)
-
-    time.sleep(10)
-
-    for x in postsList:
-        y = 'https://www.instagram.com/p/' + x + '/'
-
-        postDetails[x] = {}
-
-        postDetails[x]["link"] = y
-
-        driver.get(y)
-
-        time.sleep(5)
-
-        driver.execute_script("window.scrollTo(0,document.body.scrollHeight)")
-
-        content = driver.execute_script("return document.body.innerHTML;")
-
-        postDetails[x]["postTime"] = content.split('datetime="')[-1].split('"')[0]
-
-        postDetails[x]["account"] = \
-            content.split('<a class="sqdOP yWX7d     _8A5w5   ZIAjV " href="')[1].split("</a>")[0].split(
-                'tabindex="0">')[1]
-
-        soup = BeautifulSoup(content, features="lxml")
-        hash_list = []
-        for url in soup.find_all('a'):
-            tags = url.get('href')
-            if "/explore/tags/" in tags:
-                hash_list.append(tags.split("/explore/tags/")[1][0:-1])
-        postDetails[x]["hash"] = hash_list
-    tag_bucket.addHashList(postDetails)
-    # print(postDetails)
 
 
 def generateHTML(post_Details):
@@ -326,11 +315,9 @@ def generateHTML(post_Details):
 
 
 
-tag_bucket = hashQueue({"samsungleaks": 1, "samsungfan": 1})
-"""
-initScrapper(tag_bucket.nextHash(1), 5)
-#postDataScrapper(["CWvktj3ophu"])
-#hashProbe(82, target)
-"""
 
-hashProbe(82, target)
+tag_bucket = hashQueue({"samsungleaks": 1, "samsungfan": 1})
+
+agent = agent(1)
+
+
