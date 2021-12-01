@@ -1,12 +1,26 @@
 const { app, BrowserWindow } = require('electron')
 const path = require('path')
+/*
+var spawn = require('child_process').spawn,
+ls    = spawn('cmd.exe', ['/c', "python " + path.join(__dirname, "res/G-21.py" )]);
+
+ls.stdout.on('data', function (data) {
+console.log('stdout: ' + data);
+});
+
+ls.stderr.on('data', function (data) {
+console.log('stderr: ' + data);
+});
+
+ls.on('exit', function (code) {
+console.log('child process exited with code ' + code);
+});
+*/
 
 let mainWindow
 let mainPreviewWindow
 
 function createWindow() {
-
-
   mainWindow = new BrowserWindow({
     width: 1000,
     height: 600,
@@ -42,11 +56,10 @@ function createPreviewWindow() {
 
 app.whenReady().then(() => {
   createWindow()
-  createPreviewWindow()
+  //createPreviewWindow()
   app.on('activate', function () {
     if (BrowserWindow.getAllWindows().length === 0) {
       createWindow();
-      createPreviewWindow();
     }
   })
 })
@@ -54,3 +67,7 @@ app.whenReady().then(() => {
 app.on('window-all-closed', function () {
   if (process.platform !== 'darwin') app.quit()
 })
+
+
+
+

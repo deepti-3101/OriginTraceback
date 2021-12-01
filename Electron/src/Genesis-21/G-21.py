@@ -11,7 +11,6 @@ import time
 from os import listdir
 from os.path import isfile, join
 from collections import OrderedDict
-<<<<<<< Updated upstream
 
 username = "************"
 password = "************"  # Be careful, don't accidentally expose your password when committing
@@ -69,65 +68,6 @@ class hashQueue:
 
 main = OrderedDict()
 
-=======
-
-username = "dem.odummy"
-password = "orproject5"  # Be careful, don't accidentally expose your password when committing
-
-
-class hashQueue:
-    pQueue = {}
-    processed = []
-
-    def __init__(self, initial_list):
-        self.pQueue = initial_list
-
-    def addHash(self, hash_list):
-        for i in hash_list:
-            if i in self.pQueue.keys():
-                self.pQueue[i] += 1
-            elif i not in self.processed:
-                self.pQueue[i] = 1
-
-    def nextHash(self, mode):
-        sort_orders = sorted(self.pQueue.items(), key=lambda x: x[1], reverse=True)
-        if len(sort_orders) > 0:
-            current = sort_orders[0][0]
-            self.processed.append(current)
-            if mode == 1:
-                self.assignHash(current)
-            return current
-        else:
-            return False
-
-    def assignHash(self, hash):
-        del self.pQueue[hash]
-
-    def getProcessedList(self):
-        return self.processed
-
-    def getHashQueue(self):
-        return self.pQueue
-
-    def getHashPriority(self, tag):
-        if tag in self.pQueue:
-            return self.pQueue[tag]
-        else:
-            return False
-
-    def getCurrentHash(self):
-        size = len(self.processed)
-        if size > 1:
-            return self.processed[-1]
-        elif size == 1:
-            return self.processed[0]
-        else:
-            return False
-
-
-main = OrderedDict()
-
->>>>>>> Stashed changes
 
 def time_retrive(content):
     l = []
@@ -307,11 +247,6 @@ def postDataScrapper(postsList):
 
     postDetails = {}
 
-<<<<<<< Updated upstream
-=======
-    hash_list = []
-
->>>>>>> Stashed changes
     time.sleep(10)
 
     login(driver)
@@ -339,18 +274,36 @@ def postDataScrapper(postsList):
             content.split('<a class="sqdOP yWX7d     _8A5w5   ZIAjV " href="')[1].split("</a>")[0].split(
                 'tabindex="0">')[1]
 
-<<<<<<< Updated upstream
-=======
+    print(postDetails)
+
+
+def postHashScrapper(postsList):
+    options = Options()
+
+    hash_list = []
+
+    options.page_load_strategy = 'eager'
+
+    driver = webdriver.Chrome("D:\Python\chromedriver", options=options)
+
+    postDetails = {}
+
+    time.sleep(10)
+
+    login(driver)
+
+    time.sleep(10)
+
+    for x in postsList:
+        y = 'https://www.instagram.com/p/' + x + '/'
+
+        content = driver.execute_script("return document.body.innerHTML;")
+
         soup = BeautifulSoup(content, features="lxml")
 
-        for url in soup.find_all('a'):
-            tags = url.get('href')
-            if "/explore/tags/" in tags:
-                hash_list.append(tags.split("/explore/tags/")[1][0:-1])
+        for hashtag in soup.findAll("a", {"class": " xil3i"}):
+            hash_list.append(hashtag.innerText)
 
-        postDetails["hash"] = hash_list
-
->>>>>>> Stashed changes
     print(postDetails)
 
 
@@ -364,12 +317,6 @@ def generateHTML(post_Details):
     pass
 
 
-<<<<<<< Updated upstream
 initScrapper(input("Enter the Hashtag to search"), 20)
 hashProbe(82, "C:\\tmp\\1.jpg")
 # postDataScrapper(["CWvktj3ophu"])
-=======
-"""initScrapper(input("Enter the Hashtag to search"), 20)
-hashProbe(82, "C:\\tmp\\1.jpg")"""
-postDataScrapper(["CWvktj3ophu"])
->>>>>>> Stashed changes

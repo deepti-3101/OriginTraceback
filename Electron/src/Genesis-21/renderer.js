@@ -1,4 +1,4 @@
-const pages = ["Configuration", "manageSearch", "dashboard", "activity", "documentation"];
+const pages = ["Configuration", "manageSearch", "dashboard", "activity", "documentation", "newSearch"];
 
 
 function OpenPage(id){

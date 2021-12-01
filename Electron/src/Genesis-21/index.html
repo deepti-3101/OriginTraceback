@@ -4,33 +4,34 @@
 <head>
   <link rel="stylesheet" href="dashboard.css" />
   <script src="https://use.fontawesome.com/0b70c28bf1.js"></script>
+  
   <meta charset="UTF-8">
   <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
 
   <title>Genesis-21</title>
 </head>
 
-<body  style="border-bottom-right-radius:10px; border-bottom-left-radius:10px ;">
+<body style="border-bottom-right-radius:10px; border-bottom-left-radius:10px ;">
 
-  <div class= "loadingOverlay" style="display: block;" id = "loadingOverlayContainer">
- 
+  <div class="loadingOverlay" style="display: block;" id="loadingOverlayContainer">
+
     <div class="loadingMain">
-<h1 class="loadingText">Genesis-21</h1>
-<br>
-<p style="font-size: xx-small; width: 80%;" class="loadingText">
-  <u>Problem Statement : <b>(INTL-DA-08)</b></u><br>
-  Build a solution that is able to track the origin of a given social media post (provided as an input URL
-  or content) and identify the account, along with its details, which posted it first on that particular
-  platform
-</p>
-<br>
-<Br>
-<hr class= "whiteLine">
-<h3 class="loadingText" style="margin-top: 5px;">LOADING</h3>
-<p class="loadingText" style="font-size: 7px;">Loading modules and scripts, optimising layout...</p>
+      <h1 class="loadingText">Genesis-21</h1>
+      <br>
+      <p style="font-size: xx-small; width: 80%;" class="loadingText">
+        <u>Problem Statement : <b>(INTL-DA-08)</b></u><br>
+        Build a solution that is able to track the origin of a given social media post (provided as an input URL
+        or content) and identify the account, along with its details, which posted it first on that particular
+        platform
+      </p>
+      <br>
+      <Br>
+      <hr class="whiteLine">
+      <h3 class="loadingText" style="margin-top: 5px;">LOADING</h3>
+      <p class="loadingText" style="font-size: 7px;">Loading modules and scripts, optimising layout...</p>
     </div>
 
-</div>
+  </div>
 
 
 
@@ -52,7 +53,7 @@
         <i class="fa fa-chevron-down"></i><span class="username">ADMIN</span>
       </div>
     </div>
-    <div class="main"  style="border-bottom-right-radius:10px; border-bottom-left-radius:10px ;">
+    <div class="main" style="border-bottom-right-radius:10px; border-bottom-left-radius:10px ;">
       <div class="nav">
         <div class="searchbox">
           <div><i class="fa fa-search"></i>
@@ -70,6 +71,8 @@
                 class="fa fa-tasks"></i>Manage Searches</li>
             <li id="ConfigurationButton" class="test" onclick="OpenPage('Configuration')"> <i class="fa fa-gear"></i>
               </i>Configuration</li>
+            <li id="newSearchButton" class="test" onclick="OpenPage('newSearch')"> <i class="fa fa-gear"></i>
+              </i>New Search</li>
             <li id="documentationButton" class="test" onclick="OpenPage('documentation')"> <i class="fa fa-book"></i>
               </i>Documentation</li>
           </ul>
@@ -285,167 +288,316 @@
       </div>
 
 
-      <div class="view" id="documentation" style="display: none">
+      <div class="view" id="newSearch" style="display: none">
         <div class="viewHeader">
-          <div class="title">Documentation</div>
+          <div class="title">New Search</div>
           <div class="functions">
-            <div class="button active">New Search</div>
             <div class="button">Completed</div>
             <div class="button inverz" style="padding:0px; width: auto; padding-left:5px; padding-right:5px;"><i
                 class="fa fa-trash-o"></i></div>
           </div>
         </div>
         <div class="content">
-          <div class = "scrollable">
-          <section>
+          <div class="list">
+            <h1 class="title">Choose Your Platform:</h1>
 
-            <h1 id="orgintraceback">OrginTraceback</h1>
-            <p>Hackathon Repo
-              Team Name: <br>
-              Team Members:
-              Dominic Walter T, A Deepti, Ahamed Aamina Banu Y, Saratha Selvi K, Aarka Christal Suja</p>
+            <ul class="soc">
 
-            <p>Problem Statement : (INTL-DA-08)
-              Build a solution that is able to track the origin of a given social media post (provided as an input URL
-              or content) and identify the account, along with its details, which posted it first on that particular
-              platform</p>
 
-            <p>Presentation Video Link: https://www.youtube.com/watch?v=r-HmjKApXIs</p>
+              <li>
+                <a class="icon-10 facebook" href="#" title="Facebook" onclick=link_page()>
+                  <div class="ir">
+                    <svg viewbox="0 0 512 512" preserveAspectRatio="xMidYMid meet" width="512" height="512">
+                      <path
+                        d="M211.9 197.4h-36.7v59.9h36.7V433.1h70.5V256.5h49.2l5.2-59.1h-54.4c0 0 0-22.1 0-33.7 0-13.9 2.8-19.5 16.3-19.5 10.9 0 38.2 0 38.2 0V82.9c0 0-40.2 0-48.8 0 -52.5 0-76.1 23.1-76.1 67.3C211.9 188.8 211.9 197.4 211.9 197.4z">
+                      </path>
+                    </svg>
+                  </div>
+                </a>
+              </li>
 
-            <h1 id="1-abstract">1. Abstract:</h1>
 
-            <p>Images/ videos of individuals, taken with or without consent and often of a sexually-explicit nature, are
-              posted on various social media platforms as a tactic of abuse by perpetrators with the intent to harass,
-              impersonate, humiliate and cause harm. Such content has a tendency to instantly become viral and causes a
-              lot of distress to the victim.
-              Given a piece of text, image, or video snippet as input, we build a solution that can identify the person
-              who was the first one to post it online on a particular social media platform.
-              We give a detailed report on how we reached a particular result.
-              This project will have a high real-time use as it solves one of the major problems faced by our society.
-            </p>
+              <li>
+                <a class="icon-15 instagram" href="#" title="Instagram" onclick=link_page()>
+                  <div class="ir">
+                    <svg viewbox="0 0 512 512" preserveAspectRatio="xMidYMid meet" width="512" height="512">
+                      <path
+                        d="M256 109.3c47.8 0 53.4 0.2 72.3 1 17.4 0.8 26.9 3.7 33.2 6.2 8.4 3.2 14.3 7.1 20.6 13.4 6.3 6.3 10.1 12.2 13.4 20.6 2.5 6.3 5.4 15.8 6.2 33.2 0.9 18.9 1 24.5 1 72.3s-0.2 53.4-1 72.3c-0.8 17.4-3.7 26.9-6.2 33.2 -3.2 8.4-7.1 14.3-13.4 20.6 -6.3 6.3-12.2 10.1-20.6 13.4 -6.3 2.5-15.8 5.4-33.2 6.2 -18.9 0.9-24.5 1-72.3 1s-53.4-0.2-72.3-1c-17.4-0.8-26.9-3.7-33.2-6.2 -8.4-3.2-14.3-7.1-20.6-13.4 -6.3-6.3-10.1-12.2-13.4-20.6 -2.5-6.3-5.4-15.8-6.2-33.2 -0.9-18.9-1-24.5-1-72.3s0.2-53.4 1-72.3c0.8-17.4 3.7-26.9 6.2-33.2 3.2-8.4 7.1-14.3 13.4-20.6 6.3-6.3 12.2-10.1 20.6-13.4 6.3-2.5 15.8-5.4 33.2-6.2C202.6 109.5 208.2 109.3 256 109.3M256 77.1c-48.6 0-54.7 0.2-73.8 1.1 -19 0.9-32.1 3.9-43.4 8.3 -11.8 4.6-21.7 10.7-31.7 20.6 -9.9 9.9-16.1 19.9-20.6 31.7 -4.4 11.4-7.4 24.4-8.3 43.4 -0.9 19.1-1.1 25.2-1.1 73.8 0 48.6 0.2 54.7 1.1 73.8 0.9 19 3.9 32.1 8.3 43.4 4.6 11.8 10.7 21.7 20.6 31.7 9.9 9.9 19.9 16.1 31.7 20.6 11.4 4.4 24.4 7.4 43.4 8.3 19.1 0.9 25.2 1.1 73.8 1.1s54.7-0.2 73.8-1.1c19-0.9 32.1-3.9 43.4-8.3 11.8-4.6 21.7-10.7 31.7-20.6 9.9-9.9 16.1-19.9 20.6-31.7 4.4-11.4 7.4-24.4 8.3-43.4 0.9-19.1 1.1-25.2 1.1-73.8s-0.2-54.7-1.1-73.8c-0.9-19-3.9-32.1-8.3-43.4 -4.6-11.8-10.7-21.7-20.6-31.7 -9.9-9.9-19.9-16.1-31.7-20.6 -11.4-4.4-24.4-7.4-43.4-8.3C310.7 77.3 304.6 77.1 256 77.1L256 77.1z">
+                      </path>
+                      <path
+                        d="M256 164.1c-50.7 0-91.9 41.1-91.9 91.9s41.1 91.9 91.9 91.9 91.9-41.1 91.9-91.9S306.7 164.1 256 164.1zM256 315.6c-32.9 0-59.6-26.7-59.6-59.6s26.7-59.6 59.6-59.6 59.6 26.7 59.6 59.6S288.9 315.6 256 315.6z">
+                      </path>
+                      <circle cx="351.5" cy="160.5" r="21.5"></circle>
+                    </svg>
+                  </div>
+                </a>
+              </li>
 
-            <h1 id="2-introduction">2. Introduction:</h1>
+              <li>
+                <a class="icon-17 linkedin" href="#" title="LinkedIn" onclick=link_page()>
+                  <div class="ir">
+                    <svg viewbox="0 0 512 512" preserveAspectRatio="xMidYMid meet" width="512" height="512">
+                      <path
+                        d="M186.4 142.4c0 19-15.3 34.5-34.2 34.5 -18.9 0-34.2-15.4-34.2-34.5 0-19 15.3-34.5 34.2-34.5C171.1 107.9 186.4 123.4 186.4 142.4zM181.4 201.3h-57.8V388.1h57.8V201.3zM273.8 201.3h-55.4V388.1h55.4c0 0 0-69.3 0-98 0-26.3 12.1-41.9 35.2-41.9 21.3 0 31.5 15 31.5 41.9 0 26.9 0 98 0 98h57.5c0 0 0-68.2 0-118.3 0-50-28.3-74.2-68-74.2 -39.6 0-56.3 30.9-56.3 30.9v-25.2H273.8z">
+                      </path>
+                    </svg>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a class="icon-18 reddit" href="#" title="reddit" onclick=link_page()>
+                  <div class="ir">
+                    <svg viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet" width="512" height="512">
+                      <path
+                        d="M454 251.848C454 227.864 434.382 208.321 410.254 208.321C398.47 208.321 387.837 213.026 379.97 220.593C350.181 201.018 309.858 188.516 265.256 186.936L289.68 110.148L355.777 125.644L355.678 126.598C355.678 146.206 371.708 162.196 391.458 162.196C411.175 162.196 427.206 146.239 427.206 126.598C427.206 106.956 411.143 91 391.425 91C376.284 91 363.38 100.442 358.18 113.701L286.948 97.0207C283.854 96.264 280.661 98.0735 279.706 101.1L252.484 186.739C205.775 187.298 163.445 199.866 132.338 220.034C124.537 212.829 114.168 208.321 102.713 208.321C78.6183 208.354 59 227.864 59 251.848C59 267.805 67.7887 281.623 80.6921 289.222C79.8362 293.861 79.2767 298.533 79.2767 303.337C79.2437 367.656 158.408 420 255.677 420C352.979 420 432.11 367.656 432.11 303.337C432.11 298.829 431.617 294.388 430.86 290.012C444.553 282.643 454 268.397 454 251.848ZM170.522 281.721C170.522 267.443 182.207 255.796 196.559 255.796C210.91 255.796 222.563 267.41 222.563 281.721C222.563 296 210.877 307.614 196.559 307.614C182.207 307.646 170.522 296.033 170.522 281.721ZM319.634 358.543C306.533 371.571 285.927 377.921 256.697 377.921L256.467 377.888L256.237 377.921C227.007 377.921 206.401 371.571 193.3 358.543C190.897 356.174 190.897 352.292 193.3 349.923C195.67 347.554 199.587 347.554 201.957 349.923C212.655 360.55 230.397 365.748 256.237 365.748L256.467 365.781L256.697 365.748C282.504 365.748 300.279 360.583 310.977 349.923C313.38 347.554 317.231 347.554 319.634 349.923C322.037 352.292 322.037 356.174 319.634 358.543ZM316.54 307.646C302.188 307.646 290.536 296.033 290.536 281.754C290.536 267.476 302.221 255.829 316.54 255.829C330.892 255.829 342.544 267.443 342.544 281.754C342.544 296.033 330.892 307.646 316.54 307.646Z">
+                      </path>
+                    </svg>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a class="icon-20 pinterest" href="#" title="Pinterest" onclick=link_page()>
+                  <div class="ir">
+                    <svg viewbox="0 0 512 512" preserveAspectRatio="xMidYMid meet" width="512" height="512">
+                      <path
+                        d="M266.6 76.5c-100.2 0-150.7 71.8-150.7 131.7 0 36.3 13.7 68.5 43.2 80.6 4.8 2 9.2 0.1 10.6-5.3 1-3.7 3.3-13 4.3-16.9 1.4-5.3 0.9-7.1-3-11.8 -8.5-10-13.9-23-13.9-41.3 0-53.3 39.9-101 103.8-101 56.6 0 87.7 34.6 87.7 80.8 0 60.8-26.9 112.1-66.8 112.1 -22.1 0-38.6-18.2-33.3-40.6 6.3-26.7 18.6-55.5 18.6-74.8 0-17.3-9.3-31.7-28.4-31.7 -22.5 0-40.7 23.3-40.7 54.6 0 19.9 6.7 33.4 6.7 33.4s-23.1 97.8-27.1 114.9c-8.1 34.1-1.2 75.9-0.6 80.1 0.3 2.5 3.6 3.1 5 1.2 2.1-2.7 28.9-35.9 38.1-69 2.6-9.4 14.8-58 14.8-58 7.3 14 28.7 26.3 51.5 26.3 67.8 0 113.8-61.8 113.8-144.5C400.1 134.7 347.1 76.5 266.6 76.5z">
+                      </path>
+                    </svg>
+                  </div>
+                </a>
+              </li>
 
-            <p>We tend to take advantage of the vast and interactive platform of social media, but we forget to notice
-              the downside of it. Nowadays, even a single post can ruin a person’s life, and yet we have failed to stop
-              it. So our project will be a milestone in making people’s lives better. Every day, we see hundreds of
-              messages forwarded across the globe, and it is almost impossible for us to find the origin of it. Once any
-              content is released, it is shared, re-posted, and forwarded many times than we can imagine. This becomes a
-              vulnerability. Hence, we are proposing a way to find the origin of any post. Thus, we find the user
-              responsible for releasing abusive content. Our project uses image hashing to identify and compare the
-              content that is retrieved from any media. Further, using a real-time database the information is organized
-              and stored. Finally, the data is mapped to its origin for the first time it was ever posted.</p>
 
-            <h1 id="3-techstack">3. Techstack:</h1>
 
-            <p>Language: Python 3.0
-              Libraries: ImageHash, Ipyplot, Numpy, Pandas, BeautifulSoup</p>
+              <li>
+                <a class="icon-25 tumblr" href="#" title="Tumblr" onclick=link_page()>
+                  <div class="ir">
+                    <svg viewbox="0 0 512 512" preserveAspectRatio="xMidYMid meet" width="512" height="512">
+                      <path
+                        d="M210.8 80.3c-2.3 18.3-6.4 33.4-12.4 45.2 -6 11.9-13.9 22-23.9 30.5 -9.9 8.5-21.8 14.9-35.7 19.5v50.6h38.9v124.5c0 16.2 1.7 28.6 5.1 37.1 3.4 8.5 9.5 16.6 18.3 24.2 8.8 7.6 19.4 13.4 31.9 17.5 12.5 4.1 26.8 6.1 43 6.1 14.3 0 27.6-1.4 39.9-4.3 12.3-2.9 26-7.9 41.2-15v-55.9c-17.8 11.7-35.7 17.5-53.7 17.5 -10.1 0-19.1-2.4-27-7.1 -5.9-3.5-10-8.2-12.2-14 -2.2-5.8-3.3-19.1-3.3-39.7v-91.1H345.5v-55.8h-84.4v-90H210.8z">
+                      </path>
+                    </svg>
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a class="icon-26 twitter" href="#" title="Twitter" onclick=link_page()>
+                  <div class="ir">
+                    <svg viewbox="0 0 512 512" preserveAspectRatio="xMidYMid meet" width="512" height="512">
+                      <path
+                        d="M419.6 168.6c-11.7 5.2-24.2 8.7-37.4 10.2 13.4-8.1 23.8-20.8 28.6-36 -12.6 7.5-26.5 12.9-41.3 15.8 -11.9-12.6-28.8-20.6-47.5-20.6 -42 0-72.9 39.2-63.4 79.9 -54.1-2.7-102.1-28.6-134.2-68 -17 29.2-8.8 67.5 20.1 86.9 -10.7-0.3-20.7-3.3-29.5-8.1 -0.7 30.2 20.9 58.4 52.2 64.6 -9.2 2.5-19.2 3.1-29.4 1.1 8.3 25.9 32.3 44.7 60.8 45.2 -27.4 21.4-61.8 31-96.4 27 28.8 18.5 63 29.2 99.8 29.2 120.8 0 189.1-102.1 185-193.6C399.9 193.1 410.9 181.7 419.6 168.6z">
+                      </path>
+                    </svg>
+                  </div>
+                </a>
+              </li>
+              <li>
 
-            <p>Python 3.0</p>
+              <li>
+                <a class="icon-28 youtube" href="#" title="YouTube" onclick=link_page()>
+                  <div class="ir">
+                    <svg viewbox="0 0 512 512" preserveAspectRatio="xMidYMid meet" width="512" height="512">
+                      <path
+                        d="M422.6 193.6c-5.3-45.3-23.3-51.6-59-54 -50.8-3.5-164.3-3.5-215.1 0 -35.7 2.4-53.7 8.7-59 54 -4 33.6-4 91.1 0 124.8 5.3 45.3 23.3 51.6 59 54 50.9 3.5 164.3 3.5 215.1 0 35.7-2.4 53.7-8.7 59-54C426.6 284.8 426.6 227.3 422.6 193.6zM222.2 303.4v-94.6l90.7 47.3L222.2 303.4z">
+                      </path>
+                    </svg>
+                  </div>
+                </a>
+              </li>
 
-            <p>Python is an interpreted high-level general-purpose programming language.
-              Its design philosophy emphasizes code readability with its use of significant indentation.
-              Its language constructs as well as its object-oriented approach aim to help programmers write clear,
-              logical code for a small and large-scale project.
-              Python 3 is a new version of the language.
-              We considered python due to its richness in libraries and the flexibility offered by it.
-              Python also shines bright in the data science area as it has numerous built-in features which makes it
-              easy to tackle the needs.</p>
+            </ul>
 
-            <p>Libraries:</p>
 
-            <p>ImageHash</p>
+          </div>
+        </div>
 
-            <p>Image hashes tell whether two images look nearly identical. This is different from cryptographic hashing
-              algorithms where tiny changes in the image give completely different hashes. In image fingerprinting, we
-              actually want our similar inputs to have similar output hashes as well. The image hash algorithms
-              (average, perceptual, difference, wavelet) analyze the image structure on luminance (without color
-              information). The color hash algorithm analyses the color distribution and black &amp; gray fractions
-              (without position information).</p>
 
-            <p>Ipyplot</p>
 
-            <p>IPyPlot is a small python package offering fast and efficient plotting of images inside ipython Notebooks
-              cells. It’s using IPython with HTML for faster, richer, and more interactive ways of displaying big
-              numbers of images.</p>
 
-            <p>Numpy
-              NumPy stands for Numerical Python. It is a Python library used for working with arrays. It also has
-              functions for working in the domain of linear algebra, Fourier transform, and matrices. It is an
-              open-source project and we can use it freely. In Python, we have lists that serve the purpose of arrays,
-              but they are slow to process.NumPy aims to provide an array object that is up to 50x faster than
-              traditional Python lists.</p>
+        <div class="view" id="documentation" style="display: none">
+          <div class="viewHeader">
+            <div class="title">Documentation</div>
+            <div class="functions">
+              <div class="button active">New Search</div>
+              <div class="button">Completed</div>
+              <div class="button inverz" style="padding:0px; width: auto; padding-left:5px; padding-right:5px;"><i
+                  class="fa fa-trash-o"></i></div>
+            </div>
+          </div>
+          <div class="content">
+            <div class="scrollable">
+              <section>
 
-            <p>Pandas
-              pandas is a Python package providing fast, flexible, and expressive data structures designed to make
-              working with “relational” or “labeled” data both easy and intuitive. It aims to be the fundamental
-              high-level building block for doing practical, real-world data analysis in Python. Additionally, it has
-              the broader goal of becoming the most powerful and flexible open-source data analysis/manipulation tool
-              available in any language</p>
+                <h1 id="orgintraceback">OrginTraceback</h1>
+                <p>Hackathon Repo
+                  Team Name: <br>
+                  Team Members:
+                  Dominic Walter T, A Deepti, Ahamed Aamina Banu Y, Saratha Selvi K, Aarka Christal Suja</p>
 
-            <h1 id="4-solution-proposed">4. Solution Proposed:</h1>
+                <p>Problem Statement : (INTL-DA-08)
+                  Build a solution that is able to track the origin of a given social media post (provided as an input
+                  URL
+                  or content) and identify the account, along with its details, which posted it first on that particular
+                  platform</p>
 
-            <h1 id="41-overall-design">4.1 Overall design:</h1>
+                <p>Presentation Video Link: https://www.youtube.com/watch?v=r-HmjKApXIs</p>
 
-            <p>Our algorithm is divided into four stages as follows:</p>
-            <ol>
-              <li>Data scraping</li>
-              <li>Sanitizing &amp; Organising data</li>
-              <li>Origin Computation</li>
-              <li>Compiling Report.</li>
-            </ol>
+                <h1 id="1-abstract">1. Abstract:</h1>
 
-            <h1 id="411-data-scraping">4.1.1 Data Scraping:</h1>
+                <p>Images/ videos of individuals, taken with or without consent and often of a sexually-explicit nature,
+                  are
+                  posted on various social media platforms as a tactic of abuse by perpetrators with the intent to
+                  harass,
+                  impersonate, humiliate and cause harm. Such content has a tendency to instantly become viral and
+                  causes a
+                  lot of distress to the victim.
+                  Given a piece of text, image, or video snippet as input, we build a solution that can identify the
+                  person
+                  who was the first one to post it online on a particular social media platform.
+                  We give a detailed report on how we reached a particular result.
+                  This project will have a high real-time use as it solves one of the major problems faced by our
+                  society.
+                </p>
 
-            <h1 id="4111-effective-way-of-searching">4.1.1.1 Effective way of searching:</h1>
+                <h1 id="2-introduction">2. Introduction:</h1>
 
-            <p>In order to make scraping for images more effective, we have developed an algorithm that uses hashtags (
-              # tags ) to navigate to the main page and narrows the scope of the search, this helps in reducing the
-              waste of computational power spent on a broader search. However, if the algorithm cannot find any hashtags
-              associated with the given post, it can get manual input from the user at the time of triggering else will
-              launch a broader search based on location and other aspects</p>
+                <p>We tend to take advantage of the vast and interactive platform of social media, but we forget to
+                  notice
+                  the downside of it. Nowadays, even a single post can ruin a person’s life, and yet we have failed to
+                  stop
+                  it. So our project will be a milestone in making people’s lives better. Every day, we see hundreds of
+                  messages forwarded across the globe, and it is almost impossible for us to find the origin of it. Once
+                  any
+                  content is released, it is shared, re-posted, and forwarded many times than we can imagine. This
+                  becomes a
+                  vulnerability. Hence, we are proposing a way to find the origin of any post. Thus, we find the user
+                  responsible for releasing abusive content. Our project uses image hashing to identify and compare the
+                  content that is retrieved from any media. Further, using a real-time database the information is
+                  organized
+                  and stored. Finally, the data is mapped to its origin for the first time it was ever posted.</p>
 
-            <h1 id="4112--data-retrieved">4.1.1.2 Data retrieved:</h1>
+                <h1 id="3-techstack">3. Techstack:</h1>
 
-            <p>On exploring every new node we collect the following data for processing</p>
+                <p>Language: Python 3.0
+                  Libraries: ImageHash, Ipyplot, Numpy, Pandas, BeautifulSoup</p>
 
-            <p>Time and date of the post (if the post is relatively old, only the date)
-              The URL of the image involved in the post
-              Account username
-              Social interactions (number of likes and comments)
-              Hashtags used (or the equivalent - depending on the social media platform)</p>
+                <p>Python 3.0</p>
 
-            <h1 id="412-sanitizing--organising-data">4.1.2 Sanitizing &amp; Organising data</h1>
+                <p>Python is an interpreted high-level general-purpose programming language.
+                  Its design philosophy emphasizes code readability with its use of significant indentation.
+                  Its language constructs as well as its object-oriented approach aim to help programmers write clear,
+                  logical code for a small and large-scale project.
+                  Python 3 is a new version of the language.
+                  We considered python due to its richness in libraries and the flexibility offered by it.
+                  Python also shines bright in the data science area as it has numerous built-in features which makes it
+                  easy to tackle the needs.</p>
 
-            <p>To process the data we collect, we first should organize the data. Considering the vast amounts of data
-              we need to process, we build the solution in such a way that we collect data to a centralized server. This
-              enables distributive computing, by sharing workloads between an array of computers.</p>
+                <p>Libraries:</p>
 
-            <p>Our scheme is as follows :</p>
+                <p>ImageHash</p>
 
-            <h1 id="4121-hashing">4.1.2.1 Hashing:</h1>
-            <p>To compare images between posts, we hash the images and compare the hash values, we designed special
-              algorithms that use different hashing techniques to conclude whether two images are edits of the same post
-            </p>
+                <p>Image hashes tell whether two images look nearly identical. This is different from cryptographic
+                  hashing
+                  algorithms where tiny changes in the image give completely different hashes. In image fingerprinting,
+                  we
+                  actually want our similar inputs to have similar output hashes as well. The image hash algorithms
+                  (average, perceptual, difference, wavelet) analyze the image structure on luminance (without color
+                  information). The color hash algorithm analyses the color distribution and black &amp; gray fractions
+                  (without position information).</p>
 
-            <h1 id="4122-database">4.1.2.2 Database:</h1>
+                <p>Ipyplot</p>
 
-            <p>We are using Google’s Firebase Realtime Database as the centralized database solution for
-              storing/retrieving node data and hash values for computation. This enables us to split work between
-              different computers, improving the overall performance of our solution</p>
+                <p>IPyPlot is a small python package offering fast and efficient plotting of images inside ipython
+                  Notebooks
+                  cells. It’s using IPython with HTML for faster, richer, and more interactive ways of displaying big
+                  numbers of images.</p>
 
-            <h1 id="4123-exporting-node-data">4.1.2.3 Exporting node data:</h1>
+                <p>Numpy
+                  NumPy stands for Numerical Python. It is a Python library used for working with arrays. It also has
+                  functions for working in the domain of linear algebra, Fourier transform, and matrices. It is an
+                  open-source project and we can use it freely. In Python, we have lists that serve the purpose of
+                  arrays,
+                  but they are slow to process.NumPy aims to provide an array object that is up to 50x faster than
+                  traditional Python lists.</p>
 
-            <p>Node data can be exported into JSON files after exploration directly. These datasets can be used for
-              other analytics, and further analysis of the case depending upon the initial report and situation.</p>
+                <p>Pandas
+                  pandas is a Python package providing fast, flexible, and expressive data structures designed to make
+                  working with “relational” or “labeled” data both easy and intuitive. It aims to be the fundamental
+                  high-level building block for doing practical, real-world data analysis in Python. Additionally, it
+                  has
+                  the broader goal of becoming the most powerful and flexible open-source data analysis/manipulation
+                  tool
+                  available in any language</p>
 
-            <h1 id="4124-data-structure">4.1.2.4 Data structure:</h1>
+                <h1 id="4-solution-proposed">4. Solution Proposed:</h1>
 
-            <p>Project Bucket</p>
+                <h1 id="41-overall-design">4.1 Overall design:</h1>
 
-            <div class="language-plaintext highlighter-rouge">
-              <div class="highlight">
-                <pre class="highlight"><code>  {
+                <p>Our algorithm is divided into four stages as follows:</p>
+                <ol>
+                  <li>Data scraping</li>
+                  <li>Sanitizing &amp; Organising data</li>
+                  <li>Origin Computation</li>
+                  <li>Compiling Report.</li>
+                </ol>
+
+                <h1 id="411-data-scraping">4.1.1 Data Scraping:</h1>
+
+                <h1 id="4111-effective-way-of-searching">4.1.1.1 Effective way of searching:</h1>
+
+                <p>In order to make scraping for images more effective, we have developed an algorithm that uses
+                  hashtags (
+                  # tags ) to navigate to the main page and narrows the scope of the search, this helps in reducing the
+                  waste of computational power spent on a broader search. However, if the algorithm cannot find any
+                  hashtags
+                  associated with the given post, it can get manual input from the user at the time of triggering else
+                  will
+                  launch a broader search based on location and other aspects</p>
+
+                <h1 id="4112--data-retrieved">4.1.1.2 Data retrieved:</h1>
+
+                <p>On exploring every new node we collect the following data for processing</p>
+
+                <p>Time and date of the post (if the post is relatively old, only the date)
+                  The URL of the image involved in the post
+                  Account username
+                  Social interactions (number of likes and comments)
+                  Hashtags used (or the equivalent - depending on the social media platform)</p>
+
+                <h1 id="412-sanitizing--organising-data">4.1.2 Sanitizing &amp; Organising data</h1>
+
+                <p>To process the data we collect, we first should organize the data. Considering the vast amounts of
+                  data
+                  we need to process, we build the solution in such a way that we collect data to a centralized server.
+                  This
+                  enables distributive computing, by sharing workloads between an array of computers.</p>
+
+                <p>Our scheme is as follows :</p>
+
+                <h1 id="4121-hashing">4.1.2.1 Hashing:</h1>
+                <p>To compare images between posts, we hash the images and compare the hash values, we designed special
+                  algorithms that use different hashing techniques to conclude whether two images are edits of the same
+                  post
+                </p>
+
+                <h1 id="4122-database">4.1.2.2 Database:</h1>
+
+                <p>We are using Google’s Firebase Realtime Database as the centralized database solution for
+                  storing/retrieving node data and hash values for computation. This enables us to split work between
+                  different computers, improving the overall performance of our solution</p>
+
+                <h1 id="4123-exporting-node-data">4.1.2.3 Exporting node data:</h1>
+
+                <p>Node data can be exported into JSON files after exploration directly. These datasets can be used for
+                  other analytics, and further analysis of the case depending upon the initial report and situation.</p>
+
+                <h1 id="4124-data-structure">4.1.2.4 Data structure:</h1>
+
+                <p>Project Bucket</p>
+
+                <div class="language-plaintext highlighter-rouge">
+                  <div class="highlight">
+                    <pre class="highlight"><code>  {
           “Search ID”:
           {
                   “Root”: “URL”;
@@ -465,128 +617,139 @@
           };
        }
       </code></pre>
-              </div>
+                  </div>
+                </div>
+
+                <h1 id="explanation">Explanation:</h1>
+
+                <p>Root:
+                  Type
+                  String
+                  Content
+                  URL of the given post</p>
+
+                <p>Nodes:
+                  Type
+                  JSON<br>
+                  Content
+                  a collection of all the scraped posts</p>
+
+                <p>Hash value: (with serial number)
+                  Type
+                  JSON<br>
+                  Content
+                  Data scrapping from a post represented by its unique hash</p>
+
+                <h1 id="413-origin-computation">4.1.3 Origin Computation:</h1>
+
+                <p>To traceback to the original post, we have designed the algorithm as follows</p>
+
+                <p>After retrieving data from RTDB, hashes will be sequentially processed to sort it in chronological
+                  order
+                  based on the time and date, in case of unavailability of certain data, it will be computed based on
+                  other
+                  parameters like the number of comments, shares, likes, and etc, creating a tree structure representing
+                  the
+                  flow of posts. Eventually, the start will be converging to fewer nodes. We then calculate the
+                  probability
+                  of being the origin for every node based on parameters other.</p>
+
+                <h1 id="414-report">4.1.4 Report:</h1>
+
+                <p>After computation to share the conclusions, we procedurally generate an HTML document and a pdf. The
+                  HTML
+                  document contains a very detailed flow of posts and data represented by every node in the network in a
+                  human-readable format. It will also contain additional data retrieved by the system and tooltips
+                  justifying the node’s position in the graph. The Pdf file will have a summary of the search and
+                  conclusions, without displaying any data.</p>
+
+                <h1 id="42-accuracy-and-time">4.2 Accuracy and time:</h1>
+
+                <p>In order to trace back to the origin, we need to search, index, and profile all the images under some
+                  constraints which take a tremendous amount of time and computation power, to tackle this we created
+                  different algorithms that balance the time and accuracy into different proportions, discussed more on
+                  the
+                  methods in the following section.</p>
+
+                <p>Accuracy:</p>
+
+                <p>we have estimated the accuracy of the most accurate method of this solution as at least 89%. The
+                  actual
+                  numbers can only be calculated on the completion of this project. It also depends greatly on the
+                  hashing
+                  algorithms we use, so in order to improve the accuracy of the algorithms, we sanitize the input image
+                  we
+                  provide for hashing, more details are mentioned in the following sections.</p>
+
+                <h1 id="43-methods">4.3 Methods</h1>
+
+                <p>Different methods we provide:</p>
+
+                <h1 id="fastest-method">Fastest Method</h1>
+                <p>Looks for the exact image, audio, video file - fails with edits and compression
+                  Uses a single hashing algorithm
+                  Fastest of all three methods
+                  Accuracy is less</p>
+
+                <h1 id="normal-method">Normal Method</h1>
+                <p>Uses two Hashing Algorithms
+                  Validation of search and computation
+                  Can tolerate minor compressions and edits
+                  More accurate than the previous method</p>
+
+                <h1 id="deep-search">Deep search</h1>
+                <p>Most accurate
+                  Takes more time relatively
+                  Accounts major edits and compression
+                  Uses several hashing techniques to validate results</p>
+
+                <h1 id="additional-methods-optional">Additional Methods (Optional):</h1>
+                <p>Search part of a picture (if the clue is suspected to be cropped picture)
+                  Adds to additional time in computing results
+                  A detailed report will be included with every branch
+                  Grid Verification: splits the image into 3x3 grid and algorithm proceeds individually with every
+                  piece,
+                  this increases the chance of matching the edited pictures</p>
+
+                <h1 id="44-report-of-the-search">4.4 Report of the search</h1>
+
+                <ol>
+                  <li>HTML file:</li>
+                </ol>
+
+                <p>1.1. Display the processed information.
+                  1.2. create a dynamic interactive graph to follow the flow of posts
+                  1.2.1. On hovering, it exposes the user to further data
+                  1.3.The nodes are displayed as cards
+                  1.3.1. It shows the navigation of posts</p>
+
+                <ol>
+                  <li>Pdf-summary:</li>
+                </ol>
+
+                <p>It contains a detailed report based on the algorithm executed. It gives the conclusion, final result
+                  of
+                  the search to the end-user. This does not expose any intermediate node data or branch decisions.</p>
+
+
+              </section>
             </div>
-
-            <h1 id="explanation">Explanation:</h1>
-
-            <p>Root:
-              Type
-              String
-              Content
-              URL of the given post</p>
-
-            <p>Nodes:
-              Type
-              JSON<br>
-              Content
-              a collection of all the scraped posts</p>
-
-            <p>Hash value: (with serial number)
-              Type
-              JSON<br>
-              Content
-              Data scrapping from a post represented by its unique hash</p>
-
-            <h1 id="413-origin-computation">4.1.3 Origin Computation:</h1>
-
-            <p>To traceback to the original post, we have designed the algorithm as follows</p>
-
-            <p>After retrieving data from RTDB, hashes will be sequentially processed to sort it in chronological order
-              based on the time and date, in case of unavailability of certain data, it will be computed based on other
-              parameters like the number of comments, shares, likes, and etc, creating a tree structure representing the
-              flow of posts. Eventually, the start will be converging to fewer nodes. We then calculate the probability
-              of being the origin for every node based on parameters other.</p>
-
-            <h1 id="414-report">4.1.4 Report:</h1>
-
-            <p>After computation to share the conclusions, we procedurally generate an HTML document and a pdf. The HTML
-              document contains a very detailed flow of posts and data represented by every node in the network in a
-              human-readable format. It will also contain additional data retrieved by the system and tooltips
-              justifying the node’s position in the graph. The Pdf file will have a summary of the search and
-              conclusions, without displaying any data.</p>
-
-            <h1 id="42-accuracy-and-time">4.2 Accuracy and time:</h1>
-
-            <p>In order to trace back to the origin, we need to search, index, and profile all the images under some
-              constraints which take a tremendous amount of time and computation power, to tackle this we created
-              different algorithms that balance the time and accuracy into different proportions, discussed more on the
-              methods in the following section.</p>
-
-            <p>Accuracy:</p>
-
-            <p>we have estimated the accuracy of the most accurate method of this solution as at least 89%. The actual
-              numbers can only be calculated on the completion of this project. It also depends greatly on the hashing
-              algorithms we use, so in order to improve the accuracy of the algorithms, we sanitize the input image we
-              provide for hashing, more details are mentioned in the following sections.</p>
-
-            <h1 id="43-methods">4.3 Methods</h1>
-
-            <p>Different methods we provide:</p>
-
-            <h1 id="fastest-method">Fastest Method</h1>
-            <p>Looks for the exact image, audio, video file - fails with edits and compression
-              Uses a single hashing algorithm
-              Fastest of all three methods
-              Accuracy is less</p>
-
-            <h1 id="normal-method">Normal Method</h1>
-            <p>Uses two Hashing Algorithms
-              Validation of search and computation
-              Can tolerate minor compressions and edits
-              More accurate than the previous method</p>
-
-            <h1 id="deep-search">Deep search</h1>
-            <p>Most accurate
-              Takes more time relatively
-              Accounts major edits and compression
-              Uses several hashing techniques to validate results</p>
-
-            <h1 id="additional-methods-optional">Additional Methods (Optional):</h1>
-            <p>Search part of a picture (if the clue is suspected to be cropped picture)
-              Adds to additional time in computing results
-              A detailed report will be included with every branch
-              Grid Verification: splits the image into 3x3 grid and algorithm proceeds individually with every piece,
-              this increases the chance of matching the edited pictures</p>
-
-            <h1 id="44-report-of-the-search">4.4 Report of the search</h1>
-
-            <ol>
-              <li>HTML file:</li>
-            </ol>
-
-            <p>1.1. Display the processed information.
-              1.2. create a dynamic interactive graph to follow the flow of posts
-              1.2.1. On hovering, it exposes the user to further data
-              1.3.The nodes are displayed as cards
-              1.3.1. It shows the navigation of posts</p>
-
-            <ol>
-              <li>Pdf-summary:</li>
-            </ol>
-
-            <p>It contains a detailed report based on the algorithm executed. It gives the conclusion, final result of
-              the search to the end-user. This does not expose any intermediate node data or branch decisions.</p>
-
-
-          </section>
           </div>
         </div>
+
+
+
+
+
+
+
+
+
+
+
+
       </div>
-
-
-
-
-
-
-
-
-
-
-
-
     </div>
-  </div>
 
 
 
@@ -597,30 +760,31 @@
 
 
 
-  <script src="./renderer.js"></script>
-  <script>
-    createPreviewWindow();
+    <script src="./renderer.js"></script>
+    <script>
+      createPreviewWindow();
 
-    function createPreviewWindow() {
-      mainPreviewWindow = new BrowserWindow({
-        width: 400,
-        height: 600,
-        webPreferences: {
-          preload: path.join(__dirname, 'preloadPreview.js')
-        }
-      })
+      function createPreviewWindow() {
+        mainPreviewWindow = new BrowserWindow({
+          width: 400,
+          height: 600,
+          webPreferences: {
+            preload: path.join(__dirname, 'preloadPreview.js')
+          }
+        })
 
 
-      mainPreviewWindow.loadURL('http://instagram.com')
-    }
-  </script>
-  <script>
-    const customTitlebar = require('custom-electron-titlebar');
-    let MyTitleBar = new customTitlebar.Titlebar({
-      backgroundColor: customTitlebar.Color.fromHex('#03a9f4')
-    });
-    MyTitleBar.updateTitle('Our Code World Tutorials Rock !');
-  </script>
+        mainPreviewWindow.loadURL('http://instagram.com')
+      }
+    </script>
+    <script>
+      const customTitlebar = require('custom-electron-titlebar');
+      let MyTitleBar = new customTitlebar.Titlebar({
+        backgroundColor: customTitlebar.Color.fromHex('#03a9f4')
+      });
+      MyTitleBar.updateTitle('Our Code World Tutorials Rock !');
+    </script>
 </body>
+<script src="javascript.js"></script>
 
 </html>
