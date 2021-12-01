@@ -12,8 +12,8 @@ from os import listdir
 from os.path import isfile, join
 from collections import OrderedDict
 
-username = "************"
-password = "************"  # Be careful, don't accidentally expose your password when committing
+username = "dem.odummy"
+password = "orproject5"  # Be careful, don't accidentally expose your password when committing
 
 
 class hashQueue:
@@ -247,6 +247,8 @@ def postDataScrapper(postsList):
 
     postDetails = {}
 
+    hash_list = []
+
     time.sleep(10)
 
     login(driver)
@@ -274,6 +276,15 @@ def postDataScrapper(postsList):
             content.split('<a class="sqdOP yWX7d     _8A5w5   ZIAjV " href="')[1].split("</a>")[0].split(
                 'tabindex="0">')[1]
 
+        soup = BeautifulSoup(content, features="lxml")
+
+        for url in soup.find_all('a'):
+            tags = url.get('href')
+            if "/explore/tags/" in tags:
+                hash_list.append(tags.split("/explore/tags/")[1][0:-1])
+
+        postDetails["hash"] = hash_list
+
     print(postDetails)
 
 
@@ -287,6 +298,6 @@ def generateHTML(post_Details):
     pass
 
 
-initScrapper(input("Enter the Hashtag to search"), 20)
-hashProbe(82, "C:\\tmp\\1.jpg")
-# postDataScrapper(["CWvktj3ophu"])
+"""initScrapper(input("Enter the Hashtag to search"), 20)
+hashProbe(82, "C:\\tmp\\1.jpg")"""
+postDataScrapper(["CWvktj3ophu"])
