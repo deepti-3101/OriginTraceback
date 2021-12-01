@@ -17,7 +17,7 @@ from pathlib import Path
 Path("D:/Genesis-21/Searches").mkdir(parents=True, exist_ok=True)
 
 username = "dem.odummy"
-password = "************"  # Be careful, don't accidentally expose your password when committing
+password = "*******"  # Be careful, don't accidentally expose your password when committing
 name = "D:/Genesis-21/Searches"
 target = "C:\\tmp\\1.jpg"
 main = OrderedDict()
@@ -50,8 +50,7 @@ class hashQueue:
 
     def nextHash(self, mode):
         sort_orders = sorted(self.pQueue.items(), key=lambda x: x[1], reverse=True)
-        print("Sort order length : ")
-        print(len(sort_orders))
+
         if len(sort_orders) >= 0:
             current = sort_orders[0][0]
             if mode == 1:
@@ -61,7 +60,10 @@ class hashQueue:
             else:
                 return current
         else:
-            return False
+                return False
+
+
+
 
     def assignHash(self, hash):
         del self.pQueue[hash]
@@ -320,4 +322,4 @@ agent1 = agent(1)
 
 for i in range(10):
     x = tag_bucket.nextHash(1)
-    print(x,tag_bucket.getHashPriority(x))
+    print(x)
