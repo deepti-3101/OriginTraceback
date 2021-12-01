@@ -11,9 +11,16 @@ import time
 from os import listdir
 from os.path import isfile, join
 from collections import OrderedDict
+from datetime import datetime
+from pathlib import Path
 
-username = "************"
-password = "************"  # Be careful, don't accidentally expose your password when committing
+Path("D:/Genesis-21/Searches").mkdir(parents=True, exist_ok=True)
+
+username = "dem.odummy"
+password = "orproject5"  # Be careful, don't accidentally expose your password when committing
+name = "D:/Genesis-21/Searches"
+target = "C:\\tmp\\1.jpg"
+main = OrderedDict()
 
 
 class hashQueue:
@@ -22,6 +29,17 @@ class hashQueue:
 
     def __init__(self, initial_list):
         self.pQueue = initial_list
+        print(self.pQueue)
+
+    def queueStatus(self):
+        return self.pQueue
+
+    def addHashList(self, postlist):
+        hash_set = []
+        for i in postlist:
+            hash_set += postlist[i]["hash"]
+        self.addHash(hash_set)
+        print(self.pQueue)
 
     def addHash(self, hash_list):
         for i in hash_list:
@@ -34,10 +52,12 @@ class hashQueue:
         sort_orders = sorted(self.pQueue.items(), key=lambda x: x[1], reverse=True)
         if len(sort_orders) > 0:
             current = sort_orders[0][0]
-            self.processed.append(current)
             if mode == 1:
+                self.processed.append(current)
                 self.assignHash(current)
-            return current
+                return current
+            else:
+                return current
         else:
             return False
 
@@ -52,6 +72,7 @@ class hashQueue:
 
     def getHashPriority(self, tag):
         if tag in self.pQueue:
+
             return self.pQueue[tag]
         else:
             return False
@@ -64,9 +85,6 @@ class hashQueue:
             return self.processed[0]
         else:
             return False
-
-
-main = OrderedDict()
 
 
 def time_retrive(content):
@@ -83,6 +101,8 @@ def time_retrive(content):
 
 
 def hashProbe(threshold, original):
+    print("IN HASHPROBE")
+    targetListFile = open(name + "/test.txt", "a")
     with Image.open(original) as imgOri:
         hash1 = imagehash.average_hash(imgOri, 8).hash
     path = "C:\\tmp\\Genesis-21\\"
@@ -90,9 +110,12 @@ def hashProbe(threshold, original):
     pList = []
     for x in files:
         if sim(threshold, hash1, x):
-            pList.append(x.split(".jpg")[0])
+            url = x.split(".jpg")[0]
+            pList.append(url)
+            targetListFile.write(url)
     print(pList)
     postDataScrapper(pList)
+    targetListFile.close()
 
 
 def login(driver):
@@ -209,6 +232,7 @@ def initScrapper(tag, timeLimit):
 
 
 def download(pack):
+    print("Downloading")
     for x in pack.keys():
         while True:
             filename = "C:\\tmp\\Genesis-21\\" + x[:-1] + ".jpg"
@@ -226,16 +250,20 @@ def download(pack):
             else:
                 continue
             break
+    hashProbe(82, target)
 
 
 def sim(similarity, hash1, img2):
-    with Image.open("C:\\tmp\\Genesis-21\\" + img2) as imgCK:
-        hash2 = imagehash.average_hash(imgCK, 8).hash
-    threshold = 1 - similarity / 100
-    diff_limit = int(threshold * (8 ** 2))
-    if np.count_nonzero(hash1 != hash2) <= diff_limit:
-        return True
-    else:
+    try:
+        with Image.open("C:\\tmp\\Genesis-21\\" + img2) as imgCK:
+            hash2 = imagehash.average_hash(imgCK, 8).hash
+        threshold = 1 - similarity / 100
+        diff_limit = int(threshold * (8 ** 2))
+        if np.count_nonzero(hash1 != hash2) <= diff_limit:
+            return True
+        else:
+            return False
+    except:
         return False
 
 
@@ -277,15 +305,14 @@ def postDataScrapper(postsList):
                 'tabindex="0">')[1]
 
         soup = BeautifulSoup(content, features="lxml")
-
+        hash_list = []
         for url in soup.find_all('a'):
             tags = url.get('href')
             if "/explore/tags/" in tags:
                 hash_list.append(tags.split("/explore/tags/")[1][0:-1])
-
-        postDetails["hash"] = hash_list
-
-    print(postDetails)
+        postDetails[x]["hash"] = hash_list
+    tag_bucket.addHashList(postDetails)
+    # print(postDetails)
 
 
 def generateHTML(post_Details):
@@ -298,6 +325,12 @@ def generateHTML(post_Details):
     pass
 
 
-"""initScrapper(input("Enter the Hashtag to search"), 20)
-hashProbe(82, "C:\\tmp\\1.jpg")"""
-postDataScrapper(["CWvktj3ophu"])
+
+tag_bucket = hashQueue({"samsungleaks": 1, "samsungfan": 1})
+"""
+initScrapper(tag_bucket.nextHash(1), 5)
+#postDataScrapper(["CWvktj3ophu"])
+#hashProbe(82, target)
+"""
+
+hashProbe(82, target)
