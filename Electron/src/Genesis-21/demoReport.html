@@ -2,26 +2,24 @@
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
-  <title>CodePen - Flexbox Cards</title>
+  <title>CodePen - Flexbox Cboxs</title>
   <link href='https://fonts.googleapis.com/css?family=Jaldi|Roboto+Condensed' rel='stylesheet' type='text/css'>
 <meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.3/animate.min.css'>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
 <style>
-	.container {
+	.boxContainer1 {
   max-width: 1100px;
   margin: 0 auto;
 }
 
-p {
-  color: blue;
-}
+
 
 .iframe {
   width: 100%;
 }
 
-.cards {
+.Cboxs {
   display: -webkit-flex;
   display: flex;
   -webkit-justify-content: center;
@@ -35,7 +33,7 @@ p {
   box-sizing: border-box;
 }
 
-.card {
+.Cbox {
   position: relative;
   margin-bottom: 20px;
   padding-bottom: 30px;
@@ -50,35 +48,35 @@ p {
   border-radius: 4px;
 }
 @media (max-width: 700px) {
-  .card {
+  .Cbox {
     width: 100%;
   }
 }
 @media (min-width: 700px) {
-  .card {
+  .Cbox {
     max-width: 320px;
     margin-right: 20px;
     margin-bottom: 20px;
   }
-  .card:nth-child(even) {
+  .Cbox:nth-child(even) {
     margin-right: 0;
   }
 }
 @media (min-width: 980px) {
-  .card:nth-child(even) {
+  .Cbox:nth-child(even) {
     margin-right: 20px;
   }
-  .card:nth-child(3n) {
+  .Cbox:nth-child(3n) {
     margin-right: 0;
   }
 }
-.card span {
+.Cbox span {
   display: block;
 }
-.card .card-summary {
+.Cbox .Cbox-summary {
   padding: 5% 5% 3% 5%;
 }
-.card .card-header {
+.Cbox .Cbox-header {
   position: relative;
   height: 175px;
   overflow: hidden;
@@ -91,11 +89,11 @@ p {
   -webkit-border-radius: 4px;
   border-radius: 4px 4px 0 0;
 }
-.card .card-header:hover, .card .card-header:focus {
+.Cbox .Cbox-header:hover, .Cbox .Cbox-header:focus {
   background-color: rgba(255, 255, 255, 0);
 }
 
-.card .card-meta {
+.Cbox .Cbox-meta {
   max-height: 0;
   overflow: hidden;
   color: #666;
@@ -117,84 +115,62 @@ p {
   -webkit-transition-timing-function: ease-in-out;
   transition-timing-function: ease-in-out;
 }
-.card:hover, .card:focus {
+.Cbox:hover, .Cbox:focus {
   background: white;
   -moz-box-shadow: rgba(0, 0, 0, 0.45) 0px 0px 20px 0px;
   -webkit-box-shadow: rgba(0, 0, 0, 0.45) 0px 0px 20px 0px;
   box-shadow: rgba(0, 0, 0, 0.45) 0px 0px 20px 0px;
 }
-.card:hover .card-title, .card:focus .card-title {
+.Cbox:hover .Cbox-title, .Cbox:focus .Cbox-title {
   background: rgba(157, 187, 63, 0.95);
 }
-.card:hover .card-meta, .card:focus .card-meta {
+.Cbox:hover .Cbox-meta, .Cbox:focus .Cbox-meta {
   max-height: 1em;
 }
 
-
-body {
-  background: #f0f0f0;
-  font-size: 17px;
-  line-height: 1.4;
-  font-family: 'Jaldi', sans-serif;
-}
-
-* {
-  -moz-transition-property: background-color, border-color, box-shadow, color, opacity, text-shadow, -moz-transform;
-  -o-transition-property: background-color, border-color, box-shadow, color, opacity, text-shadow, -o-transform;
-  -webkit-transition-property: background-color, border-color, box-shadow, color, opacity, text-shadow, -webkit-transform;
-  transition-property: background-color, border-color, box-shadow, color, opacity, text-shadow, transform;
-  -moz-transition-duration: 0.2s;
-  -o-transition-duration: 0.2s;
-  -webkit-transition-duration: 0.2s;
-  transition-duration: 0.2s;
-  -moz-transition-timing-function: linear;
-  -o-transition-timing-function: linear;
-  -webkit-transition-timing-function: linear;
-  transition-timing-function: linear;
-}
 
 </style>
 </head>
 <body>
 <!-- partial:index.partial.html -->
-<div class="container">
-	<div class="cards">
+<div class="boxContainer1">
+	<div class="Cboxs">
 	
 
-		<a class="card" href="#">
-			<span class="card-header"><iframe src = "https://www.instagram.com/p/CV55qKrIPhg/embed"></iframe>
+		<a class="Cbox" href="#">
+			<span class="Cbox-header"><iframe src = "https://www.instagram.com/p/CV55qKrIPhg/embed"></iframe>
 			</span>
-			<span class="card-summary">
+			<span class="Cbox-summary">
 				Account Name : themobiltrend
 			<br><hr>
 				Posted:<p> 2021-11-05T 18:45:17.000Z</p>
 			</span>
 		</a>
 
-		<a class="card" href="#">
-			<span class="card-header"><iframe src = "https://www.instagram.com/p/CV5f7THh__q/embed"></iframe>
+		<a class="Cbox" href="#">
+			<span class="Cbox-header"><iframe src = "https://www.instagram.com/p/CV5f7THh__q/embed"></iframe>
 			</span>
-			<span class="card-summary">
+			<span class="Cbox-summary">
 				Account Name : wildan._.hafidzy
 			<br><hr>
 				Posted:<p> 2021-11-05T 15:00:26.000Z</p>
 			</span>
 		</a>
 		
-		<a class="card" href="#">
-			<span class="card-header"><iframe src = "https://www.instagram.com/p/CV7hI8xtGT6/embed"></iframe>
+		<a class="Cbox" href="#">
+			<span class="Cbox-header"><iframe src = "https://www.instagram.com/p/CV7hI8xtGT6/embed"></iframe>
 			</span>
-			<span class="card-summary">
+			<span class="Cbox-summary">
 				Account Name : thedtechofficial
 			<br><hr>
 				Posted:<p> 2021-11-06T 09:49:31.000Z</p>
 			</span>
 		</a>
 		
-		<a class="card" href="#">
-			<span class="card-header"><iframe src = "https://www.instagram.com/p/CWCa6v4hUDl/embed"></iframe>
+		<a class="Cbox" href="#">
+			<span class="Cbox-header"><iframe src = "https://www.instagram.com/p/CWCa6v4hUDl/embed"></iframe>
 			</span>
-			<span class="card-summary">
+			<span class="Cbox-summary">
 				Account Name : geeky_cat_00
 			<br><hr>
 				Posted:<p> 2021-11-09T 02:09:50.000Z</p>

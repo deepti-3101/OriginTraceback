@@ -1,4 +1,46 @@
-const pages = ["Configuration", "manageSearch", "dashboard", "activity", "documentation", "newSearch"];
+const pages = ["Configuration", "manageSearch", "dashboard", "activity", "documentation", "newSearch", "results"];
+
+
+const firebaseConfig = {
+    apiKey: "AIzaSyAwx9dACKU9zOZypdg_En2mQGcLo5E3ME4",
+    authDomain: "project-genesis-21.firebaseapp.com",
+    databaseURL: "https://project-genesis-21-default-rtdb.firebaseio.com",
+    projectId: "project-genesis-21",
+    storageBucket: "project-genesis-21.appspot.com",
+    messagingSenderId: "957797207090",
+    appId: "1:957797207090:web:aa8f09c4b1bc74b771c02b",
+    measurementId: "G-NC95N7MJEC"
+  };
+  
+  
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+
+read()
+
+
+  function read(){  
+
+
+    firebase.database().ref('searchTest1/').on('value',(snap)=>{
+    renderHTML(snap.val());;})
+    }
+  
+    function renderHTML(value){
+        innerHTML = "<div class = 'boxContainer1'><div class='Cboxs'>";
+      for(i in value){
+        innerHTML += '<a class="Cbox" href="#"><span class="Cbox-header"><iframe src = "' + value[i][
+            "link"] + 'embed"></iframe></span><span class="Cbox-summary"> Account Name : ' + value[i][
+                         "account"] + '<br><hr>Posted:<p>' + value[i]["postTime"] + '</p></span></a>'
+      }
+
+      innerHTML += "</div></div>"
+      document.getElementById("resultRender").innerHTML = innerHTML;
+  
+  }
+  
+
+
 
 
 function OpenPage(id){
