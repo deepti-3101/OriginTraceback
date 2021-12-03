@@ -1,9 +1,9 @@
 .htmll {
-<<<<<<< Updated upstream
+
     box-sizing: border-box;
   }
   
-  *, *:before, *:after {
+  .htmll:before, .htmll:after {
     box-sizing: inherit;
   }
   
@@ -16,7 +16,7 @@
     width: 100%;
   }
   
-  .ir > * {
+  .ir > .htmll {
     position: absolute;
     height: 100%;
     width: 100%;
@@ -24,29 +24,28 @@
     left: 0;
   }
   
-  html, body {
-    background: #102542;
+  .htmll {
     align-items: center;
   }
   
-  html {
+  .htmll {
     font-size: 0.625em;
   }
-  .title{
+  .title1{
       display: block;
       text-align: center;
-      color: #F87060;
-      padding:40px;
+      color: Black;
+      padding:10px;
       font-size: 40px;
 
   }
   
   .soc {
-=======
+
   box-sizing: border-box;
 }
 
-*, *:before, *:after {
+.htmll:before, .htmll:after {
   box-sizing: inherit;
 }
 
@@ -67,25 +66,22 @@
   left: 0;
 }
 
-html, body {
-  background: #102542;
+.htmll {
   align-items: center;
 }
 
-html {
-  font-size: 0.625em;
+.htmll {
+  font-size: 0.425em;
 }
-.title{
->>>>>>> Stashed changes
+.title1{
     display: block;
     text-align: center;
-<<<<<<< Updated upstream
-    width: 110rem;
-    max-width: 100%;
+    width: 90rem;
+    max-width: 90%;
   }
   .soc li {
     display: inline-block;
-    margin: 1.2rem;
+    margin: 0.9rem;
   }
   .soc a, .soc svg {
     display: block;
@@ -110,10 +106,10 @@ html {
   }
   
   .icon-2 {
-    fill: #d96e26;
+    fill:   #F87060;
   }
   .icon-2:hover {
-    background: #d96e26;
+    background:    #F87060;
   }
   
   .icon-3 {
@@ -325,12 +321,8 @@ html {
   .icon-32:hover {
     background: #d96e26;
   }
-=======
-    color: #F87060;
-    padding:40px;
-    font-size: 40px;
 
-}
+
 
 .soc {
   display: block;
@@ -344,14 +336,14 @@ html {
 }
 .soc li {
   display: inline-block;
-  margin: 1.2rem;
+  margin: 0.5rem;
 }
 .soc a, .soc svg {
   display: block;
 }
 .soc a {
-  height: 9.6rem;
-  width: 9.6rem;
+  height: 6.6rem;
+  width: 6.6rem;
 }
 
 .icon-32:hover, .icon-31:hover, .icon-30:hover, .icon-29:hover, .icon-28:hover, .icon-27:hover, .icon-26:hover, .icon-25:hover, .icon-24:hover, .icon-23:hover, .icon-22:hover, .icon-21:hover, .icon-20:hover, .icon-19:hover, .icon-18:hover, .icon-17:hover, .icon-16:hover, .icon-15:hover, .icon-14:hover, .icon-13:hover, .icon-12:hover, .icon-11:hover, .icon-10:hover, .icon-9:hover, .icon-8:hover, .icon-7:hover, .icon-6:hover, .icon-5:hover, .icon-4:hover, .icon-3:hover, .icon-2:hover, .icon-1:hover {
@@ -369,10 +361,10 @@ html {
 }
 
 .icon-2 {
-  fill: #d96e26;
+  fill:  #F87060;
 }
 .icon-2:hover {
-  background: #d96e26;
+  background:  #F87060;
 }
 
 .icon-3 {
@@ -584,4 +576,3 @@ html {
 .icon-32:hover {
   background: #d96e26;
 }
->>>>>>> Stashed changes
