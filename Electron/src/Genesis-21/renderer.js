@@ -38,9 +38,6 @@ read()
       document.getElementById("resultRender").innerHTML = innerHTML;
   
   }
-  
-
-
 
 
 function OpenPage(id){
