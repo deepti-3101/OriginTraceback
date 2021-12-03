@@ -1,0 +1,456 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no">
+<link href="assets/images/favicon.png" rel="icon" />
+<title>TRACING ORIGIN OF SOCIAL MEDIA POST</title>
+<meta name="description" content="Your ThemeForest item Name and description">
+<meta name="author" content="harnishdesign.net">
+
+<!-- Stylesheet
+============================== -->
+<!-- Bootstrap -->
+<link rel="stylesheet" type="text/css" href="assets/vendor/bootstrap/css/bootstrap.min.css" />
+<!-- Font Awesome Icon -->
+<link rel="stylesheet" type="text/css" href="assets/vendor/font-awesome/css/all.min.css" />
+<!-- Magnific Popup -->
+<link rel="stylesheet" type="text/css" href="assets/vendor/magnific-popup/magnific-popup.min.css" />
+<!-- Highlight Syntax -->
+<link rel="stylesheet" type="text/css" href="assets/vendor/highlight.js/styles/github.css" />
+<!-- Custom Stylesheet -->
+<link rel="stylesheet" type="text/css" href="assets/css/stylesheet.css" />
+</head>
+
+<body data-spy="scroll" data-target=".idocs-navigation" data-offset="125">
+
+
+<!-- Document Wrapper   
+=============================== -->
+<div id="main-wrapper"> 
+  
+  <!-- Header
+  ============================ -->
+  <header id="header" class="sticky-top"> 
+    <!-- Navbar -->
+    <nav class="primary-menu navbar navbar-expand-lg navbar-dropdown-dark">
+      <div class="container-fluid">
+        <!-- Sidebar Toggler -->
+		<button id="sidebarCollapse" class="navbar-toggler d-block d-md-none" type="button"><span></span><span class="w-75"></span><span class="w-50"></span></button>
+		
+		<!-- Logo --> 
+        <a class="logo ml-md-3" href="#" title="iDocs Template" style="text-decoration: none;font-weight: bold;color: #000;">TRACING ORIGIN OF SOCIAL MEDIA POST</a> 
+        <!-- Logo End -->
+        
+		<!-- Navbar Toggler -->
+		<button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#header-nav"><span></span><span></span><span></span></button>
+      </div>
+    </nav>
+    <!-- Navbar End --> 
+  </header>
+  <!-- Header End --> 
+  
+  <!-- Content
+  ============================ -->
+  <div id="content" role="main">
+    
+	<!-- Sidebar Navigation
+	============================ -->
+	<div class="idocs-navigation bg-dark docs-navigation-dark">
+      <ul class="nav flex-column ">
+        <li class="nav-item"><a class="nav-link active" href="#section_1">Abstract</a></li>
+        <li class="nav-item"><a class="nav-link" href="#section_2">Introduction</a>
+        <li class="nav-item"><a class="nav-link" href="#section_3">Tech Stack</a></li>
+        <li class="nav-item"><a class="nav-link active" href="#section_4">Data analysis</a></li>
+        <li class="nav-item"><a class="nav-link active" href="#section_5">Post Searching</a>
+          <ul class="nav flex-column">
+            <li class="nav-item"><a class="nav-link" href="#overall_design">Overall design</a></li>
+            <li class="nav-item"><a class="nav-link" href="#Accuracy-and-time">Accuracy and time</a></li>
+            <li class="nav-item"><a class="nav-link" href="#Met">Method</a></li>
+            <li class="nav-item"><a class="nav-link" href="#Rep">Report</a></li>
+            <li class="nav-item"><a class="nav-link" href="#Refe">References</a></li>
+          </ul>
+        </li>        
+      </ul>
+    </div>
+    
+    <!-- Docs Content
+	============================ -->
+    <div class="idocs-content">
+      <div class="container"> 
+        
+        <section>
+        <h1>TRACING ORIGIN OF SOCIAL MEDIA POST</h1>
+        <h4>TEAM NAME: Origin Retreivers</h4>
+        <h4>TEAM MEMBERS: </b>Deepti A, Dominic Walter T, Ahamed Aamina Banu Y, Saratha Selvi K, Aarka Christal Sujaa G</h3>
+        <h4>Problem Statement : (INTL-DA-08)</h4>
+        <p class="lead">Build a solution that is able to track the origin of a given social media post (provided as an input URL or content) and identify the account, along with its details, which posted it first on that particular platform</p>
+        <a href="https://www.youtube.com/watch?v=r-HmjKApXIs" target="_blank">Presentation video</a>
+        </section>
+        
+		    <hr class="divider">
+		
+        <!-- Installation
+		============================ -->
+        <section >
+          <h2 id="section_1">1. Abstract:</h2>
+          <p class="lead">Images/ videos of individuals, taken with or without consent and often of a sexually-explicit nature, are posted on various social media platforms as a tactic of abuse by perpetrators with the intent to harass, impersonate, humiliate and cause harm. Such content has a tendency to instantly become viral and causes a lot of distress to the victim.
+            Given a piece of text, image, or video snippet as input, we build a solution that can identify the person who was the first one to post it online on a particular social media platform.
+            We give a detailed report on how we reached a particular result.
+            This project will have a high real-time use as it solves one of the major problems faced by our society.</p>
+        </section>
+        
+		    <hr class="divider">
+		
+        <!-- HTML Structure
+		============================ -->
+        <section id="section_2">
+          <h2>2. Introduction:</h2>
+          <p class="lead">We tend to take advantage of the vast and interactive platform of social media, but we forget to notice the downside of it. Nowadays, even a single post can ruin a persons life, and yet we have failed to stop it. So our project will be a milestone in making peoples lives better. Every day, we see hundreds of messages forwarded across the globe, and it is almost impossible for us to find the origin of it. Once any content is released, it is shared, re-posted, and forwarded many times than we can imagine. This becomes a vulnerability. Hence, we are proposing a way to find the origin of any post. Thus, we find the user responsible for releasing abusive content. Our project uses image hashing to identify and compare the content that is retrieved from any media. Further, using a real-time database the information is organized and stored. Finally, the data is mapped to its origin for the first time it was ever posted.</p>
+        </section>
+        
+		    <hr class="divider">
+		        
+        <section id="section_3">
+          <h2>3. Tech Stack:</h2>
+          <p>Language: Python 3.0<br>Libraries: ImageHash, Ipyplot, Numpy, Pandas, BeautifulSoup</p>
+          <h3>Python 3.0</h3>
+          <p>
+          Python is an interpreted high-level general-purpose programming language.<br>
+          Its design philosophy emphasizes code readability with its use of significant indentation.<br>
+          Its language constructs as well as its object-oriented approach aim to help programmers write clear, logical code for a small and large-scale project.<br>
+          Python 3 is a new version of the language.<br>
+          We considered python due to its richness in libraries and the flexibility offered by it.<br>
+          Python also shines bright in the data science area as it has numerous built-in features which makes it easy to tackle the needs.<br>
+          </p>
+          <h3>Libraries:</h3>
+          <h4>ImageHash</h4>
+          <p>
+          Image hashes tell whether two images look nearly identical. This is different from cryptographic hashing algorithms where tiny changes in the image give completely different hashes. In image fingerprinting, we actually want our similar inputs to have similar output hashes as well. The image hash algorithms (average, perceptual, difference, wavelet) analyze the image structure on luminance (without color information). The color hash algorithm analyses the color distribution and black & gray fractions (without position information).
+          </p>	
+          <h4>Ipyplot</h4>
+          <p>
+          IPyPlot is a small python package offering fast and efficient plotting of images inside ipython Notebooks cells. It's using IPython with HTML for faster, richer, and more interactive ways of displaying big numbers of images.
+          </p>
+          <h4>NumPy</h4>
+          <p>
+          NumPy stands for Numerical Python. It is a Python library used for working with arrays. It also has functions for working in the domain of linear algebra, Fourier transform, and matrices. It is an open-source project and we can use it freely. In Python, we have lists that serve the purpose of arrays, but they are slow to process.NumPy aims to provide an array object that is up to 50x faster than traditional Python lists.
+          </p> 
+          <h4>Pandas</h4>
+          <p>
+          Pandas is a Python package providing fast, flexible, and expressive data structures designed to make working with relational or labeled data both easy and intuitive. It aims to be the fundamental high-level building block for doing practical, real-world data analysis in Python. Additionally, it has the broader goal of becoming the most powerful and flexible open-source data analysis/manipulation tool available in any language
+          </p>
+          <h4>Scikit-learn</h4>
+          <p>
+          Scikit-learn (Sklearn) is the most useful and robust library for machine learning in Python. It provides a selection of efficient tools for machine learning and statistical modeling including classification, regression, clustering, and dimensionality reduction via a consistent interface in Python.
+          </p>
+          <h4>
+            Tensor Flow
+          </h4>
+          <p>
+            TensorFlow is an open-source artificial intelligence library, using data flow graphs to build models. It allows developers to create large-scale neural networks with many layers. TensorFlow is mainly used for: Classification, Perception, Understanding, Discovering, Prediction and Creation.
+
+          </p>
+          <h4>BeautifulSoup</h4>
+          <p>
+Beautiful Soup is a library that makes it easy to scrape information from web pages. It sits atop an HTML or XML parser, providing Pythonic idioms for iterating, searching, and modifying the parse tree.
+</p>
+        </section>
+        
+        <hr class="divider">
+        
+        <section id="section_4">
+          <h2>4. Data Analysis - Determining Content Severity</h2>
+          <h3>4.1 Overall design and Flow:</h3>
+          <p>
+            Our algorithm is divided into four stages as follows:  
+          </p>
+          <ul>
+          
+            <li>Creating and deploying agents.
+            </li>
+            <li>Data scraping / Sanitising
+            </li>
+            <li>Rating content with ML models
+            </li>
+            <li>Compiling Report/ Rendering warnings.
+            </li>
+          </ul>
+          <h3>
+            4.1.1 Creating and Deploying agents
+
+
+          </h3>
+          <h4>
+            4.1.1.1 Creating agent:
+ 
+          </h4> 
+          <p>
+            Severity rating process for a particular topic is handled by the agent that is assigned to it. An agent is a bot that uses models to classify posts automatically and stores them in a centralised database. Users can create multiple agents at the same time for different topics. They take three main parameters : Topic, Collection rate, Unique ID. 
+          </p>
+          <h4>
+            4.1.1.2 Deploying Agents: 
+          </h4>
+          <p>
+            Agents can be deployed after initialization, they retrieve the latest posts on the given topic, process the content, comments and other parameters (Platform specific features), assign severity value to it and store details to the database.
+ 
+          </p>
+          <h3>
+            4.1.2 Data Scraping: 
+          </h3>
+          <h4>
+            4.1.2.1 Choosing Parameters (Hashtags):
+ 
+          </h4>
+          <p>
+            The content rating can be done after narrowing the search, with the help of Hashtags. A hashtag is a label used on social media sites that makes it easier to find posts or information with a theme or contains specific content. It is created by including the symbol “#” in front of a word or words without spaces. Hashtags simplify the process – Searching a hashtag pulls results for each post .Hashtag helps us to reach the target posts.
+ 
+          </p>
+          <h4>
+            4.1.2.2 Retrieving data:
+
+          </h4>
+          <p>
+            Agents use native APIs of the respective social media platforms to directly get responses. The received response will be in a well structured JSON format.
+          </p>
+          <img src="assets/images/json.png">
+          <h4>
+            4.1.2.3Sanitising data:
+          </h4>
+          <p>
+            Necessary data is filtered from the raw JSON type response and will be sent for getting severity rating.
+ 
+          </p>
+          <img src="assets/images/links-posts.png">
+          <h4>
+            4.1.1.3 Rating content with ML models
+
+          </h4>
+          <p>
+            The collected data is processed with our mission learning algorithms. They classify a topic in three different ways based on the severity. Safe, moderate and vulgar, The agents display a safe green symbol, a moderate yellow symbol and a vulgar red which blurs the content of the post depending on the return value of our ml model.
+
+          </p>
+          <img src="assets/images/rating-content.jpg">
+          <h4>
+            4.1.1.4 Compiling Report/ Rendering warnings
+
+          </h4>
+          <p>
+            The user is given warnings in case of any exception. A compiling report is generated for the user reference.It contains all the necessary details such as the date, time, profile name, account username and so on. The details will be generated as a html file.
+
+          </p>
+
+        </section>
+    
+        <hr class="divider">
+
+        <section id="section_5">
+          <h2>5. Post Searching(Posts, Reposts, Edits)</h2>
+          <h3 id="overall_design">5.1 Overall design:</h3>
+          <p>
+          Our algorithm is divided into four stages as follows:</p>
+          <ul> 
+          <li>Data scraping</li>
+          <li>Sanitizing & Organising data</li>
+          <li>Origin Computation</li>
+          <li>Compiling Report.</li>
+          </ul></p>
+          
+          <h2><b>The flow of Algorithms:</b></h2>
+          <img src="assets/images/post-searching.jpg">
+          
+          <h4>Example : 5.1.1 Data Scraping:</h4>
+          <h4>5.1.1.1 Effective way of searching:</h4>
+          <p>
+          In order to make scraping for images more effective, we have developed an algorithm that uses hashtags ( # tags )  to navigate to the main page and narrows the scope of the search, this helps in reducing the waste of computational power spent on a broader search. However, if the algorithm cannot find any hashtags associated with the given post, it can get manual input from the user at the time of triggering else will launch a broader search based on location and other aspects
+          <img src="assets/images/data-scraping.jpg">
+          
+          <br>In this example, we show how to extract hashtags using developer console, in the actual project this will be automated.
+          </p>
+          
+          <h4>5.1.1.2  Data retrieved:</h4>
+          <p>
+          On exploring every new node we collect the following data for processing
+          <ul>
+          <li>1.Time and date of the post (if the post is relatively old, only the date)</li>
+          <li>2.The URL of the image involved in the post</li>
+          <li>3.Account username</li>
+          <li>4.Social interactions (number of likes and comments)</li>
+          <li>5.Hashtags used (or the equivalent - depending on the social media platform)</li>
+          </ul></p>
+          <p> <img src="assets/images/data-retrieved.jpg"><br>
+          In this picture, we show how to retrieve time and date from an Instagram post using chrome developer console, the same will be automated in the actual project. We can extract time accurately up to minutes and sometimes even the exact second can be retrieved. 
+          </p>
+          
+          
+          <h4>5.1.2 Sanitizing & Organising data</h4>
+          <p>
+          To process the data we collect, we first should organize the data. Considering the vast amounts of data we need to process, we build the solution in such a way that we collect data to a centralized server. This enables distributive computing, by sharing workloads between an array of computers. 
+          </p>
+          <h3>Our scheme is as follows :</h3>
+          
+          <h4>5.1.2.1 Hashing:</h4>
+          <p>To compare images between posts, we hash the images and compare the hash values, we designed special algorithms that use different hashing techniques to conclude whether two images are edits of the same post 
+          
+          Example: Hash values of an image with various algorithms<br> 
+          </p>
+          <img src="assets/images/hashing.jpg">
+          <h4>5.1.2.2 Database:</h4>
+		<p>The temporary data which are processed by the model will be stored in the temp folder. It will contain the scrapped post, the hash details and data for origin computation.
+Initially selenium API scraps posts, which are stored in the folder, further the content is narrowed down using our hashing algorithm. 
+</p>          
+<p>
+          We are using Google Firebase Realtime Database as the centralized database solution for storing/retrieving node data and hash values for computation. This enables us to split work between different computers, improving the overall performance of our solution
+          <br>
+          <b>Example:</b> Firebase console RTDB<br> <img src="assets/images/database.jpg">
+          </p>
+          
+          <h4>5.1.2.3 Exporting node data:</h4>
+          <p>
+          Node data can be exported into JSON files after exploration directly. These datasets can be used for other analytics, and further analysis of the case depending upon the initial report and situation.
+          <br> <img src="assets/images/export-json.jpg">
+          </p>
+          
+          <h4>5.1.2.4 Data structure:</h4>
+          <img src="assets/images/data structure.PNG">
+          
+          <h4>Explanation:</h4>
+          <p>
+          Root: Type<br>
+          String Content:URL of the given post
+          </p>
+          <h4>Nodes</h4>
+          <p>
+          Type:JSON <br> 
+          Content: a collection of all the scraped posts
+          </p>
+          
+          <h4>Hash value: (with serial number)</h4>
+          <p>
+          Type:JSON <br> 
+          Content:Data scrapping from a post represented by its unique hash 
+          </p>
+
+          <h4>5.1.3 Origin Computation:</h4>
+          <p>
+          To traceback to the original post, we have designed the algorithm as follows<br>
+          
+          After retrieving data from RTDB, hashes will be sequentially processed to sort it in chronological order based on the time and date, in case of unavailability of certain data, it will be computed based on other parameters like the number of comments, shares, likes, and etc, creating a tree structure representing the flow of posts. Eventually, the start will be converging to fewer nodes. We then calculate the probability of being the origin for every node based on parameters other.
+          </p>
+
+          <h4>Example:</h4>
+          <img src="assets/images/origin-computation.jpg">
+          <h4>5.1.4 Report</h4>
+          <p>
+          After computation to share the conclusions, we procedurally generate an HTML document and a pdf. The HTML document contains a very detailed flow of posts and data represented by every node in the network in a human-readable format. It will also contain additional data retrieved by the system and tooltips justifying the node's position in the graph. The Pdf file will have a summary of the search and conclusions, without displaying any data.
+          </p>
+          
+          <h3 id="Accuracy-and-time">5.2 Accuracy and time:</h3>
+          <p>
+            In order to trace back to the origin, we need to search, index, and profile all the images under some constraints which take a tremendous amount of time and computation power, to tackle this we created different algorithms that balance the time and accuracy into different proportions, discussed more on the methods in the following section.
+
+          </p>
+          <h3>Accuracy:</h3>
+          <p>we have estimated the accuracy of the most accurate method of this solution as at least 89%. The actual numbers can only be calculated on the completion of this project. It also depends greatly on the hashing algorithms we use, so in order to improve the accuracy of the algorithms, we sanitize the input image we provide for hashing, more details are mentioned in the following sections.
+
+          </p>
+          <h3 id="Met"> 5.3 Methods</h3>
+          <p>Different methods we provide:</p>
+          <ul>
+            <li>  1.Fastest Method</li>
+              <ul>
+                <li>1.1 Looks for the exact image, audio, video file - fails with edits and compression</li>
+                <li>1.2 Uses a single hashing algorithm</li>
+                <li>1.3 Fastest of all three methods</li>
+                <li>1.4 Accuracy is less</li>
+              </ul>
+            <li>2 Normal Method
+            </li>
+            <ul>
+              <li>2.1 Uses two Hashing Algorithms
+              </li>
+              <li>2.2 Validation of search and computation
+              </li>
+              <li>2.3 Can tolerate minor compressions and edits
+              </li>
+              <li>2.4 More accurate than the previous method</li>
+            </ul>
+            <li>3. Deep search</li>
+            <ul>
+              <li>3.1 Most accurate </li>
+              <li>3.2 Takes more time relatively</li>
+              <li>3.3 Accounts major edits and compression</li>
+              <li>3.4 Uses several hashing techniques to validate results</li>
+            </ul>
+            <li>4.Additional Methods (Optional):</li>
+            <ul>
+              <li>4.1 Search part of a picture (if the clue is suspected to be cropped picture)</li>
+              <ul>
+                <li>4.1.1Adds to additional time in computing results
+                </li>
+                <li>4.1.2A detailed report will be included with every branch</li>
+              </ul>
+              <li>4.2<b>Grid Verification: </b>splits the image into 3x3 grid and algorithm proceeds individually with every piece, this increases the chance of matching the edited pictures </li>
+            </ul>
+          </ul>
+          <h3 id="Rep">5.4 Report of the search </h3>
+          <p>1. HTML file:</p>
+          <ul>
+            <li>1.1. Display the processed information.</li>
+            <li>1.2. create a dynamic interactive graph to follow the flow of posts</li>
+          <ul>
+            <li>1.2.1. On hovering, it exposes the user to further data
+            </li>
+          </ul>
+          <li>1.3.The nodes are displayed as cards
+          </li>
+          <ul>
+            <li>1.3.1. It shows the navigation of posts
+            </li>
+          </ul>
+          </ul>
+
+        <h3>2. Pdf-summary:</h3>
+        <p>It contains a detailed report based on the algorithm executed. It gives the conclusion, final result of the search to the end-user. This does not expose any intermediate node data or branch decisions.</p>
+        </p>
+        <h3 id="Refe">
+          References:
+ 
+        </h3>
+        
+        <a href="https://www.google.com/">1.Google</a><br>
+        <a href="https://www.youtube.com/">2.Youtube</a><br>
+        <a href="https://www.quora.com/">3.Quora</a><br>
+        <a href="https://www.python.org/doc/">4.https://www.python.org/doc/
+        </a><br>
+        <a href="https://en.wikipedia.org/wiki/Python_(programming_language)">5.https://en.wikipedia.org/wiki/Python_(programming_language)
+        </a><br>
+        <a href="https://www.geeksforgeeks.org/">6.GeeksforGeeks | A computer science portal for geeks
+        </a><br>
+        <a href="https://codepen.io/">7.Codepen.io
+        </a><br>
+      
+        </section>
+
+  <!-- Content end -->   
+</div>
+<!-- Document Wrapper end --> 
+
+<!-- Back To Top --> 
+<a id="back-to-top" data-toggle="tooltip" title="Back to Top" href="javascript:void(0)"><i class="fa fa-chevron-up"></i></a> 
+
+<!-- JavaScript
+============================ -->
+<script src="assets/vendor/jquery/jquery.min.js"></script> 
+<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script> 
+<!-- Highlight JS -->
+<script src="assets/vendor/highlight.js/highlight.min.js"></script> 
+<!-- Easing --> 
+<script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script> 
+<!-- Magnific Popup --> 
+<script src="assets/vendor/magnific-popup/jquery.magnific-popup.min.js"></script> 
+<!-- Custom Script -->
+<script src="assets/js/theme.js"></script>
+</body>
+</html>
