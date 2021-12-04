@@ -29,9 +29,11 @@ read()
     function renderHTML(value){
         innerHTML = "<div class = 'boxContainer1'><div class='Cboxs'>";
       for(i in value){
-        innerHTML += '<a class="Cbox" href="#"><span class="Cbox-header"><iframe src = "' + value[i][
+          if (value[i]["account"] != null){
+        innerHTML += '<div class="Cbox" href="#"><span class="Cbox-header"><iframe src = "' + value[i][
             "link"] + 'embed"></iframe></span><span class="Cbox-summary"> Account Name : ' + value[i][
-                         "account"] + '<br><hr>Posted:<p>' + value[i]["postTime"] + '</p></span></a>'
+                         "account"] + '<br><hr><h6>Posted: ' + value[i]["postTime"] + '</h6></span></div>'
+                        }
       }
 
       innerHTML += "</div></div>"
