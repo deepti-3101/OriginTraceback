@@ -20,12 +20,21 @@ body {
   left: 0%;
   top: 0%;
   background-color: rgba(255, 255, 255, 0.7);
-  -moz-border-radius: 4px;
-  -webkit-border-radius: 4px;
-  border-radius: 4px;
   -moz-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
   -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
+}
+
+.pageHeader2{
+ 
+  height: 20px;
+  line-height: 50px;
+  background-color: #10254294;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  vertical-align: super;
+
 }
 
 .pageHeader {
@@ -47,6 +56,7 @@ body {
   font-size: 1.5em;
   font-weight: 700;
 }
+
 .pageHeader .userPanel {
   width: 40%;
   float: right;
@@ -65,9 +75,7 @@ body {
 }
 .pageHeader .userPanel img {
   float: right;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
-  border-radius: 5px;
+
 }
 
 .main {
@@ -91,9 +99,7 @@ body {
   line-height: 30px;
   margin: 15px;
   background-color: White;
-  -moz-border-radius: 4px;
-  -webkit-border-radius: 4px;
-  border-radius: 4px;
+
 }
 .main .nav .searchbox i {
   display: inline-block;
@@ -131,9 +137,6 @@ body {
   font-weight: 600;
   margin-right: 30px;
   padding-left: 10px;
-  -moz-border-radius: 4px;
-  -webkit-border-radius: 4px;
-  border-radius: 4px;
   transition: 0.25s all;
 }
 .main .nav .menu ul li.active1 {
@@ -177,9 +180,7 @@ body {
   height: 30px;
   line-height: 30px;
   background-color: #AAA;
-  -moz-border-radius: 4px;
-  -webkit-border-radius: 4px;
-  border-radius: 4px;
+
   margin: 0px 5px;
   padding: 0px 20px;
   cursor: pointer;
@@ -255,9 +256,6 @@ body {
   height: 30px;
   line-height: 30px;
   background-color: #AAA;
-  -moz-border-radius: 4px;
-  -webkit-border-radius: 4px;
-  border-radius: 4px;
   margin: 10px 10px;
   text-align: center;
   cursor: pointer;
@@ -678,6 +676,7 @@ position: absolute;
   -webkit-flex-wrap: wrap;
   flex-wrap: wrap;
   margin-top: 15px;
+  width: 100%;
   padding: 1.5%;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -687,15 +686,17 @@ position: absolute;
 .Cbox {
   position: relative;
   margin-bottom: 20px;
+  margin-right: 20px;
   padding-bottom: 30px;
-  background: #102542;
-  color: #ffffff;
-  border-radius: 20px;
+  background: #fefff9;
+  color: #bbb4b4;
   text-decoration: none;
   -moz-box-shadow: rgba(0, 0, 0, 0.19) 0 0 8px 0;
   -webkit-box-shadow: rgba(0, 0, 0, 0.19) 0 0 8px 0;
   box-shadow: rgba(0, 0, 0, 0.19) 0 0 8px 0;
- 
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
 }
 @media (max-width: 700px) {
   .Cbox {
@@ -708,17 +709,12 @@ position: absolute;
     margin-right: 20px;
     margin-bottom: 20px;
   }
-  .Cbox:nth-child(even) {
-    margin-right: 0;
-  }
 }
 @media (min-width: 980px) {
   .Cbox:nth-child(even) {
     margin-right: 20px;
   }
-  .Cbox:nth-child(3n) {
-    margin-right: 0;
-  }
+ 
 }
 .Cbox span {
   display: block;
@@ -766,7 +762,7 @@ position: absolute;
   transition-timing-function: ease-in-out;
 }
 .Cbox:hover, .Cbox:focus {
-  background: #102542c1;
+  background: white;
   -moz-box-shadow: rgba(0, 0, 0, 0.45) 0px 0px 20px 0px;
   -webkit-box-shadow: rgba(0, 0, 0, 0.45) 0px 0px 20px 0px;
   box-shadow: rgba(0, 0, 0, 0.45) 0px 0px 20px 0px;
@@ -775,6 +771,14 @@ position: absolute;
   background: rgba(157, 187, 63, 0.95);
 }
 .Cbox:hover .Cbox-meta, .Cbox:focus .Cbox-meta {
-  background: #102542c1;
   max-height: 1em;
+}
+#close2 {
+  cursor: pointer;
+
+}
+
+.pageHeader2:hover{
+  color: red;
+  cursor: pointer;
 }
