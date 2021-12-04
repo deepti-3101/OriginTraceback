@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7b0a5f16-e8a4-45df-bff3-b94646200da5" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Electron/src/Genesis-21/dashboard.css" beforeDir="false" afterPath="$PROJECT_DIR$/Electron/src/Genesis-21/dashboard.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Electron/src/Genesis-21/demoReport.html" beforeDir="false" afterPath="$PROJECT_DIR$/Electron/src/Genesis-21/demoReport.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Electron/src/Genesis-21/renderer.js" beforeDir="false" afterPath="$PROJECT_DIR$/Electron/src/Genesis-21/renderer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Electron/src/Genesis-21/report.html" beforeDir="false" afterPath="$PROJECT_DIR$/Electron/src/Genesis-21/report.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

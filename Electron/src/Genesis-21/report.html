@@ -77,13 +77,13 @@ form.charsheet ul li {
   display: block;
 }
 form.charsheet ::-moz-placeholder {
-  color: #bbb;
+  color: #102542;
 }
 form.charsheet :-ms-input-placeholder {
-  color: #bbb;
+  color: #102542;
 }
 form.charsheet ::placeholder {
-  color: #bbb;
+  color: #102542;
 }
 form.charsheet label {
   text-transform: uppercase;
@@ -99,7 +99,7 @@ form.charsheet header section.charname {
   border-right: 0;
   border-radius: 10px 0 0 10px;
   padding: 5px 0;
-  background-color: #eee;
+  background-color: #10254271;
   width: 30%;
   display: flex;
   flex-direction: column-reverse;
@@ -174,7 +174,7 @@ form.charsheet main > section section.attributes {
 }
 form.charsheet main > section section.attributes div.scores {
   width: 101px;
-  background-color: #bbb;
+  background-color: #102542;
   border-radius: 10px;
   padding-bottom: 5px;
 }
@@ -274,7 +274,7 @@ form.charsheet main > section section.attributes div.attr-applications div.list-
   order: 3;
 }
 form.charsheet main > section section.attributes div.attr-applications div.list-section ul li label span.skill {
-  color: #bbb;
+  color: #102542;
 }
 form.charsheet main > section section.attributes div.attr-applications div.list-section ul li input[type=text] {
   width: 30px;
@@ -313,7 +313,7 @@ form.charsheet main > section div.otherprofs textarea {
   height: 26em;
 }
 form.charsheet main section.combat {
-  background-color: #eee;
+  background-color: #10254271;
   display: flex;
   flex-wrap: wrap;
   border-radius: 10px;
@@ -367,7 +367,7 @@ form.charsheet main section.combat > div.hp > div.regular > div.max {
 form.charsheet main section.combat > div.hp > div.regular > div.max label {
   font-size: 10px;
   text-transform: none;
-  color: #bbb;
+  color: #102542;
 }
 form.charsheet main section.combat > div.hp > div.regular > div.max input {
   width: 40%;
@@ -437,7 +437,7 @@ form.charsheet main section.combat > div.hitdice > div > div.total {
 }
 form.charsheet main section.combat > div.hitdice > div > div.total label {
   font-size: 10px;
-  color: #bbb;
+  color: #102542;
   margin: 0.25em;
   text-transform: none;
 }
@@ -535,7 +535,7 @@ form.charsheet main section.attacksandspellcasting > div > table th {
 form.charsheet main section.attacksandspellcasting > div > table input {
   width: calc(100% - 4px);
   border: 0;
-  background-color: #eee;
+  background-color: #10254271;
   font-size: 10px;
   padding: 3px;
 }
@@ -591,7 +591,7 @@ form.charsheet main section.equipment > div > textarea {
 }
 form.charsheet main section.flavor {
   padding: 10px;
-  background: #bbb;
+  background: #102542;
   border-radius: 10px;
 }
 form.charsheet main section.flavor div {
@@ -639,8 +639,18 @@ form.charsheet main section.features div textarea {
   height: 43em;
 }
 
+img{
+  width: 90%;
+  height: 90%;
+  float:left;
+  border: black solid 1px;
+  border-radius: 10px;
+  object-fit:cover;
+  filter: grayscale();
+}
+
 .gr{
-  color: #bbb;
+  color: #F1707A;
 }
 
 .big{
@@ -687,10 +697,10 @@ form.charsheet main section.features div textarea {
                 <ul>
                   <li>
                     <div class="score">
-                      <label for="Strengthscore">Strength</label><input name="Strengthscore" placeholder="10" />
+                      <label for="analysied">Analysed</label><input name="analysed" placeholder="2.5" />
                     </div>
                     <div class="modifier">
-                      <input name="Strengthmod" placeholder="+0" />
+                      <input name="GB" placeholder="GB" />
                     </div>
                   </li>
                   <li>
@@ -698,7 +708,7 @@ form.charsheet main section.features div textarea {
                       <label for="Dexterityscore">Dexterity</label><input name="Dexterityscore" placeholder="10" />
                     </div>
                     <div class="modifier">
-                      <input name="Dexteritymod" placeholder="+0" />
+                      <input name="Dexteritymod" placeholder="" />
                     </div>
                   </li>
                   <li>
@@ -706,7 +716,7 @@ form.charsheet main section.features div textarea {
                       <label for="Constitutionscore">Constitution</label><input name="Constitutionscore" placeholder="10" />
                     </div>
                     <div class="modifier">
-                      <input name="Constitutionmod" placeholder="+0" />
+                      <input name="Constitutionmod" placeholder="GB" />
                     </div>
                   </li>
                   <li>
@@ -842,8 +852,8 @@ form.charsheet main section.features div textarea {
               </div>
               <input name="passiveperception" placeholder="10" />
             </div>
-            <div class="otherprofs box textblock">
-              <label for="otherprofs">Other Proficiencies and Languages</label><textarea name="otherprofs"></textarea>
+            <div class="otherprofs box textblock" style = "padding : 10px;height: 330px; border-radius: 20px;  width: 230px; border: black solid 1px;">
+              <label for="otherprofs">Seed Content</label><img src="https://i.redd.it/8gxotf44n7181.png">
             </div>
           </section>
           <section>
@@ -869,53 +879,28 @@ form.charsheet main section.features div textarea {
                     <label for="maxhp">Hit Point Maximum</label><input name="maxhp" placeholder="10" type="text" />
                   </div>
                   <div class="current">
-                    <label for="currenthp">Origin account</label><input name="currenthp" type="text" value="dem.odummy"/>
+                    <label for="currenthp" class="gr">Origin account</label><input name="currenthp" type="text" value="dem.odummy"/>
                   </div>
                 </div>
+
+                <div class="regular" style="border-radius: 0px; margin-top: 0px;">
+                  <div class="max">
+                    <label for="maxhp">Hit Point Maximum</label><input name="maxhp" placeholder="10" type="text" />
+                  </div>
+                  <div class="current">
+                    <label for="currenthp" class="gr">created</label><input name="currenthp" type="text" value="12.12.2021 15:52:30"/>
+                  </div>
+                </div>
+
                 <div class="temporary">
                   <label for="temphp">Platform</label><input name="temphp" type="text" value="INSTAGRAM"/>
                 </div>
               </div>
-              <div class="hitdice">
-                <div>
-                  <div class="total">
-                    <label for="totalhd">Total</label><input name="totalhd" placeholder="2d10" type="text" />
-                  </div>
-                  <div class="remaining">
-                    <label for="remaininghd">Hit Dice</label><input name="remaininghd" type="text" />
-                  </div>
-                </div>
-              </div>
-              <div class="deathsaves">
-                <div>
-                  <div class="label">
-                    <label>Death Saves</label>
-                  </div>
-                  <div class="marks">
-                    <div class="deathsuccesses">
-                      <label>Successes</label>
-                      <div class="bubbles">
-                        <input name="deathsuccess1" type="checkbox" />
-                        <input name="deathsuccess2" type="checkbox" />
-                        <input name="deathsuccess3" type="checkbox" />
-                      </div>
-                    </div>
-                    <div class="deathfails">
-                      <label>Failures</label>
-                      <div class="bubbles">
-                        <input name="deathfail1" type="checkbox" />
-                        <input name="deathfail2" type="checkbox" />
-                        <input name="deathfail3" type="checkbox" />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
             </section>
             <section class="attacksandspellcasting">
-              <div>
-                <label>Attacks & Spellcasting</label>
-                <table>
+              <div style = "height: 550px;">
+                
+                <table >
                   <thead>
                     <tr>
                       <th>
@@ -941,58 +926,12 @@ form.charsheet main section.features div textarea {
                         <input name="atkdamage1" type="text" />
                       </td>
                     </tr>
-                    <tr>
-                      <td>
-                        <input name="atkname2" type="text" />
-                      </td>
-                      <td>
-                        <input name="atkbonus2" type="text" />
-                      </td>
-                      <td>
-                        <input name="atkdamage2" type="text" />
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <input name="atkname3" type="text" />
-                      </td>
-                      <td>
-                        <input name="atkbonus3" type="text" />
-                      </td>
-                      <td>
-                        <input name="atkdamage3" type="text" />
-                      </td>
-                    </tr>
                   </tbody>
                 </table>
-                <textarea></textarea>
               </div>
+              
             </section>
-            <section class="equipment">
-              <div>
-                <label>Equipment</label>
-                <div class="money">
-                  <ul>
-                    <li>
-                      <label for="cp">cp</label><input name="cp" />
-                    </li>
-                    <li>
-                      <label for="sp">sp</label><input name="sp" />
-                    </li>
-                    <li>
-                      <label for="ep">ep</label><input name="ep" />
-                    </li>
-                    <li>
-                      <label for="gp">gp</label><input name="gp" />
-                    </li>
-                    <li>
-                      <label for="pp">pp</label><input name="pp" />
-                    </li>
-                  </ul>
-                </div>
-                <textarea placeholder="Equipment list here"></textarea>
-              </div>
-            </section>
+            <label style="bottom: 0px; position: relative; width: 100%; text-align:center">Reposts</label>
           </section>
           <section>
             <section class="flavor">
@@ -1002,11 +941,11 @@ form.charsheet main section.features div textarea {
               <div class="ideals">
                 <label for="postsmatched">posts matched</label><textarea class = "big" id="postsmatched">258</textarea>
               </div>
-              <div class="bonds">
-                <label for="bonds">Bonds</label><textarea class = "big" id="bonds"></textarea>
+              <div class="time">
+                <label for="time">Total time</label><textarea class = "big" id="total time">2.1 hrs</textarea>
               </div>
-              <div class="flaws">
-                <label for="flaws">Flaws</label><textarea class = "big" id="flaws"></textarea>
+              <div class="accuracy">
+                <label for="accuracys">accuracy</label><textarea class = "big" id="accuracy">98%</textarea>
               </div>
             </section>
             <section class="features">
