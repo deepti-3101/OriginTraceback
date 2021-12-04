@@ -1,4 +1,4 @@
-const pages = ["Configuration", "manageSearch", "dashboard", "activity", "documentation", "newSearch", "results"];
+const pages = ["Configuration", "manageSearch", "dashboard", "activity", "documentation", "newSearch", "results","link"];
 
 
 const firebaseConfig = {
@@ -29,17 +29,18 @@ read()
     function renderHTML(value){
         innerHTML = "<div class = 'boxContainer1'><div class='Cboxs'>";
       for(i in value){
-          if (value[i]["account"] != null){
-        innerHTML += '<div class="Cbox" href="#"><span class="Cbox-header"><iframe src = "' + value[i][
+        innerHTML += '<a class="Cbox" href="#"><span class="Cbox-header"><iframe src = "' + value[i][
             "link"] + 'embed"></iframe></span><span class="Cbox-summary"> Account Name : ' + value[i][
-                         "account"] + '<br><hr><h6>Posted: ' + value[i]["postTime"] + '</h6></span></div>'
-                        }
+                         "account"] + '<br><hr>Posted:<p>' + value[i]["postTime"] + '</p></span></a>'
       }
 
       innerHTML += "</div></div>"
       document.getElementById("resultRender").innerHTML = innerHTML;
   
   }
+  
+
+
 
 
 function OpenPage(id){
