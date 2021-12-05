@@ -18,10 +18,11 @@ console.log('child process exited with code ' + code);
 */
 
 let mainWindow
-let mainPreviewWindow
+let mainLoadingWindow
 
-function createWindow() {
-  mainWindow = new BrowserWindow({
+
+function createLoadingWindow() {
+  mainLoadingWindow = new BrowserWindow({
     width: 1000,
     height: 600,
     backgroundColor:'#0000ffff',
@@ -34,32 +35,40 @@ function createWindow() {
     resizable: false,
   })
 
-  mainWindow.loadFile('index.html')
+  mainLoadingWindow.loadFile('loadingoverlay.html')
+  setTimeout(createWindow, 3000)
+  
 
 
 }
 
-function createPreviewWindow() {
-  mainPreviewWindow = new BrowserWindow({
-    width: 400,
+
+function createWindow() {
+  mainLoadingWindow.hide()
+  mainWindow = new BrowserWindow({
+    width: 1000,
     height: 600,
-    show: true,
-    parent: mainWindow,
+    backgroundColor:'#0000ffff',
+    transparent: true,
     webPreferences: {
-      preload: path.join(__dirname, 'preloadPreview.js')
-    }
+      preload: path.join(__dirname, 'preload.js'),
+      nodeIntegration: true
+    },
+    resizable: false,
   })
 
+  mainWindow.loadFile('index.html')
+  mainWindow.setMenuBarVisibility(false);
 
-  mainPreviewWindow.loadURL('http://instagram.com')
+
 }
 
+
 app.whenReady().then(() => {
-  createWindow()
-  //createPreviewWindow()
+  createLoadingWindow()
   app.on('activate', function () {
     if (BrowserWindow.getAllWindows().length === 0) {
-      createWindow();
+      createLoadingWindow();
     }
   })
 })

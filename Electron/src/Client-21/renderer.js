@@ -56,15 +56,12 @@ function OpenPage(id){
 }
 
 function launchSoftware(){
-    document.getElementById("loadingOverlayContainer").style.display = "none";
-    document.getElementById("credOverlay").style.display = "block";
+    
+    document.getElementById("credOverlayContainer").style.display = "block";
     
 }
 
 OpenPage("manageSearch");
-console.log("here");
-setTimeout(launchSoftware, 3000);
-console.log("here1");
 
 const remote = require('electron').remote;
 
