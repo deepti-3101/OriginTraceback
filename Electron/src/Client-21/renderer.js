@@ -1,12 +1,12 @@
-const pages = ["Configuration", "manageSearch", "dashboard", "activity", "documentation", "newSearch", "results","link"];
+const pages = ["manageSearch", "dashboard", "documentation"];
 
 
 const firebaseConfig = {
     apiKey: "AIzaSyAwx9dACKU9zOZypdg_En2mQGcLo5E3ME4",
-    authDomain: "project-genesis-21.firebaseapp.com",
-    databaseURL: "https://project-genesis-21-default-rtdb.firebaseio.com",
-    projectId: "project-genesis-21",
-    storageBucket: "project-genesis-21.appspot.com",
+    authDomain: "project-Genesis-21.firebaseapp.com",
+    databaseURL: "https://project-Genesis-21-default-rtdb.firebaseio.com",
+    projectId: "project-Genesis-21",
+    storageBucket: "project-Genesis-21.appspot.com",
     messagingSenderId: "957797207090",
     appId: "1:957797207090:web:aa8f09c4b1bc74b771c02b",
     measurementId: "G-NC95N7MJEC"
@@ -57,7 +57,7 @@ function OpenPage(id){
 
 function launchSoftware(){
     document.getElementById("loadingOverlayContainer").style.display = "none";
-    document.getElementById("mainPage").style.display = "block";
+    document.getElementById("credOverlay").style.display = "block";
     
 }
 
@@ -83,6 +83,13 @@ document.onreadystatechange = (event) => {
 window.onbeforeunload = (event) => {
     win.removeAllListeners();
 }
+
+
+document.getElementById('close2').addEventListener("click", event => {
+    console.log("Here close");
+    window.alert("Logging Out");
+    win.close();
+});
 
 
 

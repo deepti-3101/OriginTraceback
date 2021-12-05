@@ -787,3 +787,28 @@ position: absolute;
   color: red;
   cursor: pointer;
 }
+
+.credOverlay{
+  height: 100%;
+  width: 100%;
+z-index: 100;
+margin: 0;
+position: absolute;
+background-color: #102542;
+
+}
+
+.credMain {
+  background-color: #ffffff;
+  height: 300px;
+  border-radius: 10px;
+  position: absolute;
+  width: 500px;
+  padding: 50px;
+  margin: 0;
+  top: 50%;
+left: 50%;
+-ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  border-bottom: #F87060 solid 10px ;
+}
