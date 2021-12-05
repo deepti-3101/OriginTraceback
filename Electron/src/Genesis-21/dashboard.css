@@ -710,7 +710,7 @@ position: absolute;
     margin-bottom: 20px;
   }
 }
-@media (min-width: 980px) {
+@media (min-width: 1210px) {
   .Cbox:nth-child(even) {
     margin-right: 20px;
   }
