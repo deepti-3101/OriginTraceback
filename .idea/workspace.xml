@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7b0a5f16-e8a4-45df-bff3-b94646200da5" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Electron/src/Genesis-21/report.html" beforeDir="false" afterPath="$PROJECT_DIR$/Electron/src/Genesis-21/report.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Electron/src/Genesis-21/G-21.py" beforeDir="false" afterPath="$PROJECT_DIR$/Electron/src/Genesis-21/G-21.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Electron/src/Genesis-21/dashboard.css" beforeDir="false" afterPath="$PROJECT_DIR$/Electron/src/Genesis-21/dashboard.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,7 +34,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/Electron/src/Genesis-21/reddit.py" />
     <property name="settings.editor.selected.configurable" value="preferences.fileTypes" />
   </component>
-  <component name="RunManager" selected="Python.reddit">
+  <component name="RunManager" selected="Python.G-21">
     <configuration name="G-21" type="PythonConfigurationType" factoryName="Python">
       <module name="OriginTraceback" />
       <option name="INTERPRETER_OPTIONS" value="" />
