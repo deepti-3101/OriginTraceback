@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "project-genesis-21",
+  "private_key_id": "f31f7ce374ad81a4e2190c09a1771f86cec8d667",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQC+ZhJb+GehcoiR\nZ47XuUOKgyZOSEJ1XnS2VbyjPctmEdSEPiVJGTzTj0+9WgmEPeD0NE6J2hpeCNzw\nKNpgFOLBhil95I82q+/UzXdJ9LhKJ38GFUICfd2PYqcm3Uviul1v/RW2ysED/GNI\nMBZuStgh/RBOQ2YJ9UMDS72pwPeSIoeVvteTiBwGvUmnK3wkTvUMkegXf6zBHZML\ntkEDhR4eRdIt2+I/jhdPgMInkvFVW1VueOakO04Dr8OigmkClU1u+0NC0ucQkLzX\nMYXSXnQtHflubh+AqwTLURo9c5KGKFauvL6wpI/koY+EYiLvz8ENJ66KU+6fEuhj\nq5UMgQvPAgMBAAECggEACb29KLlvy+HJPO84bq8K1pZZKl4mEE0x2XZPfWaW9nTp\nE47+Z1wEMaq+YKivnfVwge3/Kqxe9vqrGxpr+ch3xYDwtIEyFpD7Zz7P4JfFqf2V\nUSFbTDdWU5Svipx92m7Agw9GwiBjeam7BqF3NFNd9Xc2E1r9aHsE37FLVdkKkY5d\n4Vpg16AdxJ/sBrBhmofckoCAzbdN2gCROcLFOMunB20ogJv3Chx+T+nAj7sKzQxI\nJZ0TACf0AiOrlOrf7+k566wAdPxQlR/lRtv9LI7rl06B9YDx6Q/3mcORwVaq7pDm\nRuWuYWlEB07nogZcI0qj0xxuiIIL5D9Pk4QYP1ZpqQKBgQD+l2fAGDrBTAe92yDE\n4fR10LKeKn3vXFb6XJFPk4hKeZNbCLJtEzWa0GoJ1eOrTPKoR9+jQfM48qmAvsKR\nkeVJ7QPwyKGn+Sc7OseAi7eRuK5A46zLgeoqanjz4R530EU78gCbwGxhO0G1i1UI\nGes/1WV5aOIc2OJjXVXu1kccVQKBgQC/c779EH4JDhtFNBM+ojaHTJZGeS0jrbvj\n3Qfa8o4OlESHCyrb24bzawEAIIu6/lMN+FBg/W1nl+HdJa43RnQrJA/lmpT97odU\nDI0ji4MQtI//Fo77bdnr4gPIOo28LANCdFvWqHpX/86jngsH7WzbLTPrTiQkNZFr\nsJ6BOcOrkwKBgQC+Je8DdhVMEbEmh+dtpSWkaP8/SpVMlTcRPtn5CUOd/DemolRB\nSzuaKVdJiUrFwm7qaOQLV1KFkhgvZEqF1uXd1PxAdljm0BwRDNG8nJ26ZKkhJesF\nBD8U9vjnjZfn/NH498KkkY9g/5UQNsSHjHQ79PIZP9DBoutTM37fJ4NtEQKBgQCC\n9I1DVLChSQDmSUSQpyxdR8nS0rhJm2DV8C6bWSZKWqi1JrJeSL76acr5Z0ms0qHF\nAIEalr7rCTz5o/iS3qI/kB8/kokvWKVAnIU+NwOjvZ5xgeCzouRZMPQdVc/1UrW4\nExdusTdeUh/qUwSAm6rGERlebsjR68JYwyrogbaR+QKBgQDgWJkSeMj3l53IWgeF\n4L0HHF98qG9quhqJkXBGOYcavo8p7M5ivGIUq8XKs3ulfThkRCwVwLaYQq63fWZP\nFLs5wNquiWJTSmb+QaF9+fYEegZldWqUeD4MQ3ixVXJsffQZDx2Kseqs48W9CZMI\nYfxOvQslQ47deEcBpayYGJboWA==\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-de2ox@project-genesis-21.iam.gserviceaccount.com",
+  "client_id": "112660382173023857326",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-de2ox%40project-genesis-21.iam.gserviceaccount.com"
+}

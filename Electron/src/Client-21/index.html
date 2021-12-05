@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="dashboard.css" />
+  <script src="https://use.fontawesome.com/0b70c28bf1.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.1.0/firebase-database.js"></script>
+  <meta charset="UTF-8">
+  <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+
+  <title>Genesis-21</title>
+</head>
+
+<body style="border-bottom-right-radius:10px; border-bottom-left-radius:10px ;">
+
+  <div class="loadingOverlay" style="display: block;" id="loadingOverlayContainer">
+
+    <div class="loadingMain">
+      <h1 class="loadingText">Genesis-21</h1>
+      <br>
+      <p style="font-size: xx-small; width: 80%;" class="loadingText">
+        <u>Problem Statement : <b>(INTL-DA-08)</b></u><br>
+        Build a solution that is able to track the origin of a given social media post (provided as an input URL
+        or content) and identify the account, along with its details, which posted it first on that particular
+        platform
+      </p>
+      <br>
+      <Br>
+      <hr class="whiteLine">
+      <h3 class="loadingText" style="margin-top: 5px;">LOADING</h3>
+      <p class="loadingText" style="font-size: 7px;">Loading modules and scripts, optimising layout...</p>
+    </div>
+
+  </div>
+
+
+
+
+  <header id="titlebar">
+    <div id="drag-region">
+
+      <div id="window-title">
+        <span></span>
+      </div>
+
+
+    </div>
+  </header>
+
+  <div class="page" style="display: none;" id="mainPage">
+
+
+    <div class="pageHeader" style=" border-top-left-radius:10px ;">
+
+      <div class="title">Genesis-21</div>
+      <div class="userPanel">
+
+        <span class="username" id='close2'>X</span>
+
+        <span class="username"></span>
+      </div>
+    </div>
+    <div class="main" style="border-bottom-right-radius:10px; border-bottom-left-radius:10px ;">
+      <div class="nav">
+        <div class="searchbox">
+          <div><i class="fa fa-search"></i>
+            <input type="search" placeholder="Search" />
+          </div>
+        </div>
+        <div class="menu">
+          <div class="title">Navigation</div>
+          <ul>
+            <li id="dashboardButton" class="test" onclick="OpenPage('dashboard')"><i class="fa fa-home"></i>Dashboard
+            </li>
+            <li id="activityButton" class="test" onclick="OpenPage('activity')"><i class="fa fa-signal"></i>Activity
+            </li>
+            <li id="manageSearchButton" class="active" onclick="OpenPage('manageSearch')"> <i
+                class="fa fa-tasks"></i>Manage Searches</li>
+            <li id="ConfigurationButton" class="test" onclick="OpenPage('Configuration')"> <i class="fa fa-gear"></i>
+              </i>Configuration</li>
+
+            <li id="newSearchButton" class="test" onclick="OpenPage('newSearch')"> <i class="fa fa-search"></i>
+              </i>New Search</li>
+
+
+            <li id="resultsButton" class="test" onclick="OpenPage('results')"> <i class="fa fa-file-text-o"></i>
+              </i>Reports</li>
+            <li id="documentationButton" class="test" onclick="OpenPage('documentation')"> <i class="fa fa-book"></i>
+              </i>Documentation</li>
+            <li id="linkButton" class="test" onclick="OpenPage('link')">
+
+          </ul>
+        </div>
+      </div>
+
+      <!------------------------------------------>
+
+      <div class="view" id="dashboard" style="display: none">
+        <div class="viewHeader">
+          <div class="title">Dashboard</div>
+          <div class="functions">
+            <div class="button active" onclick="OpenPage('newSearch')">New Search</div>
+            <div class="button" onclick="OpenPage('dashboard')">Completed</div>
+            <div class="button inverz" style="padding:0px; width: auto; padding-left:5px; padding-right:5px;"><i
+                class="fa fa-trash-o"></i></div>
+          </div>
+        </div>
+        <!-- user donation card -->
+        <div class="card-wrap" id="card">
+
+          <!-- user info -->
+          <header class="card-user">
+            <div class="card-user-hero" :style="'background-image: url(' + userInfo.hero + ')'"></div>
+            <div class="card-user-row">
+              <div class="card-user-avatar">
+                <img src="https://dominicwalterlof.github.io/OriginTraceback/Electron/src/Genesis-21/icon.jpg"
+                  alt="pic" />
+              </div>
+              <div class="card-user-details">
+                <div class="card-user-name">Agent-21D</div>
+                <div class="card-user-info">Demo Account for testing</div>
+              </div>
+              <div class="card-user-cta">
+                <a :href="userInfo.website" target="_blank">Profile</a>
+              </div>
+            </div>
+          </header>
+          <main class="tabs-wrap">
+            <section class="tabs-info">
+              <div class="tabs-info-row">
+                <div class="tabs-info-qr">
+                  <img :src="getQrImage()" :alt="wallet.name" />
+                </div>
+                <div class="tabs-info-details">
+                  <div class="tabs-info-title">Description</div>
+                  <div class="tabs-info-warn">Detailed Description</div>
+                </div>
+              </div>
+              <div class="tabs-info-input">
+                <span>Token</span>
+                <input type="text" :value="wallet.address">
+              </div>
+
+              <div class="tabs-info-stats">
+                <div>
+                  <span class="txt-label">Posts Analysed</span> <br />
+                  <span>185913</span>
+                </div>
+                <div>
+                  <span class="txt-label">Searches</span> <br />
+                  <span>2</span>
+                </div>
+                <div>
+                  <span class="txt-label">Reported</span> <br />
+                  <span>95</span>
+                </div>
+              </div>
+            </section>
+          </main>
+
+        </div>
+      </div>
+
+
+      <div class="view" id="activity" style="display: none">
+        <div class="viewHeader">
+          <div class="title">Activity</div>
+          <div class="functions">
+            <div class="button active" onclick="OpenPage('newSearch')">New Search</div>
+            <div class="button" onclick="OpenPage('dashboard')">Completed</div>
+            <div class="button inverz" style="padding:0px; width: auto; padding-left:5px; padding-right:5px;"><i
+                class="fa fa-trash-o"></i></div>
+          </div>
+        </div>
+        <div class="content">
+          <style>
+            /*	
+	Side Navigation Menu V2, RWD
+	===================
+	Author: https://github.com/pablorgarcia
+ */
+
+            @charset "UTF-8";
+            @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
+
+            .body2 {
+              font-family: "Open Sans", sans-serif;
+              font-weight: 300;
+              line-height: 1.42em;
+              color: #a7a1ae;
+
+            }
+
+            .h1 {
+              font-size: 3em;
+              font-weight: 300;
+              line-height: 1em;
+              text-align: center;
+              color: #4dc3fa;
+            }
+
+
+
+            .blue {
+              color: #185875;
+            }
+
+            .yellow {
+              color: #fb667a;
+            }
+
+            .container th .h1 {
+              font-weight: bold;
+              font-size: 1em;
+              text-align: left;
+              color: #185875;
+            }
+
+            .container td {
+              font-weight: normal;
+              font-size: 1em;
+              -webkit-box-shadow: 0 2px 2px -2px #0e1119;
+              -moz-box-shadow: 0 2px 2px -2px #0e1119;
+              box-shadow: 0 2px 2px -2px #0e1119;
+            }
+
+            .container {
+              text-align: left;
+              overflow: hidden;
+              width: 80%;
+              margin: 0 auto;
+              display: table;
+              padding: 0 0 8em 0;
+              top: 20px;
+            }
+
+            .container td,
+            .container th {
+              padding-bottom: 2%;
+              padding-top: 2%;
+              padding-left: 2%;
+            }
+
+            /* Background-color of the odd rows */
+            .container tr:nth-child(odd) {
+              background-color: #323c50;
+            }
+
+            /* Background-color of the even rows */
+            .container tr:nth-child(even) {
+              background-color: #2c3446;
+            }
+
+            .container th {
+              background-color: #1f2739;
+            }
+
+            .container td:first-child {
+              color: #fb667a;
+            }
+
+            .container tr:hover {
+              background-color: #464a52;
+              -webkit-box-shadow: 0 6px 6px -6px #0e1119;
+              -moz-box-shadow: 0 6px 6px -6px #0e1119;
+              box-shadow: 0 6px 6px -6px #0e1119;
+            }
+
+            .container td:hover {
+              background-color: #fb667a;
+              color: #403e10;
+              font-weight: bold;
+
+              box-shadow: #fb667a -1px 1px, #fb667a -2px 2px, #fb667a -3px 3px,
+                #fb667a -4px 4px, #fb667a 1 -5px 5px, #fb667a -6px 6px;
+              transform: translate3d(6px, -6px, 0);
+
+              transition-delay: 0s;
+              transition-duration: 0.4s;
+              transition-property: all;
+              transition-timing-function: line;
+            }
+
+            @media (max-width: 800px) {
+
+              .container td:nth-child(4),
+              .container th:nth-child(4) {
+                display: none;
+              }
+            }
+          </style>
+          <div class="body2">
+            <br><br><br>
+            <table class="container">
+              <thead>
+                <tr>
+                  <th>
+                    <h1 class="h1">Agents</h1>
+                  </th>
+                  <th>
+                    <h1 class="h1">Hashtags</h1>
+                  </th>
+                  <th>
+                    <h1 class="h1">Retrived Posts</h1>
+                  </th>
+                  <th>
+                    <h1 class="h1">Time Taken</h1>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Agent_1</td>
+                  <td>#Samsung_leak</td>
+                  <td>6369</td>
+                  <td>00:2:50</td>
+                </tr>
+                <tr>
+                  <td>Agent_2</td>
+                  <td>#leaks</td>
+                  <td>10437</td>
+                  <td>00:00:22</td>
+                </tr>
+                <tr>
+                  <td>Agent_3</td>
+                  <td>#samsung</td>
+                  <td>5327</td>
+                  <td>00:00:34</td>
+                </tr>
+                <tr>
+                  <td>Agent_4</td>
+                  <td>#Samsungfans</td>
+                  <td>2961</td>
+                  <td>00:1:10</td>
+                </tr>
+                <tr>
+                  <td>Agent_5</td>
+                  <td>#samsungleak</td>
+                  <td>4135</td>
+                  <td>00:00:19</td>
+                </tr>
+                <tr>
+                  <td>Agent_6</td>
+                  <td>#tech</td>
+                  <td>3486</td>
+                  <td>00:00:52</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="view" id="manageSearch" style="display: none">
+        <div class="viewHeader">
+          <div class="title">Manage Searches</div>
+          <div class="functions">
+            <div class="button active" onclick="OpenPage('newSearch')">New Search</div>
+            <div class="button" onclick="OpenPage('dashboard')">Completed</div>
+            <div class="button inverz" style="padding:0px; width: auto; padding-left:5px; padding-right:5px;"><i
+                class="fa fa-trash-o"></i></div>
+          </div>
+        </div>
+        <div class="content">
+          <div class="list">
+            <div class="title">Recent</div>
+            <ul>
+              <li class="checked"><i class="fa fa-check-square-o"></i><span>POST ID : 12r1315T3</span>
+                <div class="info">
+                  <div class="button green">In progress</div><span>INITIATED on 25/11/2021</span>
+                </div>
+              </li>
+              <li><i class="fa fa-square-o"></i><span>POST ID : 12r1qe4T3</span>
+                <div class="info">
+                  <div class="button">Pending</div><span>INITIATED on 25/11/2021</span>
+                </div>
+              </li>
+              <li><i class="fa fa-square-o"></i><span>POST ID : 12giuU3f2g</span>
+                <div class="info">
+                  <div class="button" id="testtesttest">INITIATE</div><span>Ready to Search...</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="list">
+            <div class="title">Completed</div>
+            <ul>
+              <li class="checked"><i class="fa fa-check-square-o"></i><span>POST ID : 12r24T15T3</span>
+                <div class="info">
+                  <div class="button green">INFO</div><span>INITIATED on 24/11/2021</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="view" id="Configuration" style="display: none">
+        <div class="viewHeader">
+          <div class="title">Configuration</div>
+          <div class="functions">
+            <div class="button active" onclick="OpenPage('newSearch')">New Search</div>
+            <div class="button" onclick="OpenPage('dashboard')">Completed</div>
+            <div class="button inverz" style="padding:0px; width: auto; padding-left:5px; padding-right:5px;"><i
+                class="fa fa-trash-o"></i></div>
+          </div>
+        </div>
+        <div class="content">
+
+          <link rel="stylesheet" href="first.css">
+          <div class="content_wrapper">
+            <div class="black">
+
+              <section class="model-3">
+                <div class="checkbox">
+                  <input type="checkbox" />
+                  <label></label>
+                </div>
+              </section>
+              <br>
+              <h1 class="color1">Minimum Requirements</h1><br>
+              <p class="color">
+                <b>Operating System: </b>
+
+                Microsoft Windows 8 or above<br><br>
+                <b>Memory: </b> 4 GB RAM or above<br><br>
+                <b>Storage: </b> 240 GB internal storage drive or above<br><br>
+                <b>Internet speed:</b> 10 Mbps or above<br><br>
+              </p>
+
+            </div>
+            <br><br><br>
+            <div class="black">
+              <section class="model-3">
+                <div class="checkbox">
+                  <input type="checkbox" />
+                  <label></label>
+                </div>
+              </section>
+              <br>
+              <h1 class="color1">Recommended Configurations</h1><br>
+              <p class="color">
+                <b>Operating System: </b>
+
+                Microsoft Windows 9 or above<br><br>
+                <b>Memory: </b> 16 GB RAM or above<br><br>
+                <b>Storage: </b> 500 GB internal storage drive or above<br><br>
+                <b>Internet speed: </b> 40 Mbps or above<br><br>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+
+
+      <div id="newSearch" class="view" style="display: none">
+
+        <div class="viewHeader">
+          <div class="title">New Search</div>
+          <div class="functions">
+            <div class="button active">New Search</div>
+            <div class="button" onclick="OpenPage('dashboard')">Completed</div>
+            <div class="button inverz" style="padding:0px; width: auto; padding-left:5px; padding-right:5px;"><i
+                class="fa fa-trash-o"></i></div>
+          </div>
+        </div>
+        <div class="content">
+          <link rel="stylesheet" href="styles.css">
+          <div class="scrollable" id="doc">
+            <div class="htmll">
+              <h1 class="title1">CHOOSE YOUR PLATFORM</h1>
+              <ul class="soc">
+                <li>
+                  <a class="icon-29 instagram" href="#" title="Instagram" onclick="OpenPage('link')">
+                    <div class="ir">
+                      <svg viewbox="0 0 512 512" preserveAspectRatio="xMidYMid meet" width="512" height="512">
+                        <path
+                          d="M256 109.3c47.8 0 53.4 0.2 72.3 1 17.4 0.8 26.9 3.7 33.2 6.2 8.4 3.2 14.3 7.1 20.6 13.4 6.3 6.3 10.1 12.2 13.4 20.6 2.5 6.3 5.4 15.8 6.2 33.2 0.9 18.9 1 24.5 1 72.3s-0.2 53.4-1 72.3c-0.8 17.4-3.7 26.9-6.2 33.2 -3.2 8.4-7.1 14.3-13.4 20.6 -6.3 6.3-12.2 10.1-20.6 13.4 -6.3 2.5-15.8 5.4-33.2 6.2 -18.9 0.9-24.5 1-72.3 1s-53.4-0.2-72.3-1c-17.4-0.8-26.9-3.7-33.2-6.2 -8.4-3.2-14.3-7.1-20.6-13.4 -6.3-6.3-10.1-12.2-13.4-20.6 -2.5-6.3-5.4-15.8-6.2-33.2 -0.9-18.9-1-24.5-1-72.3s0.2-53.4 1-72.3c0.8-17.4 3.7-26.9 6.2-33.2 3.2-8.4 7.1-14.3 13.4-20.6 6.3-6.3 12.2-10.1 20.6-13.4 6.3-2.5 15.8-5.4 33.2-6.2C202.6 109.5 208.2 109.3 256 109.3M256 77.1c-48.6 0-54.7 0.2-73.8 1.1 -19 0.9-32.1 3.9-43.4 8.3 -11.8 4.6-21.7 10.7-31.7 20.6 -9.9 9.9-16.1 19.9-20.6 31.7 -4.4 11.4-7.4 24.4-8.3 43.4 -0.9 19.1-1.1 25.2-1.1 73.8 0 48.6 0.2 54.7 1.1 73.8 0.9 19 3.9 32.1 8.3 43.4 4.6 11.8 10.7 21.7 20.6 31.7 9.9 9.9 19.9 16.1 31.7 20.6 11.4 4.4 24.4 7.4 43.4 8.3 19.1 0.9 25.2 1.1 73.8 1.1s54.7-0.2 73.8-1.1c19-0.9 32.1-3.9 43.4-8.3 11.8-4.6 21.7-10.7 31.7-20.6 9.9-9.9 16.1-19.9 20.6-31.7 4.4-11.4 7.4-24.4 8.3-43.4 0.9-19.1 1.1-25.2 1.1-73.8s-0.2-54.7-1.1-73.8c-0.9-19-3.9-32.1-8.3-43.4 -4.6-11.8-10.7-21.7-20.6-31.7 -9.9-9.9-19.9-16.1-31.7-20.6 -11.4-4.4-24.4-7.4-43.4-8.3C310.7 77.3 304.6 77.1 256 77.1L256 77.1z">
+                        </path>
+                        <path
+                          d="M256 164.1c-50.7 0-91.9 41.1-91.9 91.9s41.1 91.9 91.9 91.9 91.9-41.1 91.9-91.9S306.7 164.1 256 164.1zM256 315.6c-32.9 0-59.6-26.7-59.6-59.6s26.7-59.6 59.6-59.6 59.6 26.7 59.6 59.6S288.9 315.6 256 315.6z">
+                        </path>
+                        <circle cx="351.5" cy="160.5" r="21.5"></circle>
+                      </svg>
+                    </div>
+                  </a>
+                </li>
+
+                <li>
+                  <a class="icon-16 twitter" href="#" title="Twitter" onclick="OpenPage('link')">
+                    <div class="ir">
+                      <svg viewbox="0 0 512 512" preserveAspectRatio="xMidYMid meet" width="512" height="512">
+                        <path
+                          d="M419.6 168.6c-11.7 5.2-24.2 8.7-37.4 10.2 13.4-8.1 23.8-20.8 28.6-36 -12.6 7.5-26.5 12.9-41.3 15.8 -11.9-12.6-28.8-20.6-47.5-20.6 -42 0-72.9 39.2-63.4 79.9 -54.1-2.7-102.1-28.6-134.2-68 -17 29.2-8.8 67.5 20.1 86.9 -10.7-0.3-20.7-3.3-29.5-8.1 -0.7 30.2 20.9 58.4 52.2 64.6 -9.2 2.5-19.2 3.1-29.4 1.1 8.3 25.9 32.3 44.7 60.8 45.2 -27.4 21.4-61.8 31-96.4 27 28.8 18.5 63 29.2 99.8 29.2 120.8 0 189.1-102.1 185-193.6C399.9 193.1 410.9 181.7 419.6 168.6z">
+                        </path>
+                      </svg>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a class="icon-30 reddit" href="#" title="reddit" onclick="OpenPage('link')">
+                    <div class="ir">
+                      <svg viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet" width="512" height="512">
+                        <path
+                          d="M454 251.848C454 227.864 434.382 208.321 410.254 208.321C398.47 208.321 387.837 213.026 379.97 220.593C350.181 201.018 309.858 188.516 265.256 186.936L289.68 110.148L355.777 125.644L355.678 126.598C355.678 146.206 371.708 162.196 391.458 162.196C411.175 162.196 427.206 146.239 427.206 126.598C427.206 106.956 411.143 91 391.425 91C376.284 91 363.38 100.442 358.18 113.701L286.948 97.0207C283.854 96.264 280.661 98.0735 279.706 101.1L252.484 186.739C205.775 187.298 163.445 199.866 132.338 220.034C124.537 212.829 114.168 208.321 102.713 208.321C78.6183 208.354 59 227.864 59 251.848C59 267.805 67.7887 281.623 80.6921 289.222C79.8362 293.861 79.2767 298.533 79.2767 303.337C79.2437 367.656 158.408 420 255.677 420C352.979 420 432.11 367.656 432.11 303.337C432.11 298.829 431.617 294.388 430.86 290.012C444.553 282.643 454 268.397 454 251.848ZM170.522 281.721C170.522 267.443 182.207 255.796 196.559 255.796C210.91 255.796 222.563 267.41 222.563 281.721C222.563 296 210.877 307.614 196.559 307.614C182.207 307.646 170.522 296.033 170.522 281.721ZM319.634 358.543C306.533 371.571 285.927 377.921 256.697 377.921L256.467 377.888L256.237 377.921C227.007 377.921 206.401 371.571 193.3 358.543C190.897 356.174 190.897 352.292 193.3 349.923C195.67 347.554 199.587 347.554 201.957 349.923C212.655 360.55 230.397 365.748 256.237 365.748L256.467 365.781L256.697 365.748C282.504 365.748 300.279 360.583 310.977 349.923C313.38 347.554 317.231 347.554 319.634 349.923C322.037 352.292 322.037 356.174 319.634 358.543ZM316.54 307.646C302.188 307.646 290.536 296.033 290.536 281.754C290.536 267.476 302.221 255.829 316.54 255.829C330.892 255.829 342.544 267.443 342.544 281.754C342.544 296.033 330.892 307.646 316.54 307.646Z">
+                        </path>
+                      </svg>
+                    </div>
+                  </a>
+                </li>
+                <li>
+              </ul>
+            </div>
+            <script src="javascript.js"></script>
+          </div>
+        </div>
+
+      </div>
+
+
+
+      <div class="view" id="documentation" style="display: none">
+
+        <div class="viewHeader">
+          <div class="title">Documentation</div>
+          <div class="functions">
+            <div class="button active" onclick="OpenPage('newSearch')">New Search</div>
+            <div class="button" onclick="OpenPage('dashboard')">Completed</div>
+            <div class="button inverz" style="padding:0px; width: auto; padding-left:5px; padding-right:5px;"><i
+                class="fa fa-trash-o"></i></div>
+          </div>
+        </div>
+        <div class="content"></div>
+        <div class="scrollable" id="doc">we'll have docs here soon</div>
+      </div>
+
+
+
+
+      <div class="view" id="results" style="display: none">
+        <div class="viewHeader">
+          <div class="title">Search Results</div>
+          <div class="functions">
+            <div class="button active" onclick="OpenPage('newSearch')">New Search</div>
+            <div class="button" onclick="OpenPage('dashboard')">Completed</div>
+            <div class="button inverz" style="padding:0px; width: auto; padding-left:5px; padding-right:5px;"><i
+                class="fa fa-trash-o"></i></div>
+          </div>
+        </div>
+        <div class="content">
+          <div class="scrollable" id="resultRender"></div>
+
+        </div>
+      </div>
+
+
+      <!--------------------------Platform-----------------------------------------
+<div id="platform" class="view" style="display: none">
+    
+    <div class="viewHeader">
+        <div class="title">Platform</div>
+        <div class="functions">
+            <div class="button active">New Search</div>
+            <div class="button">Completed</div>
+            <div class="button inverz" style="padding:0px; width: auto; padding-left:5px; padding-right:5px;"><i
+                class="fa fa-trash-o"></i></div>
+        </div>
+  </div>
+    <div class="content">
+        
+    </div>    
+<div>
+------>
+      <!--------------------------Platform------------------------------------------->
+
+      <div id="link" class="view" style="display: none">
+        <link rel="stylesheet" href="link.css">
+        <div class="viewHeader">
+          <div class="title">Link</div>
+          <div class="functions">
+            <div class="button active" onclick="OpenPage('newSearch')">New Search</div>
+            <div class="button" onclick="OpenPage('dashboard')">Completed</div>
+            <div class="button inverz" style="padding:0px; width: auto; padding-left:5px; padding-right:5px;"><i
+                class="fa fa-trash-o"></i></div>
+          </div>
+        </div>
+
+        <div class="content">
+
+          <div id='bod'>
+            <div class="text-input">
+              <input type="text" id="input" placeholder="Enter the URL of the Post">
+              <label for="input">Link</label>
+              <br><br>
+              <div id="app">
+                <div v-if="!image">
+                  <h1 class="h3">OR</h1>
+                  <br><br>
+                  <h2 class="h2">Choose a File</h2>
+                  <br><br>
+                  <input class="file" type="file" @change="onFileChange">
+                </div>
+                <div v-else>
+                  <img :src="image" />
+                  <br><br>
+
+                </div>
+              </div>
+
+            </div>
+            <br><br>
+            <div class="outer">
+              <button class="raise" onclick="OpenPage('newSearch')">BACK</button>
+
+
+              <button class="pulse" onclick="OpenPage('activity')">SEARCH</button>
+            </div>
+          </div>
+          <script>
+            new Vue({
+              el: "#app",
+              data: {
+                image: ""
+              },
+
+              methods: {
+                onFileChange(e) {
+                  var files = e.target.files || e.dataTransfer.files;
+                  if (!files.length) return;
+                  this.createImage(files[0]);
+                },
+                createImage(file) {
+                  var image = new Image();
+                  var reader = new FileReader();
+                  var vm = this;
+
+                  reader.onload = e => {
+                    vm.image = e.target.result;
+                  };
+                  reader.readAsDataURL(file);
+                },
+                removeImage: function (e) {
+                  this.image = "";
+                }
+              }
+            });
+          </script>
+
+
+        </div>
+      </div>
+
+      <!-------------------------------------------------------->
+      <div class="view" id="loading" style="display: none">
+        <div class="viewHeader">
+          <div class="title">Loading</div>
+          <div class="functions">
+            <div class="button active">New Search</div>
+            <div class="button">Completed</div>
+            <div class="button inverz" style="padding:0px; width: auto; padding-left:5px; padding-right:5px;"><i
+                class="fa fa-trash-o"></i></div>
+          </div>
+        </div>
+        <div class="content">
+          <style>
+            .progress {
+              width: 100%;
+              height: 1px;
+              background: red;
+              box-shadow: 0px 1px 8px 0px red;
+              position: absolute;
+              top: 0;
+              left: 0;
+              animation: progress 5s infinite;
+            }
+
+            @keyframes progress {
+              from {
+                width: 0%;
+              }
+
+              to {
+                width: 100%;
+              }
+            }
+
+            @keyframes loading {
+              from {
+                color: #222;
+                opacity: 1;
+              }
+
+              to {
+                color: red;
+                opacity: 0;
+              }
+            }
+
+            .body {
+              background: #eee;
+              font-family: "Open Sans", sans-serif;
+            }
+
+            .body:after {
+              content: "Please Wait...";
+              display: block;
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              font-size: 2em;
+              font-weight: 300;
+              transform: translate(-50%, -50%);
+              animation: loading 5s infinite linear;
+            }
+          </style>
+
+          <div class="progress"></div>
+          <script src="loading.js"></script>
+        </div>
+      </div>
+
+      <!-------------------------------------------------------->
+
+    </div>
+  </div>
+  </div>
+
+
+  <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase.js"></script>
+
+  <script src="https://www.gstatic.com/firebasejs/9.1.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.1.1/firebase-database.js"></script>
+
+
+
+
+
+
+  <script src="./renderer.js"></script>
+  <script>
+    createPreviewWindow();
+
+    function createPreviewWindow() {
+      mainPreviewWindow = new BrowserWindow({
+        width: 400,
+        height: 600,
+        webPreferences: {
+          preload: path.join(__dirname, 'preloadPreview.js')
+        }
+      })
+
+
+      mainPreviewWindow.loadURL('http://instagram.com')
+    }
+  </script>
+  <script>
+    const customTitlebar = require('custom-electron-titlebar');
+    let MyTitleBar = new customTitlebar.Titlebar({
+      backgroundColor: customTitlebar.Color.fromHex('#03a9f4')
+    });
+    MyTitleBar.updateTitle('Our Code World Tutorials Rock !');
+  </script>
+</body>
+<script src="javascript.js"></script>
+
+</html>

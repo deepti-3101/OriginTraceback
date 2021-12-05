@@ -1,0 +1,16 @@
+{
+  "name": "Genesis-21",
+  "productName": "Genesis-21",
+  "description": "My Electron application description",
+  "keywords": [],
+  "main": "./main.js",
+  "version": "1.0.0",
+  "author": "HP",
+  "scripts": {
+    "start": "electron ."
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "electron": "13.1.7"
+  }
+}

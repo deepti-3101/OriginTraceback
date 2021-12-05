@@ -1,0 +1,136 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+#bod {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: Montserrat;
+  background: #102542;
+   position: fixed;
+    bottom: 0;
+    right: 0px;
+    width: 80%;
+    height: 80%;
+
+}
+  
+ 
+
+
+.text-input {
+  position: relative;
+  margin-top: 30px;
+}
+.text-input input[type=text] {
+  display: inline-block;
+  width: 500px;
+  height: 40px;
+  box-sizing: border-box;
+  outline: none;
+  border: 1px solid lightgray;
+  border-radius: 3px;
+  padding: 10px 10px 10px 100px;
+  transition: all 0.1s ease-out;
+}
+.text-input input[type=text] + label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  height: 40px;
+  line-height: 40px;
+  color: white;
+  border-radius: 3px 0 0 3px;
+  padding: 0 20px;
+  background: #F87060;
+  transform: translateZ(0) translateX(0);
+  transition: all 0.3s ease-in;
+  transition-delay: 0.2s;
+}
+.text-input input[type=text]:focus + label {
+  transform: translateY(-120%) translateX(0%);
+  border-radius: 3px;
+  transition: all 0.1s ease-out;
+}
+.text-input input[type=text]:focus {
+  padding: 10px;
+  transition: all 0.3s ease-out;
+  transition-delay: 0.2s;
+}
+
+.raise:hover,
+.raise:focus {
+  box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
+  transform: translateY(-0.25em);
+}
+button {
+  
+  color: var(--color);
+  transition: 0.25s;
+}
+button:hover, button:focus {
+  border-color: var(--hover);
+  color: #fff;
+}
+button {
+  display: inline-block;
+  background: none;
+  border: 2px solid;
+  font: inherit;
+  line-height: 1;
+  margin: 0.5em;
+  padding: 0.5em 1.5em;
+}
+.pulse:hover,
+.pulse:focus {
+  -webkit-animation: pulse 1s;
+          animation: pulse 1s;
+  box-shadow: 0 0 0 2em rgba(255, 255, 255, 0);
+}
+.raise {
+    margin-right: 5em;
+  --color: #ffa260;
+  --hover: #e5ff60;
+}
+.pulse {
+  margin-left: 4em;
+  --color: #ef6eae;
+  --hover: #ef8f6e;
+}
+@-webkit-keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 var(--hover);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 var(--hover);
+  }
+}
+#app {
+  text-align: center;
+}
+img {
+  width: 30%;
+  margin: auto;
+  display: block;
+  margin-bottom: 10px;
+}
+#app {
+  text-align: center;
+}
+
+.h2{
+  color: #ef8f6e;
+}
+.file{
+  color: white;
+  align-items: center;
+  align-self: center;
+  align-content: center;
+  left: 40px;;
+}
+.h3{
+  color: white;
+}
