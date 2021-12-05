@@ -709,6 +709,12 @@ position: absolute;
     margin-right: 20px;
     margin-bottom: 20px;
   }
+<<<<<<< Updated upstream
+=======
+  .Cbox:nth-child(even) {
+    margin-right: 20px;
+  }
+>>>>>>> Stashed changes
 }
 @media (min-width: 1210px) {
   .Cbox:nth-child(even) {
