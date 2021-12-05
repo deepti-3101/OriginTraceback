@@ -20,6 +20,9 @@ body {
   left: 0%;
   top: 0%;
   background-color: rgba(255, 255, 255, 0.7);
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
   -moz-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
   -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
@@ -688,8 +691,9 @@ position: absolute;
   margin-bottom: 20px;
   margin-right: 20px;
   padding-bottom: 30px;
-  background: #fefff9;
-  color: #bbb4b4;
+  background: #102542;
+  color: #ffffff;
+  border-radius: 20px;
   text-decoration: none;
   -moz-box-shadow: rgba(0, 0, 0, 0.19) 0 0 8px 0;
   -webkit-box-shadow: rgba(0, 0, 0, 0.19) 0 0 8px 0;
@@ -762,7 +766,7 @@ position: absolute;
   transition-timing-function: ease-in-out;
 }
 .Cbox:hover, .Cbox:focus {
-  background: white;
+  background: #102542c1;
   -moz-box-shadow: rgba(0, 0, 0, 0.45) 0px 0px 20px 0px;
   -webkit-box-shadow: rgba(0, 0, 0, 0.45) 0px 0px 20px 0px;
   box-shadow: rgba(0, 0, 0, 0.45) 0px 0px 20px 0px;
@@ -771,6 +775,7 @@ position: absolute;
   background: rgba(157, 187, 63, 0.95);
 }
 .Cbox:hover .Cbox-meta, .Cbox:focus .Cbox-meta {
+  background: #102542c1;
   max-height: 1em;
 }
 #close2 {
