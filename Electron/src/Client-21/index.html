@@ -27,9 +27,9 @@
         <input class="c-checkbox" type="checkbox" id="checkbox">
         <div class="c-formContainer">
           <form class="c-form" action="">
-            <input class="c-form__input" placeholder="TOKEN" type="text" required>
-            <label class="c-form__buttonLabel" for="checkbox">
-              <button class="c-form__button" type="button" onclick="">Connect</button>
+            <input class="c-form__input" id = "tokentext"  placeholder="TOKEN" type="text" required>
+            <label class="c-form__buttonLabel" for="checkbox" id = "lblbtn">
+              <button class="c-form__button" type="button" id = "connectbutton">Connect</button>
             </label>
             <label class="c-form__toggle" for="checkbox" data-title="Enter Token"></label>
           </form>
@@ -78,30 +78,9 @@
 
 
   <script src="./renderer.js"></script>
-  <script>
-    createPreviewWindow();
-
-    function createPreviewWindow() {
-      mainPreviewWindow = new BrowserWindow({
-        width: 400,
-        height: 600,
-        webPreferences: {
-          preload: path.join(__dirname, 'preloadPreview.js')
-        }
-      })
-
-
-      mainPreviewWindow.loadURL('http://instagram.com')
-    }
-  </script>
-  <script>
-    const customTitlebar = require('custom-electron-titlebar');
-    let MyTitleBar = new customTitlebar.Titlebar({
-      backgroundColor: customTitlebar.Color.fromHex('#03a9f4')
-    });
-    MyTitleBar.updateTitle('Our Code World Tutorials Rock !');
-  </script>
+  
+  <script src="javascript.js"></script>
 </body>
-<script src="javascript.js"></script>
+
 
 </html>
