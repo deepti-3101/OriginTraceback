@@ -15,33 +15,35 @@
 
 
   <div class="credOverlay" style="display:block; padding: 20px;" id="credOverlayContainer">
-    <h1 style = "color: white;">Genesis-21</h1>
+    <div id="grid"></div>
+    <h1 style="color: white;">Genesis-21 (Browser Module - DEMO purpose only)</h1>
     <div class="credMain">
-  
-    
-<center>
-  <h1 style="color: white;">CONNECT</h1><br>
-  <div class="whiteLine"></div>
-  <br> 
-      <input class="c-checkbox" type="checkbox" id="checkbox">
-<div class="c-formContainer">
-  <form class="c-form" action="">
-    <input class="c-form__input" placeholder="TOKEN" type="text"  required>
-    <label class="c-form__buttonLabel" for="checkbox">
-      <button class="c-form__button" type="button">Connect</button>
-    </label>
-    <label class="c-form__toggle" for="checkbox" data-title="Enter Token"></label>
-  </form>
-</div>
-<p class="loadingText" style="text-align: left; font-size: 12px; margin: 10px; margin-top: 30px;">
 
-  Enter generated client session token to connect with the network. To generate token, Network > Add Client > Generate Token
 
-</p>
-</center>
+      <center>
+        <h1 style="color: white;">CONNECT</h1><br>
+        <div class="whiteLine"></div>
+        <br>
+        <input class="c-checkbox" type="checkbox" id="checkbox">
+        <div class="c-formContainer">
+          <form class="c-form" action="">
+            <input class="c-form__input" placeholder="TOKEN" type="text" required>
+            <label class="c-form__buttonLabel" for="checkbox">
+              <button class="c-form__button" type="button" onclick="">Connect</button>
+            </label>
+            <label class="c-form__toggle" for="checkbox" data-title="Enter Token"></label>
+          </form>
+        </div>
+        <p class="loadingText" style="text-align: left; font-size: 12px; margin: 10px; margin-top: 30px;">
+
+          Enter generated client session token to connect with the network. To generate token, Network > Add Client >
+          Generate Token
+
+        </p>
+      </center>
 
     </div>
-    
+
 
   </div>
 
@@ -60,271 +62,7 @@
   </header>
 
   <div class="page" style="display: none;" id="mainPage">
-
-
-    <div class="pageHeader" style=" border-top-left-radius:10px ;">
-
-      <div class="title">Genesis-21 (CLIENT)</div>
-      <div class="userPanel">
-
-        <button class="username" id='close2' onclick="win.close();">X</button>
-
-        <span class="username"></span>
-      </div>
-    </div>
-    <div class="main" style="border-bottom-right-radius:10px; border-bottom-left-radius:10px ;">
-      <div class="nav">
-        <div class="searchbox">
-          <div><i class="fa fa-search"></i>
-            <input type="search" placeholder="Search" />
-          </div>
-        </div>
-        <div class="menu">
-          <div class="title">Navigation</div>
-          <ul>
-            <li id="dashboardButton" class="test" onclick="OpenPage('dashboard')"><i class="fa fa-home"></i>Dashboard
-            </li>
-
-            <li id="manageSearchButton" class="active" onclick="OpenPage('manageSearch')"> <i
-                class="fa fa-tasks"></i>Manage Searches</li>
-
-
-  
-            <li id="documentationButton" class="test" onclick="OpenPage('documentation')"> <i class="fa fa-book"></i>
-              </i>Documentation</li>
-
-
-          </ul>
-        </div>
-      </div>
-
-      <!------------------------------------------>
-
-      <div class="view" id="dashboard" style="display: none">
-        <div class="viewHeader">
-          <div class="title">Dashboard</div>
-          <div class="functions">
-            <div class="button active" onclick="OpenPage('newSearch')">New Search</div>
-            <div class="button" onclick="OpenPage('dashboard')">Completed</div>
-            <div class="button inverz" style="padding:0px; width: auto; padding-left:5px; padding-right:5px;"><i
-                class="fa fa-trash-o"></i></div>
-          </div>
-        </div>
-        <!-- user donation card -->
-        <div class="card-wrap" id="card">
-
-          <!-- user info -->
-          <header class="card-user">
-            <div class="card-user-hero" :style="'background-image: url(' + userInfo.hero + ')'"></div>
-            <div class="card-user-row">
-              <div class="card-user-avatar">
-                <img src="https://dominicwalterlof.github.io/OriginTraceback/Electron/src/Genesis-21/icon.jpg"
-                  alt="pic" />
-              </div>
-              <div class="card-user-details">
-                <div class="card-user-name">Agent-21D</div>
-                <div class="card-user-info">Demo Account for testing</div>
-              </div>
-              <div class="card-user-cta">
-                <a :href="userInfo.website" target="_blank">Profile</a>
-              </div>
-            </div>
-          </header>
-          <main class="tabs-wrap">
-            <section class="tabs-info">
-              <div class="tabs-info-row">
-                <div class="tabs-info-qr">
-                  <img :src="getQrImage()" :alt="wallet.name" />
-                </div>
-                <div class="tabs-info-details">
-                  <div class="tabs-info-title">Description</div>
-                  <div class="tabs-info-warn">Detailed Description</div>
-                </div>
-              </div>
-              <div class="tabs-info-input">
-                <span>Token</span>
-                <input type="text" :value="wallet.address">
-              </div>
-
-              <div class="tabs-info-stats">
-                <div>
-                  <span class="txt-label">Posts Analysed</span> <br />
-                  <span>185913</span>
-                </div>
-                <div>
-                  <span class="txt-label">Searches</span> <br />
-                  <span>2</span>
-                </div>
-                <div>
-                  <span class="txt-label">Reported</span> <br />
-                  <span>95</span>
-                </div>
-              </div>
-            </section>
-          </main>
-
-        </div>
-      </div>
-
-
-
-
-      <div class="view" id="manageSearch" style="display: none">
-        <div class="viewHeader">
-          <div class="title">Manage Searches</div>
-          <div class="functions">
-            <div class="button active" onclick="OpenPage('newSearch')">New Search</div>
-            <div class="button" onclick="OpenPage('dashboard')">Completed</div>
-            <div class="button inverz" style="padding:0px; width: auto; padding-left:5px; padding-right:5px;"><i
-                class="fa fa-trash-o"></i></div>
-          </div>
-        </div>
-        <div class="content">
-          <div class="list">
-            <div class="title">Recent</div>
-            <ul>
-              <li class="checked"><i class="fa fa-check-square-o"></i><span>POST ID : 12r1315T3</span>
-                <div class="info">
-                  <div class="button green">In progress</div><span>INITIATED on 25/11/2021</span>
-                </div>
-              </li>
-              <li><i class="fa fa-square-o"></i><span>POST ID : 12r1qe4T3</span>
-                <div class="info">
-                  <div class="button">Pending</div><span>INITIATED on 25/11/2021</span>
-                </div>
-              </li>
-              <li><i class="fa fa-square-o"></i><span>POST ID : 12giuU3f2g</span>
-                <div class="info">
-                  <div class="button" id="testtesttest">INITIATE</div><span>Ready to Search...</span>
-                </div>
-              </li>
-            </ul>
-          </div>
-          <div class="list">
-            <div class="title">Completed</div>
-            <ul>
-              <li class="checked"><i class="fa fa-check-square-o"></i><span>POST ID : 12r24T15T3</span>
-                <div class="info">
-                  <div class="button green">INFO</div><span>INITIATED on 24/11/2021</span>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-
-
-      <div class="view" id="documentation" style="display: none">
-
-        <div class="viewHeader">
-          <div class="title">Documentation</div>
-          <div class="functions">
-            <div class="button active" onclick="OpenPage('newSearch')">New Search</div>
-            <div class="button" onclick="OpenPage('dashboard')">Completed</div>
-            <div class="button inverz" style="padding:0px; width: auto; padding-left:5px; padding-right:5px;"><i
-                class="fa fa-trash-o"></i></div>
-          </div>
-        </div>
-        <div class="content"></div>
-        <div class="scrollable" id="doc">we'll have docs here soon</div>
-      </div>
-
-
-
-
-      <div class="view" id="results" style="display: none">
-        <div class="viewHeader">
-          <div class="title">Search Results</div>
-          <div class="functions">
-            <div class="button active" onclick="OpenPage('newSearch')">New Search</div>
-            <div class="button" onclick="OpenPage('dashboard')">Completed</div>
-            <div class="button inverz" style="padding:0px; width: auto; padding-left:5px; padding-right:5px;"><i
-                class="fa fa-trash-o"></i></div>
-          </div>
-        </div>
-        <div class="content">
-          <div class="scrollable" id="resultRender"></div>
-
-        </div>
-      </div>
-
-
-      
-
-      <!-------------------------------------------------------->
-      <div class="view" id="loading" style="display: none">
-        <div class="viewHeader">
-          <div class="title">Loading</div>
-          <div class="functions">
-            <div class="button active">New Search</div>
-            <div class="button">Completed</div>
-            <div class="button inverz" style="padding:0px; width: auto; padding-left:5px; padding-right:5px;"><i
-                class="fa fa-trash-o"></i></div>
-          </div>
-        </div>
-        <div class="content">
-          <style>
-            .progress {
-              width: 100%;
-              height: 1px;
-              background: red;
-              box-shadow: 0px 1px 8px 0px red;
-              position: absolute;
-              top: 0;
-              left: 0;
-              animation: progress 5s infinite;
-            }
-
-            @keyframes progress {
-              from {
-                width: 0%;
-              }
-
-              to {
-                width: 100%;
-              }
-            }
-
-            @keyframes loading {
-              from {
-                color: #222;
-                opacity: 1;
-              }
-
-              to {
-                color: red;
-                opacity: 0;
-              }
-            }
-
-            .body {
-              background: #eee;
-              font-family: "Open Sans", sans-serif;
-            }
-
-            .body:after {
-              content: "Please Wait...";
-              display: block;
-              position: absolute;
-              top: 50%;
-              left: 50%;
-              font-size: 2em;
-              font-weight: 300;
-              transform: translate(-50%, -50%);
-              animation: loading 5s infinite linear;
-            }
-          </style>
-
-          <div class="progress"></div>
-          <script src="loading.js"></script>
-        </div>
-      </div>
-
-      <!-------------------------------------------------------->
-
-    </div>
-  </div>
+    will be added soon...
   </div>
 
 

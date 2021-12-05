@@ -46,8 +46,8 @@ function createLoadingWindow() {
 function createWindow() {
   mainLoadingWindow.hide()
   mainWindow = new BrowserWindow({
-    width: 1000,
-    height: 600,
+    width: 500,
+    height: 300,
     backgroundColor:'#0000ffff',
     transparent: true,
     webPreferences: {

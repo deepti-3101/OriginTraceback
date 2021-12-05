@@ -56,10 +56,11 @@ function OpenPage(id){
 }
 
 function launchSoftware(){
-    
-    document.getElementById("credOverlayContainer").style.display = "block";
+    document.getElementById("mainPage").style.display = "block";
+    document.getElementById("credOverlayContainer").style.display = "none";
     
 }
+
 
 OpenPage("manageSearch");
 
