@@ -33,7 +33,7 @@ Path("D:/Genesis-21/Searches").mkdir(parents=True, exist_ok=True)
 username = "dem.odummy"
 password = "orproject5"  # Be careful, don't accidentally expose your password when committing
 name = "D:/Genesis-21/Searches"
-target = "C:\\tmp\\11.jpg"
+target = "D:\\tmp\\11.jpg"
 main = OrderedDict()
 
 
@@ -60,6 +60,8 @@ class hashQueue:
                 self.pQueue[i] += 1
             elif i not in self.processed:
                 self.pQueue[i] = 1
+
+        self.nextHash(0)
 
     def nextHash(self, mode):
         sort_orders = sorted(self.pQueue.items(), key=lambda x: x[1], reverse=True)
@@ -144,7 +146,7 @@ class agent:
         targetListFile = open(name + "/test.txt", "a")
         with Image.open(original) as imgOri:
             hash1 = imagehash.average_hash(imgOri, 8).hash
-        path = "C:\\tmp\\Genesis-21\\"
+        path = "D:\\tmp\\Genesis-21\\"
         files = [f for f in listdir(path) if isfile(join(path, f))]
         pList = []
         for x in files:
@@ -257,7 +259,7 @@ class agent:
         print("Downloading")
         for x in pack.keys():
             while True:
-                filename = "C:\\tmp\\Genesis-21\\" + x[:-1] + ".jpg"
+                filename = "D:\\tmp\\Genesis-21\\" + x[:-1] + ".jpg"
                 file_exists = os.path.isfile(filename)
 
                 if not file_exists:
@@ -276,7 +278,7 @@ class agent:
 
     def sim(self, similarity, hash1, img2):
         try:
-            with Image.open("C:\\tmp\\Genesis-21\\" + img2) as imgCK:
+            with Image.open("D:\\tmp\\Genesis-21\\" + img2) as imgCK:
                 hash2 = imagehash.average_hash(imgCK, 8).hash
             threshold = 1 - similarity / 100
             diff_limit = int(threshold * (8 ** 2))
@@ -323,6 +325,9 @@ class agent:
             postDetails[x]["hash"] = hash_list
         tag_bucket.addHashList(postDetails)
         ref.update(postDetails)
+        for i in time_retrive(postDetails):
+            print(i)
+            break
         # print(postDetails)
 
 def generateHTML(post_Details):
@@ -331,13 +336,12 @@ def generateHTML(post_Details):
         innerHTML += '<a class="card" href="#"><span class="card-header"><iframe src = "' + post_Details[post][
             "link"] + 'embed"></iframe></span><span class="card-summary"> Account Name : ' + post_Details[post][
                          "account"] + '<br><hr>Posted:<p>' + post_Details[post]["postTime"] + '</p></span></a>'
-
     pass
 
 test = pyspeedtest.SpeedTest("www.youtube.com")
 tag_bucket = hashQueue({"samsunggalaxys22ultra": 1, "samsungfan": 1})
 print(test.download())
-agent1 = agent(20)
+agent1 = agent(40)
 # agent2 = agent(2)
 
 

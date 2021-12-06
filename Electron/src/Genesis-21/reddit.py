@@ -25,7 +25,7 @@ ref = db.reference('/searchTest4/')
 
 Path("D:/Genesis-21/Searches").mkdir(parents=True, exist_ok=True)
 
-target = "C:\\tmp\\5.jpg"
+target = "D:\\tmp\\13.jpg"
 
 name = "D:/Genesis-21/Searches"
 
@@ -34,8 +34,8 @@ def hashProbe(threshold, original, data):
     print("IN HASHPROBE")
     targetListFile = open(name + "/test.txt", "a")
     with Image.open(original) as imgOri:
-        hash1 = imagehash.average_hash(imgOri, 8).hash
-    path = "C:\\tmp\\Genesis-21\\"
+        hash1 = imagehash.average_hash(imgOri, 9).hash
+    path = "D:\\tmp\\Genesis-21\\"
     files = [f for f in listdir(path) if isfile(join(path, f))]
     pList = []
     postDetails = {}
@@ -53,7 +53,10 @@ def hashProbe(threshold, original, data):
             except:
                 pass
             pList.append(url)
-            postDetails[x] = posts[x]
+            try:
+                postDetails[x] = posts[x]
+            except:
+                pass
             targetListFile.write(url)
     print(pList)
 
@@ -74,7 +77,7 @@ def download(pack):
             else:
                 ext = ".gif"
 
-            filename = "C:\\tmp\\Genesis-21\\" + x + ext
+            filename = "D:\\tmp\\Genesis-21\\" + x + ext
             file_exists = os.path.isfile(filename)
 
             if not file_exists:
@@ -94,8 +97,8 @@ def download(pack):
 
 def sim(similarity, hash1, img2):
     try:
-        with Image.open("C:\\tmp\\Genesis-21\\" + img2) as imgCK:
-            hash2 = imagehash.average_hash(imgCK, 8).hash
+        with Image.open("D:\\tmp\\Genesis-21\\" + img2) as imgCK:
+            hash2 = imagehash.average_hash(imgCK, 9).hash
         threshold = 1 - similarity / 100
         diff_limit = int(threshold * (8 ** 2))
         if np.count_nonzero(hash1 != hash2) <= diff_limit:
@@ -112,7 +115,7 @@ reddit = praw.Reddit(
     user_agent="my user agent",
 )
 
-subreddit = reddit.subreddit("repost")
+subreddit = reddit.subreddit("memes")
 
 posts = {}
 count = 0
@@ -123,12 +126,7 @@ for submission in subreddit.hot(limit=500):
         posts[submission.id] = {"img": submission.url, "title": submission.title, "id": submission.id,
                                 "postTime": submission.created}
 
+print(len(posts))
 
-x = hashProbe(89, target, posts)
-
-new = {}
-
-for i in x:
-    new[i] = posts[i]
-
-print(new)
+hashProbe(92, target, posts)
+"""download(posts)"""
