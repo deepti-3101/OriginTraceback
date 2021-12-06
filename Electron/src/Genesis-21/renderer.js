@@ -66,6 +66,10 @@ console.log("here");
 setTimeout(launchSoftware, 3000);
 console.log("here1");
 
+
+
+
+
 const remote = require('electron').remote;
 
 const win = remote.getCurrentWindow(); 

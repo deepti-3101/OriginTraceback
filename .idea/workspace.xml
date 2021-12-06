@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7b0a5f16-e8a4-45df-bff3-b94646200da5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Electron/src/Genesis-21/G-21.spec" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Electron/src/Client-21/loadingoverlay.html" beforeDir="false" afterPath="$PROJECT_DIR$/Electron/src/Client-21/loadingoverlay.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Electron/src/Genesis-21/G-21.py" beforeDir="false" afterPath="$PROJECT_DIR$/Electron/src/Genesis-21/G-21.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Electron/src/Genesis-21/jsonLog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Electron/src/Genesis-21/jsonLog.txt" afterDir="false" />
     </list>

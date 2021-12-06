@@ -33,7 +33,7 @@ Path("D:/Genesis-21/Searches").mkdir(parents=True, exist_ok=True)
 username = "dem.odummy"
 password = "orproject5"  # Be careful, don't accidentally expose your password when committing
 name = "D:/Genesis-21/Searches"
-target = "C:\\tmp\\1.jpg"
+target = "C:\\tmp\\11.jpg"
 main = OrderedDict()
 
 
@@ -318,7 +318,6 @@ class agent:
             postDetails[x]["hash"] = hash_list
         tag_bucket.addHashList(postDetails)
         ref.update(postDetails)
-        print(time_retrive(postDetails))
         # print(postDetails)
 
 def generateHTML(post_Details):
@@ -331,7 +330,7 @@ def generateHTML(post_Details):
     pass
 
 test = pyspeedtest.SpeedTest("www.youtube.com")
-tag_bucket = hashQueue({"samsungleaks": 1, "samsungfan": 1})
+tag_bucket = hashQueue({"samsunggalaxys22ultra": 1, "samsungfan": 1})
 print(test.download())
 agent1 = agent(20)
 # agent2 = agent(2)
