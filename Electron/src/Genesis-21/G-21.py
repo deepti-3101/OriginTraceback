@@ -100,9 +100,22 @@ class hashQueue:
         else:
             return False
 
+def time_retrive(content):
+    l = []
+    for i, j in content:
+        l.append(j['postTime'])
+    l.sort()
+    for k in l:
+        for i, j in content:
+            if j['postTime'] == k:
+                main[i] = j
+
+    return main
 
 class agent:
     options = Options()
+
+    options.add_argument("--headless")
 
     options.page_load_strategy = 'eager'
 
@@ -275,8 +288,6 @@ class agent:
 
         postDetails = {}
 
-        hash_list = []
-
         for x in postsList:
             y = 'https://www.instagram.com/p/' + x + '/'
 
@@ -307,21 +318,8 @@ class agent:
             postDetails[x]["hash"] = hash_list
         tag_bucket.addHashList(postDetails)
         ref.update(postDetails)
+        print(time_retrive(postDetails))
         # print(postDetails)
-
-
-def time_retrive(content):
-    l = []
-    for i, j in content:
-        l.append(j['postTime'])
-    l.sort()
-    for k in l:
-        for i, j in content:
-            if j['postTime'] == k:
-                main[i] = j
-
-    return main
-
 
 def generateHTML(post_Details):
     innerHTML = ""

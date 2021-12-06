@@ -2,10 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7b0a5f16-e8a4-45df-bff3-b94646200da5" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Electron/src/Client-21/dashboard.css" beforeDir="false" afterPath="$PROJECT_DIR$/Electron/src/Client-21/dashboard.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Electron/src/Client-21/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Electron/src/Client-21/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Electron/src/Client-21/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/Electron/src/Client-21/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Electron/src/Client-21/renderer.js" beforeDir="false" afterPath="$PROJECT_DIR$/Electron/src/Client-21/renderer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Electron/src/Genesis-21/G-21.spec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Electron/src/Client-21/loadingoverlay.html" beforeDir="false" afterPath="$PROJECT_DIR$/Electron/src/Client-21/loadingoverlay.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Electron/src/Genesis-21/G-21.py" beforeDir="false" afterPath="$PROJECT_DIR$/Electron/src/Genesis-21/G-21.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Electron/src/Genesis-21/jsonLog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Electron/src/Genesis-21/jsonLog.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,8 +33,13 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Electron/src/Genesis-21/reddit.py" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Electron/src/Genesis-21" />
     <property name="settings.editor.selected.configurable" value="preferences.fileTypes" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\GitHub\OriginTraceback\Electron\src\Genesis-21" />
+    </key>
   </component>
   <component name="RunManager" selected="Python.G-21">
     <configuration name="G-21" type="PythonConfigurationType" factoryName="Python">
@@ -101,8 +107,8 @@
     </configuration>
     <list>
       <item itemvalue="Python.G-21" />
-      <item itemvalue="Python.oop G-21" />
       <item itemvalue="Python.reddit" />
+      <item itemvalue="Python.oop G-21" />
     </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
