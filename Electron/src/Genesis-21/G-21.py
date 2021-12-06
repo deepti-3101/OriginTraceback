@@ -101,14 +101,19 @@ class hashQueue:
             return False
 
 def time_retrive(content):
-    l = []
-    for i, j in content:
-        l.append(j['postTime'])
-    l.sort()
-    for k in l:
-        for i, j in content:
-            if j['postTime'] == k:
-                main[i] = j
+    l=[]
+    m=[]
+    main={}
+    for i in content:
+       l.append(content[i])
+    for j in l:
+        m.append(j['postTime'])
+    m.sort()
+    for i in m:
+        for j in content:
+            value=content[j]
+            if (i==value['postTime']):
+                main[j]=value
 
     return main
 
