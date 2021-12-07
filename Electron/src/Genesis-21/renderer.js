@@ -1,4 +1,4 @@
-const pages = ["Configuration", "manageSearch", "dashboard", "activity", "documentation", "newSearch", "results","link", "addclient"];
+const pages = ["Configuration", "manageSearch", "dashboard", "activity", "documentation", "newSearch", "results", "link", "addclient"];
 
 
 const firebaseConfig = {
@@ -10,75 +10,111 @@ const firebaseConfig = {
     messagingSenderId: "957797207090",
     appId: "1:957797207090:web:aa8f09c4b1bc74b771c02b",
     measurementId: "G-NC95N7MJEC"
-  };
-  
+};
 
-  var platform = "";
 
-  
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
+var platform = "";
+
+
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
 
 read()
 
 
-  function read(){  
+function read() {
 
 
-    firebase.database().ref('Newseaerchfinal/').on('value',(snap)=>{
-    renderHTML(snap.val());;})
-    }
-  
-    function renderHTML(value){
-        innerHTML = "<div class = 'boxContainer1'><div class='Cboxs'>";
-      for(i in value){
-        if (value[i]["account"] != null){
+    firebase.database().ref('Newseaerchfinal/').on('value', (snap) => {
+        renderHTML(snap.val());;
+    })
+}
+
+function renderHTML(value) {
+    innerHTML = "<div class = 'boxContainer1'><div class='Cboxs'>";
+    for (i in value) {
+        if (value[i]["account"] != null) {
             innerHTML += '<div class="Cbox" href="#"><span class="Cbox-header"><iframe src = "' + value[i][
                 "link"] + 'embed"></iframe></span><span class="Cbox-summary"> Account Name : ' + value[i][
-                             "account"] + '<br><hr><h6>Posted: ' + value[i]["postTime"] + '</h6></span></div>'
-                            }
-          }
+                "account"] + '<br><hr><h6>Posted: ' + value[i]["postTime"] + '</h6></span></div>'
+        }
+    }
 
-      innerHTML += "</div></div>"
-      document.getElementById("resultRender").innerHTML = innerHTML;
-  
-  }
+    innerHTML += "</div></div>"
+    document.getElementById("resultRender").innerHTML = innerHTML;
+
+}
 
 
-function writetofb(){
+
+function readSearchList() {
+
+
+    firebase.database().ref('searchlist/').on('value', (snap) => {
+        renderHTML11(snap.val());;
+    })
+}
+var tte;
+function renderHTML11(value) {
+    var innerHTML1 = "";
+    for (i in value) {
+        window.alert(i);
+        tte = i;
+        innerHTML1 += "<li class='checked'><i class='fa fa-check-square-o'></i><span>";
+        innerHTML1 += value[i]["name"];
+        innerHTML1 += "</span><div class='info'><div class='button green'>In progress</div><span>INITIATED on ";
+        innerHTML1 += value[i]["date"]
+        innerHTML1 += "</span></div></li>";
+    }
+    document.getElementById("searchlistcont").innerHTML = innerHTML1;
+
+}
+
+
+
+function writetofb() {
     console.log("Writing to firebase from GUI");
     console.log(document.getElementById("hashtaginput").value, document.getElementById("searchnameinput").value, document.getElementById("filepath").value);
     const dp = firebase.database().ref("networks/stream/active").set({
-       hashtag : document.getElementById("hashtaginput").value,
-       search_name : document.getElementById("searchnameinput").value,
-       media : platform,
-       file_path : document.getElementById("filepath").value
+        hashtag: document.getElementById("hashtaginput").value,
+        search_name: document.getElementById("searchnameinput").value,
+        media: platform,
+        file_path: document.getElementById("filepath").value
 
 
     });
 }
 
 
+updateSearchList();
 
 
-function OpenPage(id){
-    
-    for(let x in pages){
+function updateSearchList() {
+    window.alert("Working");
+    readSearchList();
+}
+
+
+
+function OpenPage(id) {
+
+    for (let x in pages) {
         document.getElementById(pages[x]).style.display = "none";
-        try{
-        document.getElementById(pages[x] + "Button").className = 'test';
-    }catch{
-    }}
+        try {
+            document.getElementById(pages[x] + "Button").className = 'test';
+        } catch {
+        }
+    }
     document.getElementById(id).style.display = "block";
     document.getElementById(id + "Button").className = "active1";
 
-    
+
 }
 
-function launchSoftware(){
+function launchSoftware() {
     document.getElementById("loadingOverlayContainer").style.display = "none";
     document.getElementById("mainPage").style.display = "block";
-    
+
 }
 
 OpenPage("manageSearch");
@@ -92,7 +128,7 @@ console.log("here1");
 
 const remote = require('electron').remote;
 
-const win = remote.getCurrentWindow(); 
+const win = remote.getCurrentWindow();
 
 
 

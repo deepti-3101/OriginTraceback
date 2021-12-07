@@ -28,7 +28,7 @@
       <br>
       <Br>
       <hr class="whiteLine">
-      
+
       <h3 class="loadingText" style="margin-top: 5px;">LOADING</h3>
       <p class="loadingText" style="font-size: 7px;">Loading modules and scripts, optimising layout...</p>
     </div>
@@ -336,35 +336,14 @@
         </div>
         <div class="content">
           <div class="list">
-            <div class="title">Recent</div>
-            <ul>
-              <li class="checked"><i class="fa fa-check-square-o"></i><span>POST ID : 12r1315T3</span>
-                <div class="info">
-                  <div class="button green">In progress</div><span>INITIATED on 25/11/2021</span>
-                </div>
-              </li>
-              <li><i class="fa fa-square-o"></i><span>POST ID : 12r1qe4T3</span>
-                <div class="info">
-                  <div class="button">Pending</div><span>INITIATED on 25/11/2021</span>
-                </div>
-              </li>
-              <li><i class="fa fa-square-o"></i><span>POST ID : 12giuU3f2g</span>
-                <div class="info">
-                  <div class="button" id="testtesttest">INITIATE</div><span>Ready to Search...</span>
-                </div>
-              </li>
+            <div class="title">All Searches</div>
+            <ul id="searchlistcont">
+
+              <li></li>
+
             </ul>
           </div>
-          <div class="list">
-            <div class="title">Completed</div>
-            <ul>
-              <li class="checked"><i class="fa fa-check-square-o"></i><span>POST ID : 12r24T15T3</span>
-                <div class="info">
-                  <div class="button green">INFO</div><span>INITIATED on 24/11/2021</span>
-                </div>
-              </li>
-            </ul>
-          </div>
+          
         </div>
       </div>
 
@@ -447,7 +426,8 @@
               <h1 class="title1">CHOOSE YOUR PLATFORM</h1>
               <ul class="soc">
                 <li>
-                  <a class="icon-29 instagram" href="#" title="Instagram" onclick="OpenPage('link'); platform = 'instagram'; ">
+                  <a class="icon-29 instagram" href="#" title="Instagram"
+                    onclick="OpenPage('link'); platform = 'instagram'; ">
                     <div class="ir">
                       <svg viewbox="0 0 512 512" preserveAspectRatio="xMidYMid meet" width="512" height="512">
                         <path
@@ -527,7 +507,8 @@
                 class="fa fa-trash-o"></i></div>
           </div>
         </div>
-        <div class="content" style="height : 300px; display: flex;align-items: center;justify-content: center;flex-direction: column;">
+        <div class="content"
+          style="height : 300px; display: flex;align-items: center;justify-content: center;flex-direction: column;">
           <div class="tokens-container">
             <div class="token">
               <div class="token-preview">
@@ -543,7 +524,7 @@
                   </span>
                 </div>
                 <h6>TOKENS</h6>
-                <h2 id = "tokenh">Y2byi82g8BO</h2>
+                <h2 id="tokenh">Y2byi82g8BO</h2>
                 <button class="btn11">Continue</button>
               </div>
             </div>
@@ -552,14 +533,6 @@
 
         </div>
       </div>
-
-
-
-
-
-
-
-
 
       <div class="view" id="results" style="display: none">
         <div class="viewHeader">
@@ -623,8 +596,9 @@
                   <br><br>
                   <h2 class="h2">Choose a File</h2>
                   <br><br>
-                  <input class="file" type="file" @change="onFileChange" id = "filepath"><br><br>
-                  <input type="text" id="hashtaginput" placeholder="Enter Hashtags Despiting content in the file" style="color: white;">
+                  <input class="file" type="file" @change="onFileChange" id="filepath"><br><br>
+                  <input type="text" id="hashtaginput" placeholder="Enter Hashtags Despiting content in the file"
+                    style="color: white;">
                 </div>
                 <div v-else>
                   <img :src="image" />
