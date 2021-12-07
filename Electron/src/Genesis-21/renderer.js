@@ -1,4 +1,5 @@
-const pages = ["Configuration", "manageSearch", "dashboard", "activity", "documentation", "newSearch", "results", "link", "addclient"];
+const pages = ["manageSearch", "dashboard", "activity", "documentation", "newSearch", "results","link", "addclient", "content_m"];
+
 
 
 const firebaseConfig = {
@@ -108,6 +109,22 @@ function OpenPage(id) {
 
 
 }
+
+function change_pg(){
+    var a=document.getElementById("url_image").value;
+    
+    
+    if (a==0){
+        console.log(a)
+        id="link"
+        
+    }else {
+        id="content_m"
+    }
+    OpenPage(id)
+}
+
+
 
 function launchSoftware() {
     document.getElementById("loadingOverlayContainer").style.display = "none";
