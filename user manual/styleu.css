@@ -71,3 +71,9 @@ font-size:190%;
 }
 p{
 font-size:150%;}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+body::-webkit-scrollbar {
+  display: none;
+ 
+}
