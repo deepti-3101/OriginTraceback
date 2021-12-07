@@ -58,11 +58,10 @@ var tte;
 function renderHTML11(value) {
     var innerHTML1 = "";
     for (i in value) {
-        window.alert(i);
         tte = i;
         innerHTML1 += "<li class='checked'><i class='fa fa-check-square-o'></i><span>";
         innerHTML1 += value[i]["name"];
-        innerHTML1 += "</span><div class='info'><div class='button green'>In progress</div><span>INITIATED on ";
+        innerHTML1 += "</span><div class='info'><div class='button green'>Details</div><span>INITIATED on ";
         innerHTML1 += value[i]["date"]
         innerHTML1 += "</span></div></li>";
     }
@@ -90,7 +89,6 @@ updateSearchList();
 
 
 function updateSearchList() {
-    window.alert("Working");
     readSearchList();
 }
 
