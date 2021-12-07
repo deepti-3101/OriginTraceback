@@ -1,0 +1,141 @@
+<div id="newSearch" class="view" style="display: none">
+
+    <div class="viewHeader">
+      <div class="title">New Search</div>
+      <div class="functions">
+        <div class="button active">New Search</div>
+        <div class="button" onclick="OpenPage('dashboard')">Completed</div>
+        <div class="button inverz" style="padding:0px; width: auto; padding-left:5px; padding-right:5px;"><i
+            class="fa fa-trash-o"></i></div>
+      </div>
+    </div>
+    <div class="content">
+      <link rel="stylesheet" href="main.css">
+      <link rel="stylesheet" href="buttons.css">
+
+      <h1 class='elegantshadow'>Initiate Search</h1>
+      <h1></h1>
+      <div class="design">
+        <center>
+          <form action="/action_page.php" method="get">
+            <br><br>
+            <label for="browser">Enter Your Project Name: </label>
+            <input list="browsers" name="browser" id="browser" placeholder="Enter Here">
+            <br><br>
+          </form>
+          <form action="/action_page.php">
+            <label for="platform">Choose a Platform: </label>
+            <select name="platform" id="platform">
+              <option value="Twitter">Twitter</option>
+              <option value="Instagram">Instagram</option>
+              <option value="Reddit">Reddit</option>
+            </select>
+            <br><br>
+            <form action="/action_page.php">
+              <label for="type_of_input">Choose a Type of Input: </label>
+              <select name="url_content" id="url_content">
+                <option value="url">Url</option>
+                <option value="Content">Content</option>
+
+
+              </select>
+            </form>
+            <br>
+            <form action="/action_page.php">
+              <label for="type_of_post">Choose the Type of Post</label>
+              <select name="img/text" id="img/text">
+                <option value="Twitter">Image</option>
+                <option value="Instagram">Text</option>
+              </select>
+              <br><br>
+              <button class="slide" onclick="change_pg()">SUBMIT</button>
+            </form>
+            <br><br><br>
+        </center>
+      </div>
+    </div>
+
+  </div>
+
+
+
+
+  <div id="content_m" class="view" style="display: none">
+
+    <div class="viewHeader">
+      <div class="title">Platform</div>
+      <div class="functions">
+        <div class="button active">New Search</div>
+        <div class="button">Completed</div>
+        <div class="button inverz" style="padding:0px; width: auto; padding-left:5px; padding-right:5px;"><i
+            class="fa fa-trash-o"></i></div>
+      </div>
+    </div>
+    <div class="content">
+      <link rel="stylesheet" href="buttons.css">
+      <link rel="stylesheet" href="main.css">
+
+      <center>
+        <div class="Upload">
+          <h1 class='elegantshadow'>Upload Your Content</h1>
+          <br><br>
+          <form action="/action_page.php">
+            <input type="file" id="myFile" name="filename">
+            <br><br><br>
+            <form action="/action_page.php">
+              <label for="platform">Choose a Related Hashtag:</label>
+              <select name="hashtag" id="hashtag">
+                <option>#abusive</option>
+                <option>#femaleoffence</option>
+                <option>#domesticviolenceawareness</option>
+                <option>#narcissistabuse</option>
+                <option>#toxiccovertnarcissist</option>
+                <option>#physicalassault</option>
+                <option> #badfriend</option>
+              </select>
+            </form>
+            <br><br>
+            <button class="slide">SUBMIT</button>
+          </form>
+        </div>
+      </center>
+
+    </div>
+  </div>
+
+  <!--------------------------Platform------------------------------------------->
+  <div id="link" class="view" style="display: none">
+    <link rel="stylesheet" href="link.css">
+    <div class="viewHeader">
+      <div class="title">Link</div>
+      <div class="functions">
+        <div class="button active" onclick="OpenPage('newSearch')">New Search</div>
+        <div class="button" onclick="OpenPage('dashboard')">Completed</div>
+        <div class="button inverz" style="padding:0px; width: auto; padding-left:5px; padding-right:5px;"><i
+            class="fa fa-trash-o"></i></div>
+      </div>
+    </div>
+
+    <div class="content">
+
+      <link rel="stylesheet" href="buttons.css">
+      <link rel="stylesheet" href="main.css">
+
+      <center>
+        <h1 class='elegantshadow'>Enter the url</h1>
+
+        <form action="/action_page.php" method="get">
+
+          <input list="browsers" name="browser" id="browser">
+          <br><br>
+        </form>
+        </form>
+        <br><br>
+        <button class="slide">SUBMIT</button>
+        </form>
+      </center>
+    </div>
+  </div>
+
+
+  <!--------------------------Platform------------------------------------------->
