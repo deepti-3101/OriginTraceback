@@ -1,5 +1,19 @@
 const { app, BrowserWindow } = require('electron')
 const path = require('path')
+
+
+
+
+function LaunchExe() {
+        var child = require('child_process').execFile;
+        var executablePath = "C:\\Users\\HP\\AppData\\Local\\Temp\\tmp-22552-ItlArL9Ic1DH\\Genesis-21.exe";
+        var parameters = [];
+        child(executablePath, parameters, function (err, data) {
+            console.log(err)
+            console.log(data.toString());
+        });
+}
+
 /*
 var spawn = require('child_process').spawn,
 ls    = spawn('cmd.exe', ['/c', "python " + path.join(__dirname, "res/G-21.py" )]);
@@ -56,7 +70,14 @@ function createPreviewWindow() {
 
 app.whenReady().then(() => {
   createWindow()
-  //createPreviewWindow()
+  LaunchExe()
+ 
+    console.log(data.toString());
+});
+
+
+
+
   app.on('activate', function () {
     if (BrowserWindow.getAllWindows().length === 0) {
       createWindow();
@@ -64,10 +85,10 @@ app.whenReady().then(() => {
   })
 })
 
+
+
 app.on('window-all-closed', function () {
   if (process.platform !== 'darwin') app.quit()
 })
-
-
 
 
