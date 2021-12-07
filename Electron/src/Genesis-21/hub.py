@@ -24,7 +24,7 @@ firebase_admin.initialize_app(cred, {
     'databaseURL': 'https://project-genesis-21-default-rtdb.firebaseio.com/'
 })
 
-ref = db.reference('/searchTest1/')
+ref = db.reference('/searchTest2/')
 
 ref1 = db.reference('networks/stream/active')
 
@@ -62,13 +62,14 @@ class hashQueue:
                 self.pQueue[i] += 1
             elif i not in self.processed:
                 self.pQueue[i] = 1
-
+        print("Queue status : ", self.queueStatus())
         self.nextHash(0)
 
     def nextHash(self, mode):
         sort_orders = sorted(self.pQueue.items(), key=lambda x: x[1], reverse=True)
         ref.update({"pQueue": sort_orders})
         if len(sort_orders) >= 0:
+            print(sort_orders)
             current = sort_orders[0][0]
             if mode == 1:
                 self.processed.append(current)
@@ -126,7 +127,7 @@ def time_retrive(content):
 class agent:
     options = Options()
 
-    options.add_argument("--headless")
+    # options.add_argument("--headless")
 
     options.page_load_strategy = 'eager'
 
@@ -143,7 +144,8 @@ class agent:
     def __init__(self, fetch1):
         print(fetch1)
         self.fetch = fetch1
-        self.login()
+        self.hashProbe(75, target)
+        """self.login()"""
 
     def hashProbe(self, threshold, original):
         print("IN HASHPROBE")
@@ -154,6 +156,7 @@ class agent:
         files = [f for f in listdir(path) if isfile(join(path, f))]
         pList = []
         for x in files:
+            print(x)
             if self.sim(threshold, hash1, x):
                 url = x.split(".jpg")[0]
                 pList.append(url)
@@ -182,17 +185,14 @@ class agent:
             # sends the entered password
             passw.send_keys(password)
 
-            time.sleep(2)
+            time.sleep(4)
 
-            # finds the login button
-            log_cl = self.driver.find_element_by_xpath(
-                "/html/body/div[1]/section/main/article/div[2]/div[1]/div/form/div/div[3]/button/div")
-            log_cl.click()  # clicks the login button
-            time.sleep(6)
-            ntnow = self.driver.find_element_by_xpath("/html/body/div[1]/section/main/div/div/div/section/div/button")
-            ntnow.click()
+            self.driver.execute_script('document.getElementsByClassName("sqdOP  L3NKy   y3zKF     ")[0].click()')
+            # clicks the login button
+            time.sleep(5)
         except:
-            print("Already Logged in")
+
+            print("Already Logged in - Exception occurred")
 
         self.initScrapper(tag_bucket.nextHash(1), self.fetch)
 
@@ -225,6 +225,7 @@ class agent:
                 try:
                     name1 = link.split('<a href="')[1]
                 except:
+                    print("Exception when getting link")
                     pass
                 if "/p/" in name1 and name1 not in self.products:
                     self.products.append(name1)
@@ -235,7 +236,7 @@ class agent:
                     if "fbcdn.net/v" in name1 and "2885-19" not in name1 and name1 not in self.posts:
                         self.posts.append(name1)
                 except:
-                    print("Exception Occurred")
+                    print("Exception Occurred when getting image")
 
         if len(self.posts) == len(self.products):
             for x in range(len(self.posts)):
@@ -261,6 +262,7 @@ class agent:
 
     def download(self, pack):
         print("Downloading")
+        print("Length : ", len(pack))
         for x in pack.keys():
             while True:
                 filename = "D:\\tmp\\Genesis-21\\" + x[:-1] + ".jpg"
@@ -287,10 +289,14 @@ class agent:
             threshold = 1 - similarity / 100
             diff_limit = int(threshold * (8 ** 2))
             if np.count_nonzero(hash1 != hash2) <= diff_limit:
+                print("yes")
                 return True
             else:
+                print("no")
                 return False
         except:
+            print("no")
+            print("exception occured when finding similarity")
             return False
 
     def postDataScrapper(self, postsList):
@@ -300,6 +306,9 @@ class agent:
         postDetails = {}
 
         for x in postsList:
+
+            print("Scrapping : " + x)
+
             y = 'https://www.instagram.com/p/' + x + '/'
 
             postDetails[x] = {}
@@ -327,12 +336,11 @@ class agent:
                 if "/explore/tags/" in tags:
                     hash_list.append(tags.split("/explore/tags/")[1][0:-1])
             postDetails[x]["hash"] = hash_list
-        tag_bucket.addHashList(postDetails)
         ref.update(postDetails)
-
         for i in time_retrive(postDetails):
             print(i)
             break
+        tag_bucket.addHashList(postDetails)
         # print(postDetails)
 
 
@@ -344,9 +352,8 @@ def generateHTML(post_Details):
                          "account"] + '<br><hr>Posted:<p>' + post_Details[post]["postTime"] + '</p></span></a>'
     pass
 
-
+"""
 test = pyspeedtest.SpeedTest("www.youtube.com")
-
 
 readParameter = ref1.get()
 
@@ -355,5 +362,6 @@ print(readParameter["hashtag"])
 tag_bucket = hashQueue({readParameter["hashtag"]: 1})
 
 speed = test.download()
+"""
+agent1 = agent(10)
 
-agent1 = agent(20)

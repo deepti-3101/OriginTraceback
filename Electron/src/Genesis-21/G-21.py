@@ -122,7 +122,7 @@ def time_retrive(content):
 class agent:
     options = Options()
 
-    options.add_argument("--headless")
+    #options.add_argument("--headless")
 
     options.page_load_strategy = 'eager'
 
@@ -178,15 +178,11 @@ class agent:
             # sends the entered password
             passw.send_keys(password)
 
-            time.sleep(2)
+            time.sleep(4)
 
-            # finds the login button
-            log_cl = self.driver.find_element_by_xpath(
-                "/html/body/div[1]/section/main/article/div[2]/div[1]/div/form/div/div[3]/button/div")
-            log_cl.click()  # clicks the login button
-            time.sleep(6)
-            ntnow = self.driver.find_element_by_xpath("/html/body/div[1]/section/main/div/div/div/section/div/button")
-            ntnow.click()
+            self.driver.execute_script('document.getElementsByClassName("sqdOP  L3NKy   y3zKF     ")[0].click()')
+
+            time.sleep(5)
         except:
             print("Already Logged in")
 
