@@ -16,6 +16,7 @@
   <div class="loadingOverlay" style="display: block;" id="loadingOverlayContainer">
 
     <div class="loadingMain">
+      <div class="progress" style="color: blue; height: 10px"></div>
       <h1 class="loadingText">Genesis-21 (HUB)</h1>
       <br>
       <p style="font-size: xx-small; width: 80%;" class="loadingText">
@@ -27,6 +28,7 @@
       <br>
       <Br>
       <hr class="whiteLine">
+      
       <h3 class="loadingText" style="margin-top: 5px;">LOADING</h3>
       <p class="loadingText" style="font-size: 7px;">Loading modules and scripts, optimising layout...</p>
     </div>
@@ -445,7 +447,7 @@
               <h1 class="title1">CHOOSE YOUR PLATFORM</h1>
               <ul class="soc">
                 <li>
-                  <a class="icon-29 instagram" href="#" title="Instagram" onclick="OpenPage('link')">
+                  <a class="icon-29 instagram" href="#" title="Instagram" onclick="OpenPage('link'); platform = 'instagram'; ">
                     <div class="ir">
                       <svg viewbox="0 0 512 512" preserveAspectRatio="xMidYMid meet" width="512" height="512">
                         <path
@@ -461,7 +463,7 @@
                 </li>
 
                 <li>
-                  <a class="icon-16 twitter" href="#" title="Twitter" onclick="OpenPage('link')">
+                  <a class="icon-16 twitter" href="#" title="Twitter" onclick="OpenPage('link'); platform = 'twitter' ">
                     <div class="ir">
                       <svg viewbox="0 0 512 512" preserveAspectRatio="xMidYMid meet" width="512" height="512">
                         <path
@@ -472,7 +474,7 @@
                   </a>
                 </li>
                 <li>
-                  <a class="icon-30 reddit" href="#" title="reddit" onclick="OpenPage('link')">
+                  <a class="icon-30 reddit" href="#" title="reddit" onclick="OpenPage('link'); platform = 'reddit' ">
                     <div class="ir">
                       <svg viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet" width="512" height="512">
                         <path
@@ -612,7 +614,7 @@
 
           <div id='bod'>
             <div class="text-input">
-              <input type="text" id="input" placeholder="Enter the URL of the Post">
+              <input type="text" id="searchnameinput" placeholder="Enter Search Name" style="color: white;">
               <label for="input">Link</label>
               <br><br>
               <div id="app">
@@ -621,7 +623,8 @@
                   <br><br>
                   <h2 class="h2">Choose a File</h2>
                   <br><br>
-                  <input class="file" type="file" @change="onFileChange">
+                  <input class="file" type="file" @change="onFileChange" id = "filepath"><br><br>
+                  <input type="text" id="hashtaginput" placeholder="Enter Hashtags Despiting content in the file" style="color: white;">
                 </div>
                 <div v-else>
                   <img :src="image" />
@@ -636,7 +639,7 @@
               <button class="raise" onclick="OpenPage('newSearch')">BACK</button>
 
 
-              <button class="pulse" onclick="OpenPage('activity')">SEARCH</button>
+              <button class="pulse" onclick="OpenPage('activity'); writetofb();">SEARCH</button>
             </div>
           </div>
           <script>
@@ -690,7 +693,6 @@
               width: 100%;
               height: 1px;
               background: red;
-              box-shadow: 0px 1px 8px 0px red;
               position: absolute;
               top: 0;
               left: 0;

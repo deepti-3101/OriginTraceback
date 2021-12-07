@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7b0a5f16-e8a4-45df-bff3-b94646200da5" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Electron/src/Genesis-21/hub.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Electron/src/Genesis-21/G-21.py" beforeDir="false" afterPath="$PROJECT_DIR$/Electron/src/Genesis-21/G-21.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Electron/src/Genesis-21/demoReport.html" beforeDir="false" afterPath="$PROJECT_DIR$/Electron/src/Genesis-21/demoReport.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Electron/src/Genesis-21/jsonLog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Electron/src/Genesis-21/jsonLog.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Electron/src/Genesis-21/reddit.py" beforeDir="false" afterPath="$PROJECT_DIR$/Electron/src/Genesis-21/reddit.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Electron/src/Genesis-21/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Electron/src/Genesis-21/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Electron/src/Genesis-21/loading.html" beforeDir="false" afterPath="$PROJECT_DIR$/Electron/src/Genesis-21/loading.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Electron/src/Genesis-21/renderer.js" beforeDir="false" afterPath="$PROJECT_DIR$/Electron/src/Genesis-21/renderer.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,7 +33,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Electron/src/Genesis-21" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Electron/src/Genesis-21/hub.py" />
     <property name="settings.editor.selected.configurable" value="preferences.fileTypes" />
   </component>
   <component name="RecentsManager">
@@ -41,7 +41,7 @@
       <recent name="D:\GitHub\OriginTraceback\Electron\src\Genesis-21" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.reddit">
+  <component name="RunManager" selected="Python.hub">
     <configuration name="G-21" type="PythonConfigurationType" factoryName="Python">
       <module name="OriginTraceback" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -55,6 +55,27 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Electron/src/Genesis-21/G-21.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="hub" type="PythonConfigurationType" factoryName="Python">
+      <module name="OriginTraceback" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="D:\Python\Python39\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Electron/src/Genesis-21" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Electron/src/Genesis-21/hub.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -108,6 +129,7 @@
     <list>
       <item itemvalue="Python.G-21" />
       <item itemvalue="Python.reddit" />
+      <item itemvalue="Python.hub" />
       <item itemvalue="Python.oop G-21" />
     </list>
   </component>

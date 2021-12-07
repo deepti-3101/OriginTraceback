@@ -12,6 +12,9 @@ const firebaseConfig = {
     measurementId: "G-NC95N7MJEC"
   };
   
+
+  var platform = "";
+
   
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
@@ -40,7 +43,20 @@ read()
       document.getElementById("resultRender").innerHTML = innerHTML;
   
   }
-  
+
+
+function writetofb(){
+    console.log("Writing to firebase from GUI");
+    console.log(document.getElementById("hashtaginput").value, document.getElementById("searchnameinput").value, document.getElementById("filepath").value);
+    const dp = firebase.database().ref("networks/stream/active").set({
+       hashtag : document.getElementById("hashtaginput").value,
+       search_name : document.getElementById("searchnameinput").value,
+       media : platform,
+       file_path : document.getElementById("filepath").value
+
+
+    });
+}
 
 
 
@@ -67,7 +83,7 @@ function launchSoftware(){
 
 OpenPage("manageSearch");
 console.log("here");
-setTimeout(launchSoftware, 3000);
+setTimeout(launchSoftware, 5000);
 console.log("here1");
 
 
@@ -92,37 +108,3 @@ window.onbeforeunload = (event) => {
     win.removeAllListeners();
 }
 
-
-
-/*
-function handleWindowControls() {
-    // Make minimise/maximise/restore/close buttons work when they are clicked
-    document.getElementById('min-button').addEventListener("click", event => {
-        win.minimize();
-    });
-
-    document.getElementById('max-button').addEventListener("click", event => {
-        win.maximize();
-    });
-
-    document.getElementById('restore-button').addEventListener("click", event => {
-        win.unmaximize();
-    });
-
-    document.getElementById('close-button').addEventListener("click", event => {
-        win.close();
-    });
-    toggleMaxRestoreButtons();
-    win.on('maximize', toggleMaxRestoreButtons);
-    win.on('unmaximize', toggleMaxRestoreButtons);
-
-    function toggleMaxRestoreButtons() {
-        if (win.isMaximized()) {
-            document.body.classList.add('maximized');
-        } else {
-            document.body.classList.remove('maximized');
-        }
-    }
-}
-
-*/
