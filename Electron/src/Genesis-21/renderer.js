@@ -1,4 +1,4 @@
-const pages = ["Configuration", "manageSearch", "dashboard", "activity", "documentation", "newSearch", "results","link"];
+const pages = ["Configuration", "manageSearch", "dashboard", "activity", "documentation", "newSearch", "results","link", "addclient"];
 
 
 const firebaseConfig = {
@@ -46,13 +46,17 @@ read()
 
 
 function OpenPage(id){
+    
     for(let x in pages){
         document.getElementById(pages[x]).style.display = "none";
+        try{
         document.getElementById(pages[x] + "Button").className = 'test';
-    }
+    }catch{
+    }}
     document.getElementById(id).style.display = "block";
-    console.log(document.getElementById(id + "Button"));
     document.getElementById(id + "Button").className = "active1";
+
+    
 }
 
 function launchSoftware(){

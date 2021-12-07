@@ -166,13 +166,13 @@
         <div class="viewHeader">
           <div class="title">Activity</div>
           <div class="functions">
-            <div class="button active" onclick="OpenPage('newSearch')">New Search</div>
-            <div class="button" onclick="OpenPage('dashboard')">Completed</div>
+            <div class="button active" onclick="OpenPage('addclient')">Add Clients</div>
             <div class="button inverz" style="padding:0px; width: auto; padding-left:5px; padding-right:5px;"><i
                 class="fa fa-trash-o"></i></div>
           </div>
         </div>
         <div class="content">
+          <div class="progress"></div>
           <style>
             /*	
 	Side Navigation Menu V2, RWD
@@ -213,7 +213,7 @@
               font-weight: bold;
               font-size: 1em;
               text-align: left;
-              color: #185875;
+              color: #ffffff;
             }
 
             .container td {
@@ -310,40 +310,10 @@
               </thead>
               <tbody>
                 <tr>
-                  <td>Agent_1</td>
+                  <td>HUB Agent (Leader)</td>
                   <td>#Samsung_leak</td>
                   <td>6369</td>
                   <td>00:2:50</td>
-                </tr>
-                <tr>
-                  <td>Agent_2</td>
-                  <td>#leaks</td>
-                  <td>10437</td>
-                  <td>00:00:22</td>
-                </tr>
-                <tr>
-                  <td>Agent_3</td>
-                  <td>#samsung</td>
-                  <td>5327</td>
-                  <td>00:00:34</td>
-                </tr>
-                <tr>
-                  <td>Agent_4</td>
-                  <td>#Samsungfans</td>
-                  <td>2961</td>
-                  <td>00:1:10</td>
-                </tr>
-                <tr>
-                  <td>Agent_5</td>
-                  <td>#samsungleak</td>
-                  <td>4135</td>
-                  <td>00:00:19</td>
-                </tr>
-                <tr>
-                  <td>Agent_6</td>
-                  <td>#tech</td>
-                  <td>3486</td>
-                  <td>00:00:52</td>
                 </tr>
               </tbody>
             </table>
@@ -445,7 +415,7 @@
               <p class="color">
                 <b>Operating System: </b>
 
-                Microsoft Windows 9 or above<br><br>
+                Microsoft Windows 10 or above<br><br>
                 <b>Memory: </b> 16 GB RAM or above<br><br>
                 <b>Storage: </b> 500 GB internal storage drive or above<br><br>
                 <b>Internet speed: </b> 40 Mbps or above<br><br>
@@ -534,9 +504,57 @@
                 class="fa fa-trash-o"></i></div>
           </div>
         </div>
-        <div class="content"></div>
-        <div class="scrollable" id="doc">we'll have docs here soon</div>
+        <div class="content">
+          <div class="scrollable" id="doc">we'll have docs here soon</div>
+        </div>
       </div>
+
+
+
+
+
+
+      <div class="view" id="addclient" style="display: none">
+
+        <div class="viewHeader">
+          <div class="title">Add Client</div>
+          <div class="functions">
+            <div class="button active" onclick="OpenPage('newSearch')">New Search</div>
+            <div class="button" onclick="OpenPage('dashboard')">Completed</div>
+            <div class="button inverz" style="padding:0px; width: auto; padding-left:5px; padding-right:5px;"><i
+                class="fa fa-trash-o"></i></div>
+          </div>
+        </div>
+        <div class="content" style="height : 300px; display: flex;align-items: center;justify-content: center;flex-direction: column;">
+          <div class="tokens-container">
+            <div class="token">
+              <div class="token-preview">
+                <h6>TOKEN</h6>
+                <h2>Generate CLIENT-TOKEN</h2>
+                <a href="#">View all Tokens <i class="fas fa-chevron-right"></i></a>
+              </div>
+              <div class="token-info">
+                <div class="progress-container">
+                  <div class="progress1"></div>
+                  <span class="progress-text">
+                    Connecting...
+                  </span>
+                </div>
+                <h6>TOKENS</h6>
+                <h2 id = "tokenh">Y2byi82g8BO</h2>
+                <button class="btn11">Continue</button>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+
+
+
+
+
 
 
 
@@ -552,6 +570,7 @@
           </div>
         </div>
         <div class="content">
+          <div class="progress"></div>
           <div class="scrollable" id="resultRender"></div>
 
         </div>
