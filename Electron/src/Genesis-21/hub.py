@@ -20,11 +20,13 @@ from firebase_admin import db
 
 cred = credentials.Certificate("fb.json")
 
+workingDirectory = ""
+
 firebase_admin.initialize_app(cred, {
     'databaseURL': 'https://project-genesis-21-default-rtdb.firebaseio.com/'
 })
 
-ref = db.reference('/searchTest2/')
+ref = db.reference('/Newseaerchfinal/')
 
 ref1 = db.reference('networks/stream/active')
 
@@ -35,7 +37,7 @@ Path("D:/Genesis-21/Searches").mkdir(parents=True, exist_ok=True)
 username = "dem.odummy"
 password = "orproject5"  # Be careful, don't accidentally expose your password when committing
 name = "D:/Genesis-21/Searches"
-target = "D:\\tmp\\11.jpg"
+target = "D:\\tmp\\1234.jpg"
 main = OrderedDict()
 
 
@@ -118,7 +120,7 @@ def time_retrive(content):
     for i in m:
         for j in content:
             value = content[j]
-            if (i == value['postTime']):
+            if i == value['postTime']:
                 main[j] = value
 
     return main
@@ -142,16 +144,23 @@ class agent:
     fetch = 0
 
     def __init__(self, fetch1):
-        print(fetch1)
+        print("Fetch frequency : ", fetch1)
         self.fetch = fetch1
-        self.hashProbe(75, target)
-        """self.login()"""
+        self.clearWorkSpace()
+        self.login()
+
+    def clearWorkSpace(self):
+        path = "D:\\tmp\\Genesis-21\\"
+        files = [f for f in listdir(path) if isfile(join(path, f))]
+        for x in files:
+            os.remove(path + x)
 
     def hashProbe(self, threshold, original):
         print("IN HASHPROBE")
         targetListFile = open(name + "/test.txt", "a")
         with Image.open(original) as imgOri:
             hash1 = imagehash.average_hash(imgOri, 8).hash
+            print(hash1)
         path = "D:\\tmp\\Genesis-21\\"
         files = [f for f in listdir(path) if isfile(join(path, f))]
         pList = []
@@ -336,11 +345,15 @@ class agent:
                 if "/explore/tags/" in tags:
                     hash_list.append(tags.split("/explore/tags/")[1][0:-1])
             postDetails[x]["hash"] = hash_list
-        ref.update(postDetails)
-        for i in time_retrive(postDetails):
-            print(i)
-            break
-        tag_bucket.addHashList(postDetails)
+
+        if len(postDetails) > 0:
+            ref.update(postDetails)
+            for i in time_retrive(postDetails):
+                print(i)
+                break
+            tag_bucket.addHashList(postDetails)
+        else:
+            print("Nothing Found")
         # print(postDetails)
 
 
@@ -352,16 +365,17 @@ def generateHTML(post_Details):
                          "account"] + '<br><hr>Posted:<p>' + post_Details[post]["postTime"] + '</p></span></a>'
     pass
 
-"""
+
 test = pyspeedtest.SpeedTest("www.youtube.com")
 
 readParameter = ref1.get()
+
+time.sleep(5)
 
 print(readParameter["hashtag"])
 
 tag_bucket = hashQueue({readParameter["hashtag"]: 1})
 
-speed = test.download()
-"""
-agent1 = agent(10)
+# speed = test.download()
 
+agent1 = agent(20)

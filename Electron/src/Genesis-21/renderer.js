@@ -25,7 +25,7 @@ read()
   function read(){  
 
 
-    firebase.database().ref('searchTest1/').on('value',(snap)=>{
+    firebase.database().ref('Newseaerchfinal/').on('value',(snap)=>{
     renderHTML(snap.val());;})
     }
   

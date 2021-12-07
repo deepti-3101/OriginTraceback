@@ -6,6 +6,7 @@
       <change beforePath="$PROJECT_DIR$/Electron/src/Genesis-21/G-21.py" beforeDir="false" afterPath="$PROJECT_DIR$/Electron/src/Genesis-21/G-21.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Electron/src/Genesis-21/hub.py" beforeDir="false" afterPath="$PROJECT_DIR$/Electron/src/Genesis-21/hub.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Electron/src/Genesis-21/jsonLog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Electron/src/Genesis-21/jsonLog.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Electron/src/Genesis-21/renderer.js" beforeDir="false" afterPath="$PROJECT_DIR$/Electron/src/Genesis-21/renderer.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +41,7 @@
       <recent name="D:\GitHub\OriginTraceback\Electron\src\Genesis-21" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.G-21">
+  <component name="RunManager" selected="Python.hub">
     <configuration name="G-21" type="PythonConfigurationType" factoryName="Python">
       <module name="OriginTraceback" />
       <option name="INTERPRETER_OPTIONS" value="" />

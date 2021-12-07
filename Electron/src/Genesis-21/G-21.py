@@ -24,7 +24,7 @@ firebase_admin.initialize_app(cred, {
     'databaseURL': 'https://project-genesis-21-default-rtdb.firebaseio.com/'
 })
 
-ref = db.reference('/searchTest1/')
+ref = db.reference('/searchTest112/')
 
 ref.update({"one": "success"})
 
@@ -33,7 +33,7 @@ Path("D:/Genesis-21/Searches").mkdir(parents=True, exist_ok=True)
 username = "dem.odummy"
 password = "orproject5"  # Be careful, don't accidentally expose your password when committing
 name = "D:/Genesis-21/Searches"
-target = "D:\\tmp\\11.jpg"
+target = "D:\\tmp\\1.jpg"
 main = OrderedDict()
 
 
@@ -139,7 +139,7 @@ class agent:
     def __init__(self, fetch1):
         print(fetch1)
         self.fetch = fetch1
-        self.login()
+        """self.login()"""
 
     def hashProbe(self, threshold, original):
         print("IN HASHPROBE")
@@ -319,11 +319,14 @@ class agent:
                 if "/explore/tags/" in tags:
                     hash_list.append(tags.split("/explore/tags/")[1][0:-1])
             postDetails[x]["hash"] = hash_list
-        tag_bucket.addHashList(postDetails)
-        ref.update(postDetails)
-        for i in time_retrive(postDetails):
-            print(i)
-            break
+        if len(postDetails) > 0:
+            ref.update(postDetails)
+            for i in time_retrive(postDetails):
+                print(i)
+                break
+            tag_bucket.addHashList(postDetails)
+        else:
+            print("Nothing Found")
         # print(postDetails)
 
 def generateHTML(post_Details):
@@ -337,7 +340,9 @@ def generateHTML(post_Details):
 test = pyspeedtest.SpeedTest("www.youtube.com")
 tag_bucket = hashQueue({"samsunggalaxys22ultra": 1, "samsungfan": 1})
 print(test.download())
-agent1 = agent(40)
+agent1 = agent(10)
+
+agent1.hashProbe(82, target)
 # agent2 = agent(2)
 
 
