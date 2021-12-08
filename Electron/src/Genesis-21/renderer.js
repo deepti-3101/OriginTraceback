@@ -70,13 +70,19 @@ function renderHTML11(value) {
 
 function writetofb() {
     console.log("Writing to firebase from GUI");
-    console.log(document.getElementById("hashtaginput").value, document.getElementById("searchnameinput").value, document.getElementById("filepath").value);
+    console.log(document.getElementById("hashtaginput").value);
+    console.log(document.getElementById("projectName").value);
+    console.log(document.getElementById("filepath").value);
     const dp = firebase.database().ref("networks/stream/active").set({
-        hashtag: document.getElementById("hashtaginput").value,
-        search_name: document.getElementById("searchnameinput").value,
-        media: platform,
-        file_path: document.getElementById("filepath").value,
-        origin : ""
+       project_name : document.getElementById("projectName").value,
+       Type_of_post : document.getElementById("img_text"),
+       hashtag : document.getElementById("hashtaginput").value,
+       search_name : document.getElementById("searchnameinput").value,
+       media : document.getElementById("platform").value,
+       file_path : document.getElementById("filepath").value,
+       origin : "",
+       fetch: 10,
+       
 
 
     });
@@ -102,7 +108,7 @@ function OpenPage(id) {
         }
     }
     document.getElementById(id).style.display = "block";
-    document.getElementById(id + "Button").className = "active1";
+    document.getElementById(id + "Button").className = "active";
 
 
 }
