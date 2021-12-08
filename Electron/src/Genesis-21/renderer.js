@@ -26,7 +26,7 @@ read()
 function read() {
 
 
-    firebase.database().ref('Newseaerchfinal/').on('value', (snap) => {
+    firebase.database().ref('searchTest1/').on('value', (snap) => {
         renderHTML(snap.val());;
     })
 }
@@ -46,11 +46,7 @@ function renderHTML(value) {
 
 }
 
-
-
 function readSearchList() {
-
-
     firebase.database().ref('searchlist/').on('value', (snap) => {
         renderHTML11(snap.val());;
     })
@@ -79,7 +75,8 @@ function writetofb() {
         hashtag: document.getElementById("hashtaginput").value,
         search_name: document.getElementById("searchnameinput").value,
         media: platform,
-        file_path: document.getElementById("filepath").value
+        file_path: document.getElementById("filepath").value,
+        origin : ""
 
 
     });
