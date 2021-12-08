@@ -46,23 +46,20 @@ function renderHTML(value) {
 
 }
 
+readSearchList();
+
 function readSearchList() {
-    firebase.database().ref('searchlist/').on('value', (snap) => {
-        renderHTML11(snap.val());;
+    firebase.database().ref('networks/stream/active/').on('value', (snap) => {
+        renderHTML12(snap.val());;
     })
 }
-var tte;
-function renderHTML11(value) {
-    var innerHTML1 = "";
-    for (i in value) {
-        tte = i;
-        innerHTML1 += "<li class='checked'><i class='fa fa-check-square-o'></i><span>";
-        innerHTML1 += value[i]["name"];
-        innerHTML1 += "</span><div class='info'><div class='button green'>Details</div><span>INITIATED on ";
-        innerHTML1 += value[i]["date"]
-        innerHTML1 += "</span></div></li>";
+
+function renderHTML12(value) {
+    console.log("origin asked");
+    if(value["origin"] != null){
+        console.log("Origin confirmed");
+        document.getElementById("origintxt").innerHTML = "ORIGIN : " + value["origin"];
     }
-    document.getElementById("searchlistcont").innerHTML = innerHTML1;
 
 }
 
