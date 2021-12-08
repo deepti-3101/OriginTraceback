@@ -159,13 +159,13 @@ class agent:
 
     def login(self):
         print("Loggin in ")
-        time.sleep(1)
+        time.sleep(5 - timespeed)
 
         self.driver.maximize_window()
 
         # navigate to the url
         self.driver.get("https://www.instagram.com/")
-        time.sleep(4)
+        time.sleep(4 - timespeed)
         try:
             # finds the username box
             usern = self.driver.find_element_by_name("username")
@@ -177,11 +177,11 @@ class agent:
             # sends the entered password
             passw.send_keys(password)
 
-            time.sleep(4)
+            time.sleep(4 - timespeed)
 
             self.driver.execute_script('document.getElementsByClassName("sqdOP  L3NKy   y3zKF     ")[0].click()')
             # clicks the login button
-            time.sleep(5)
+            time.sleep(5 - timespeed)
         except:
 
             print("Already Logged in - Exception occurred")
@@ -192,15 +192,15 @@ class agent:
 
         print("Init Scrapper")
 
-        time.sleep(5.4)
+        time.sleep(5.4 - timespeed)
 
         self.driver.execute_script('location.replace("https://www.instagram.com/explore/tags/' + tag + '/")')
 
-        time.sleep(5.4)
+        time.sleep(5.4 - timespeed)
 
         for i in range(int(timeLimit)):
 
-            time.sleep(6)
+            time.sleep(6 - timespeed)
 
             print(i)
 
@@ -370,6 +370,8 @@ def generateHTML(post_Details):
 
 cred = credentials.Certificate("fb.json")
 
+timespeed = 0
+
 workingDirectory = input("Enter Working Directory (example : D:\\tmp\\Genesis-21\\): ")
 
 firebase_admin.initialize_app(cred, {
@@ -396,7 +398,7 @@ main = OrderedDict()
 
 readParameter = ref1.get()
 
-time.sleep(5)
+time.sleep(5 - timespeed)
 
 print(readParameter["hashtag"])
 
