@@ -78,7 +78,7 @@
             </li>
             <li id="manageSearchButton" class="active" onclick="OpenPage('manageSearch')"> <i
                 class="fa fa-tasks"></i>Manage Searches</li>
-           
+
 
             <li id="newSearchButton" class="test" onclick="OpenPage('newSearch')"> <i class="fa fa-search"></i>
               </i>New Search</li>
@@ -88,7 +88,7 @@
               </i>Reports</li>
             <li id="documentationButton" class="test" onclick="OpenPage('documentation')"> <i class="fa fa-book"></i>
               </i>Documentation</li>
-            
+
 
           </ul>
         </div>
@@ -137,19 +137,19 @@
                   <div class="tabs-info-warn">Detailed Description</div>
                 </div>
               </div>
-              
+
 
               <div class="tabs-info-stats">
                 <div>
-                  <span class="txt-label">Posts Analysed</span> 
+                  <span class="txt-label">Posts Analysed</span>
                   <span>185913</span>
                 </div>
                 <div>
-                  <span class="txt-label">Searches</span> 
+                  <span class="txt-label">Searches</span>
                   <span>2</span>
                 </div>
                 <div>
-                  <span class="txt-label">Reported</span> 
+                  <span class="txt-label">Reported</span>
                   <span>95</span>
                 </div>
               </div>
@@ -286,6 +286,38 @@
                 display: none;
               }
             }
+
+            .progress {
+              width: 100%;
+              height: 1px;
+              background: red;
+              position: absolute;
+              top: 0;
+              left: 0;
+              animation: progress 5s infinite;
+            }
+
+            @keyframes progress {
+              from {
+                width: 0%;
+              }
+
+              to {
+                width: 100%;
+              }
+            }
+
+            @keyframes loading {
+              from {
+                color: #222;
+                opacity: 1;
+              }
+
+              to {
+                color: red;
+                opacity: 0;
+              }
+            }
           </style>
           <div class="body2">
             <br><br><br>
@@ -412,7 +444,8 @@
           </div>
         </div>
         <div class="content">
-          <div class="scrollable" id="doc"><iframe style = "height: 100%; width: 100%;" src = "https://dominicwalterlof.github.io/OriginTraceback/user%20manual/user-manual"></iframe></div>
+          <div class="scrollable" id="doc"><iframe style="height: 100%; width: 100%;"
+              src="https://dominicwalterlof.github.io/OriginTraceback/user%20manual/user-manual"></iframe></div>
         </div>
       </div>
 
@@ -470,6 +503,7 @@
         </div>
         <div class="content">
           <div class="progress"></div>
+          <h1>Origin : </h1>
           <div class="scrollable" id="resultRender"></div>
 
         </div>
@@ -494,20 +528,20 @@
           <link rel="stylesheet" href="main.css">
           <link rel="stylesheet" href="buttons.css">
 
-    
+
           <h1></h1>
           <div class="design">
             <center>
-              <div >
+              <div>
                 <br><br><br>
-                <label for="browser" >Enter Project Name:</label>&nbsp;&nbsp;
-             
+                <label for="browser">Enter Project Name:</label>&nbsp;&nbsp;
+
                 <input list="browsers" name="browser" id="browser" placeholder="Enter your project name">
                 <br><br><br>
               </div>
               <div>
                 <label for="platform">Choose a Platform:</label>&nbsp;&nbsp;
-             
+
                 <select name="platform" id="platform">
                   <option value="" disabled selected hidden>Choose</option>
                   <option value="Twitter">Twitter</option>
@@ -515,10 +549,10 @@
                   <option value="Reddit">Reddit</option>
                 </select>
                 <br><br><br>
-            
+
                 <div>
-                  <label for="type_of_post">Choose the Type of Post:</label>&nbsp;&nbsp; 
-          
+                  <label for="type_of_post">Choose the Type of Post:</label>&nbsp;&nbsp;
+
                   <select name="img/text" id="img/text" placeholder="choose">
                     <option value="" disabled selected hidden>Choose</option>
                     <option value="Image">Image</option>
@@ -529,9 +563,9 @@
                   <select name="url_image" id="url_image">
                     <option value="" disabled selected hidden>Choose</option>
                     <option value=0>Url</option>
-                    <option value=1 >Content</option>
+                    <option value=1>Content</option>
                   </select>
-                
+
                 </div>
 
                 <br><br><br>
@@ -561,10 +595,10 @@
             <div class="Upload">
               <h1 class='elegantshadow'>Upload Your Content</h1>
               <br><br>
-              <div >
+              <div>
                 <input type="file" id="myFile" name="filename">
                 <br><br><br>
-                <div >
+                <div>
                   <label for="platform">Choose a Related Hashtag:</label>
                   <select name="hashtag" id="hashtag">
                     <option value="" disabled selected hidden>Choose</option>
@@ -579,7 +613,7 @@
                 </div>
                 <br><br>
                 <button class="slide" onclick='Openpage("activity")'>SUBMIT</button>
-         
+
               </div>
             </div>
           </center>
@@ -610,12 +644,12 @@
 
             <div>
               <br><br><br><br>
-              <input  name="browser" id="browser" placeholder="url of the Post">
+              <input name="browser" id="browser" placeholder="url of the Post">
               <br><br>
             </div>
-          
+
             <button class="slide" onclick="Openpage('activity')">SUBMIT</button>
-       
+
           </center>
         </div>
       </div>
@@ -625,7 +659,7 @@
 
 
       <!-------------------------------------------------------->
-     
+
 
       <!-------------------------------------------------------->
 
