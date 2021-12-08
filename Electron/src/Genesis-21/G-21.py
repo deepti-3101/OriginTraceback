@@ -102,27 +102,29 @@ class hashQueue:
         else:
             return False
 
+
 def time_retrive(content):
-    l=[]
-    m=[]
-    main={}
+    l = []
+    m = []
+    main = {}
     for i in content:
-       l.append(content[i])
+        l.append(content[i])
     for j in l:
         m.append(j['postTime'])
     m.sort()
     for i in m:
         for j in content:
-            value=content[j]
-            if (i==value['postTime']):
-                main[j]=value
+            value = content[j]
+            if (i == value['postTime']):
+                main[j] = value
 
     return main
+
 
 class agent:
     options = Options()
 
-    #options.add_argument("--headless")
+    # options.add_argument("--headless")
 
     options.page_load_strategy = 'eager'
 
@@ -329,6 +331,7 @@ class agent:
             print("Nothing Found")
         # print(postDetails)
 
+
 def generateHTML(post_Details):
     innerHTML = ""
     for post in post_Details.keys():
@@ -336,6 +339,7 @@ def generateHTML(post_Details):
             "link"] + 'embed"></iframe></span><span class="card-summary"> Account Name : ' + post_Details[post][
                          "account"] + '<br><hr>Posted:<p>' + post_Details[post]["postTime"] + '</p></span></a>'
     pass
+
 
 test = pyspeedtest.SpeedTest("www.youtube.com")
 tag_bucket = hashQueue({"samsunggalaxys22ultra": 1, "samsungfan": 1})

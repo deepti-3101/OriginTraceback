@@ -18,28 +18,6 @@ import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import db
 
-cred = credentials.Certificate("fb.json")
-
-workingDirectory = ""
-
-firebase_admin.initialize_app(cred, {
-    'databaseURL': 'https://project-genesis-21-default-rtdb.firebaseio.com/'
-})
-
-ref = db.reference('/Newseaerchfinal/')
-
-ref1 = db.reference('networks/stream/active')
-
-ref.update({"one": "success"})
-
-Path("D:/Genesis-21/Searches").mkdir(parents=True, exist_ok=True)
-
-username = "dem.odummy"
-password = "orproject5"  # Be careful, don't accidentally expose your password when committing
-name = "D:/Genesis-21/Searches"
-target = "D:\\tmp\\1234.jpg"
-main = OrderedDict()
-
 
 class hashQueue:
     pQueue = {}
@@ -129,7 +107,7 @@ def time_retrive(content):
 class agent:
     options = Options()
 
-    # options.add_argument("--headless")
+    options.add_argument("--headless")
 
     options.page_load_strategy = 'eager'
 
@@ -137,7 +115,12 @@ class agent:
 
     products = []
 
-    driver = webdriver.Chrome("D:\Python\chromedriver", options=options)
+    m = input("Enter Mode : ")
+
+    if m == "1":
+        driver = webdriver.Chrome("D:\Python\chromedriver", options=options)
+    else:
+        driver = webdriver.Chrome("chromedriver", options=options)
 
     posts = []
 
@@ -150,7 +133,7 @@ class agent:
         self.login()
 
     def clearWorkSpace(self):
-        path = "D:\\tmp\\Genesis-21\\"
+        path = workingDirectory
         files = [f for f in listdir(path) if isfile(join(path, f))]
         for x in files:
             os.remove(path + x)
@@ -161,7 +144,7 @@ class agent:
         with Image.open(original) as imgOri:
             hash1 = imagehash.average_hash(imgOri, 8).hash
             print(hash1)
-        path = "D:\\tmp\\Genesis-21\\"
+        path = workingDirectory
         files = [f for f in listdir(path) if isfile(join(path, f))]
         pList = []
         for x in files:
@@ -274,7 +257,7 @@ class agent:
         print("Length : ", len(pack))
         for x in pack.keys():
             while True:
-                filename = "D:\\tmp\\Genesis-21\\" + x[:-1] + ".jpg"
+                filename = workingDirectory + x[:-1] + ".jpg"
                 file_exists = os.path.isfile(filename)
 
                 if not file_exists:
@@ -293,7 +276,7 @@ class agent:
 
     def sim(self, similarity, hash1, img2):
         try:
-            with Image.open("D:\\tmp\\Genesis-21\\" + img2) as imgCK:
+            with Image.open(workingDirectory + img2) as imgCK:
                 hash2 = imagehash.average_hash(imgCK, 8).hash
             threshold = 1 - similarity / 100
             diff_limit = int(threshold * (8 ** 2))
@@ -334,6 +317,25 @@ class agent:
 
             postDetails[x]["postTime"] = content.split('datetime="')[-1].split('"')[0]
 
+            postDetails[x]["des"] = "OCR : "
+
+            ocr = content.split('" class="FFVAD"')
+
+            postDetails[x]["des"] += ocr[0].split('<img alt="')[1] + " "
+
+            if "tagging" in postDetails[x]["des"]:
+
+                tagginglist = []
+
+                for tags in postDetails[x]["des"].split("tagging ")[1].split(" "):
+
+                    if "@" in tags:
+
+                        tagginglist.append(tags[:-1])
+
+                postDetails[x]["tags"] = tagginglist
+
+
             postDetails[x]["account"] = \
                 content.split('<a class="sqdOP yWX7d     _8A5w5   ZIAjV " href="')[1].split("</a>")[0].split(
                     'tabindex="0">')[1]
@@ -366,7 +368,31 @@ def generateHTML(post_Details):
     pass
 
 
-test = pyspeedtest.SpeedTest("www.youtube.com")
+cred = credentials.Certificate("fb.json")
+
+workingDirectory = input("Enter Working Directory (example : D:\\tmp\\Genesis-21\\): ")
+
+firebase_admin.initialize_app(cred, {
+    'databaseURL': 'https://project-genesis-21-default-rtdb.firebaseio.com/'
+})
+
+ref = db.reference('/New-search_final/')
+
+ref1 = db.reference('networks/stream/active')
+
+ref.update({"one": "success"})
+
+Path("D:/Genesis-21/Searches").mkdir(parents=True, exist_ok=True)
+
+username = "dem.odummy"
+password = "orproject5"  # Be careful, don't accidentally expose your password when committing
+name = "D:/Genesis-21/Searches"
+target = input("Target Image Location (D:\\tmp\\1234.jpg) : ")
+main = OrderedDict()
+
+
+
+#test = pyspeedtest.SpeedTest("www.youtube.com")
 
 readParameter = ref1.get()
 
@@ -378,4 +404,4 @@ tag_bucket = hashQueue({readParameter["hashtag"]: 1})
 
 # speed = test.download()
 
-agent1 = agent(20)
+agent1 = agent(readParameter["fetch"])
