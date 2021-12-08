@@ -537,7 +537,7 @@
                 <br><br><br>
                 <label for="browser">Enter Project Name:</label>&nbsp;&nbsp;
 
-                <input list="browsers" name="browser" id="browser" placeholder="Enter your project name">
+                <input list="browsers" name="browser" id="projectName" placeholder="Enter your project name">
                 <br><br><br>
               </div>
               <div>
@@ -554,7 +554,7 @@
                 <div>
                   <label for="type_of_post">Choose the Type of Post:</label>&nbsp;&nbsp;
 
-                  <select name="img/text" id="img/text" placeholder="choose">
+                  <select name="img/text" id="img_text" placeholder="choose">
                     <option value="" disabled selected hidden>Choose</option>
                     <option value="Image">Image</option>
                     <option value="Text">Text</option>
@@ -570,7 +570,7 @@
                 </div>
 
                 <br><br><br>
-                <button class="slide" onclick="change_pg()">CREATE</button>
+                <button class="slide" onclick="change_pg();">CREATE</button>
             </center>
           </div>
         </div>
@@ -597,11 +597,11 @@
               <h1 class='elegantshadow'>Upload Your Content</h1>
               <br><br>
               <div>
-                <input type="file" id="myFile" name="filename">
+                <input type="file" id="filepath" name="filename">
                 <br><br><br>
                 <div>
                   <label for="platform">Choose a Related Hashtag:</label>
-                  <select name="hashtag" id="hashtag">
+                  <select name="hashtag" id="hashtaginput">
                     <option value="" disabled selected hidden>Choose</option>
                     <option>#abusive</option>
                     <option>#femaleoffence</option>
@@ -613,7 +613,7 @@
                   </select>
                 </div>
                 <br><br>
-                <button class="slide" onclick='Openpage("activity")'>SUBMIT</button>
+                <button class="slide" onclick="writetofb();OpenPage('activity');">SUBMIT</button>
 
               </div>
             </div>
@@ -645,11 +645,11 @@
 
             <div>
               <br><br><br><br>
-              <input name="browser" id="browser" placeholder="url of the Post">
+              <input name="browser" id="searchnameinput" placeholder="url of the Post">
               <br><br>
             </div>
 
-            <button class="slide" onclick="Openpage('activity')">SUBMIT</button>
+            <button class="slide" onclick="writetofb();OpenPage('activity');">SUBMIT</button>
 
           </center>
         </div>
