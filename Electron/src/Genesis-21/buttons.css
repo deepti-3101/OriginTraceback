@@ -109,17 +109,21 @@ button:hover, button:focus {
 button {
   background: none;
   border: 2px solid;
-  font: inherit;
   line-height: 1;
   margin: 0.5em;
   padding: 1em 2em;
 }
 
 h1 {
-  font-weight: 400;
+  font-family: "Open Sans";
+  font-size: 30px;
 }
 
 code {
   color: #e4cb58;
-  font: inherit;
+
+}
+.design{
+  text-align: center;
+  font-size:16px;
 }

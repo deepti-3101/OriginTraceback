@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="dashboard.css" />
+  <script src="https://use.fontawesome.com/0b70c28bf1.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.1.0/firebase-database.js"></script>
+  <meta charset="UTF-8">
+  <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+
+  <title>Genesis-21 (HUB)</title>
+</head>
+
+<body style="border-bottom-right-radius:10px; border-bottom-left-radius:10px ;">
+
+  <div class="loadingOverlay" style="display: block;" id="loadingOverlayContainer">
+
+    <div class="loadingMain">
+      <div class="progress" style="color: blue; height: 10px"></div>
+      <h1 class="loadingText">Genesis-21 (HUB)</h1>
+      <br>
+      <p style="font-size: xx-small; width: 80%;" class="loadingText">
+        <u>Problem Statement : <b>(INTL-DA-08)</b></u><br>
+        Build a solution that is able to track the origin of a given social media post (provided as an input URL
+        or content) and identify the account, along with its details, which posted it first on that particular
+        platform
+      </p>
+      <br>
+      <Br>
+      <hr class="whiteLine">
+
+      <h3 class="loadingText" style="margin-top: 5px;">LOADING</h3>
+      <p class="loadingText" style="font-size: 7px;">Loading modules and scripts, optimising layout...</p>
+    </div>
+
+  </div>
+
+
+
+
+  <header id="titlebar">
+    <div id="drag-region">
+
+      <div id="window-title">
+        <span></span>
+      </div>
+
+
+    </div>
+  </header>
+
+  <div class="page" style="display: none;" id="mainPage">
+
+
+    <div class="pageHeader" style=" border-top-left-radius:10px ;">
+
+      <div class="title">Genesis-21 (HUB)</div>
+      <div class="userPanel">
+
+        <span class="username" id='close2'>X</span>
+
+        <span class="username"></span>
+      </div>
+    </div>
+    <div class="main" style="border-bottom-right-radius:10px; border-bottom-left-radius:10px ;">
+      <div class="nav">
+        <div class="searchbox">
+          <div><i class="fa fa-search"></i>
+            <input type="search" placeholder="Search" />
+          </div>
+        </div>
+        <div class="menu">
+          <div class="title">Navigation</div>
+          <ul>
+            <li id="dashboardButton" class="test" onclick="OpenPage('dashboard')"><i class="fa fa-home"></i>Dashboard
+            </li>
+            <li id="activityButton" class="test" onclick="OpenPage('activity')"><i class="fa fa-signal"></i>Activity
+            </li>
+            <li id="manageSearchButton" class="active" onclick="OpenPage('manageSearch')"> <i
+                class="fa fa-tasks"></i>Manage Searches</li>
+
+
+            <li id="newSearchButton" class="test" onclick="OpenPage('newSearch')"> <i class="fa fa-search"></i>
+              </i>New Search</li>
+
+
+            <li id="resultsButton" class="test" onclick="OpenPage('results')"> <i class="fa fa-file-text-o"></i>
+              </i>Reports</li>
+            <li id="documentationButton" class="test" onclick="OpenPage('documentation')"> <i class="fa fa-book"></i>
+              </i>Documentation</li>
+
+
+          </ul>
+        </div>
+      </div>
+
+      <!------------------------------------------>
+
+      <div class="view" id="dashboard" style="display: none">
+        <div class="viewHeader">
+          <div class="title">Dashboard</div>
+          <div class="functions">
+            <div class="button active" onclick="OpenPage('newSearch')">New Search</div>
+            <div class="button" onclick="OpenPage('dashboard')">Completed</div>
+            <div class="button inverz" style="padding:0px; width: auto; padding-left:5px; padding-right:5px;"><i
+                class="fa fa-trash-o"></i></div>
+          </div>
+        </div>
+        <!-- user donation card -->
+        <div class="card-wrap" id="card">
+
+          <!-- user info -->
+          <header class="card-user">
+            <div class="card-user-hero" :style="'background-image: url(' + userInfo.hero + ')'"></div>
+            <div class="card-user-row">
+              <div class="card-user-avatar">
+                <img src="https://dominicwalterlof.github.io/OriginTraceback/Electron/src/Genesis-21/icon.jpg"
+                  alt="pic" />
+              </div>
+              <div class="card-user-details">
+                <div class="card-user-name">Agent-21D</div>
+                <div class="card-user-info">Demo Account for testing</div>
+              </div>
+              <div class="card-user-cta">
+                <a :href="userInfo.website" target="_blank">Profile</a>
+              </div>
+            </div>
+          </header>
+          <main class="tabs-wrap">
+            <section class="tabs-info">
+              <div class="tabs-info-row">
+                <div class="tabs-info-qr">
+                  <img :src="getQrImage()" :alt="wallet.name" />
+                </div>
+                <div class="tabs-info-details">
+                  <div class="tabs-info-title">Description</div>
+                  <div class="tabs-info-warn">Detailed Description</div>
+                </div>
+              </div>
+
+
+              <div class="tabs-info-stats">
+                <div>
+                  <span class="txt-label">Posts Analysed</span>
+                  <span>185913</span>
+                </div>
+                <div>
+                  <span class="txt-label">Searches</span>
+                  <span>2</span>
+                </div>
+                <div>
+                  <span class="txt-label">Reported</span>
+                  <span>95</span>
+                </div>
+              </div>
+            </section>
+          </main>
+
+        </div>
+      </div>
+
+
+      <div class="view" id="activity" style="display: none">
+        <div class="viewHeader">
+          <div class="title">Activity</div>
+          <div class="functions">
+            <div class="button active" onclick="OpenPage('addclient')">Add Clients</div>
+            <div class="button inverz" style="padding:0px; width: auto; padding-left:5px; padding-right:5px;"><i
+                class="fa fa-trash-o"></i></div>
+          </div>
+        </div>
+        <div class="content">
+          <div class="progress"></div>
+          <style>
+            /*	
+	Side Navigation Menu V2, RWD
+	===================
+	Author: https://github.com/pablorgarcia
+ */
+
+            @charset "UTF-8";
+            @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
+
+            .body2 {
+              font-family: "Open Sans", sans-serif;
+              font-weight: 300;
+              line-height: 1.42em;
+              color: #a7a1ae;
+
+            }
+
+            .h1 {
+              font-size: 3em;
+              font-weight: 300;
+              line-height: 1em;
+              text-align: center;
+              color: #4dc3fa;
+            }
+
+
+
+            .blue {
+              color: #185875;
+            }
+
+            .yellow {
+              color: #fb667a;
+            }
+
+            .container th .h1 {
+              font-weight: bold;
+              font-size: 1em;
+              text-align: left;
+              color: #ffffff;
+            }
+
+            .container td {
+              font-weight: normal;
+              font-size: 1em;
+              -webkit-box-shadow: 0 2px 2px -2px #0e1119;
+              -moz-box-shadow: 0 2px 2px -2px #0e1119;
+              box-shadow: 0 2px 2px -2px #0e1119;
+            }
+
+            .container {
+              text-align: left;
+              overflow: hidden;
+              width: 80%;
+              margin: 0 auto;
+              display: table;
+              padding: 0 0 8em 0;
+              top: 20px;
+            }
+
+            .container td,
+            .container th {
+              padding-bottom: 2%;
+              padding-top: 2%;
+              padding-left: 2%;
+            }
+
+            /* Background-color of the odd rows */
+            .container tr:nth-child(odd) {
+              background-color: #323c50;
+            }
+
+            /* Background-color of the even rows */
+            .container tr:nth-child(even) {
+              background-color: #2c3446;
+            }
+
+            .container th {
+              background-color: #1f2739;
+            }
+
+            .container td:first-child {
+              color: #fb667a;
+            }
+
+            .container tr:hover {
+              background-color: #464a52;
+              -webkit-box-shadow: 0 6px 6px -6px #0e1119;
+              -moz-box-shadow: 0 6px 6px -6px #0e1119;
+              box-shadow: 0 6px 6px -6px #0e1119;
+            }
+
+            .container td:hover {
+              background-color: #fb667a;
+              color: #403e10;
+              font-weight: bold;
+
+              box-shadow: #fb667a -1px 1px, #fb667a -2px 2px, #fb667a -3px 3px,
+                #fb667a -4px 4px, #fb667a 1 -5px 5px, #fb667a -6px 6px;
+              transform: translate3d(6px, -6px, 0);
+
+              transition-delay: 0s;
+              transition-duration: 0.4s;
+              transition-property: all;
+              transition-timing-function: line;
+            }
+
+            @media (max-width: 800px) {
+
+              .container td:nth-child(4),
+              .container th:nth-child(4) {
+                display: none;
+              }
+            }
+
+            .progress {
+              width: 100%;
+              height: 1px;
+              background: red;
+              position: absolute;
+              top: 0;
+              left: 0;
+              animation: progress 5s infinite;
+            }
+
+            @keyframes progress {
+              from {
+                width: 0%;
+              }
+
+              to {
+                width: 100%;
+              }
+            }
+
+            @keyframes loading {
+              from {
+                color: #222;
+                opacity: 1;
+              }
+
+              to {
+                color: red;
+                opacity: 0;
+              }
+            }
+          </style>
+          <div class="body2">
+            <br><br><br>
+            <table class="container">
+              <thead>
+                <tr>
+                  <th>
+                    <h1 class="h1">Agents</h1>
+                  </th>
+                  <th>
+                    <h1 class="h1">Hashtags</h1>
+                  </th>
+                  <th>
+                    <h1 class="h1">Retrived Posts</h1>
+                  </th>
+                  <th>
+                    <h1 class="h1">Time Taken</h1>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>HUB Agent (Leader)</td>
+                  <td>#Samsung_leak</td>
+                  <td>6369</td>
+                  <td>00:2:50</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="view" id="manageSearch" style="display: none">
+        <div class="viewHeader">
+          <div class="title">Manage Searches</div>
+          <div class="functions">
+            <div class="button active" onclick="OpenPage('newSearch')">New Search</div>
+            <div class="button" onclick="OpenPage('dashboard')">Completed</div>
+            <div class="button inverz" style="padding:0px; width: auto; padding-left:5px; padding-right:5px;"><i
+                class="fa fa-trash-o"></i></div>
+          </div>
+        </div>
+        <div class="content">
+          <div class="list">
+            <div class="title">Recent</div>
+            <ul id="searchlistcont">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="view" id="Configuration" style="display: none">
+        <div class="viewHeader">
+          <div class="title">Configuration</div>
+          <div class="functions">
+            <div class="button active" onclick="OpenPage('newSearch')">New Search</div>
+            <div class="button" onclick="OpenPage('dashboard')">Completed</div>
+            <div class="button inverz" style="padding:0px; width: auto; padding-left:5px; padding-right:5px;"><i
+                class="fa fa-trash-o"></i></div>
+          </div>
+        </div>
+        <div class="content">
+
+          <link rel="stylesheet" href="first.css">
+          <div class="content_wrapper">
+            <div class="black">
+
+              <section class="model-3">
+                <div class="checkbox">
+                  <input type="checkbox" />
+                  <label></label>
+                </div>
+              </section>
+              <br>
+              <h1 class="color1">Minimum Requirements</h1><br>
+              <p class="color">
+                <b>Operating System: </b>
+
+                Microsoft Windows 8 or above<br><br>
+                <b>Memory: </b> 4 GB RAM or above<br><br>
+                <b>Storage: </b> 240 GB internal storage drive or above<br><br>
+                <b>Internet speed:</b> 10 Mbps or above<br><br>
+              </p>
+
+            </div>
+            <br><br><br>
+            <div class="black">
+              <section class="model-3">
+                <div class="checkbox">
+                  <input type="checkbox" />
+                  <label></label>
+                </div>
+              </section>
+              <br>
+              <h1 class="color1">Recommended Configurations</h1><br>
+              <p class="color">
+                <b>Operating System: </b>
+
+                Microsoft Windows 10 or above<br><br>
+                <b>Memory: </b> 16 GB RAM or above<br><br>
+                <b>Storage: </b> 500 GB internal storage drive or above<br><br>
+                <b>Internet speed: </b> 40 Mbps or above<br><br>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+
+      <div class="view" id="documentation" style="display: none">
+
+        <div class="viewHeader">
+          <div class="title">Documentation</div>
+          <div class="functions">
+            <div class="button active" onclick="OpenPage('newSearch')">New Search</div>
+            <div class="button" onclick="OpenPage('dashboard')">Completed</div>
+            <div class="button inverz" style="padding:0px; width: auto; padding-left:5px; padding-right:5px;"><i
+                class="fa fa-trash-o"></i></div>
+          </div>
+        </div>
+        <div class="content">
+          <div class="scrollable" id="doc"><iframe style="height: 100%; width: 100%;"
+              src="https://dominicwalterlof.github.io/OriginTraceback/user%20manual/user-manual"></iframe></div>
+        </div>
+      </div>
+
+
+
+
+
+
+      <div class="view" id="addclient" style="display: none">
+
+        <div class="viewHeader">
+          <div class="title">Add Client</div>
+          <div class="functions">
+            <div class="button active" onclick="OpenPage('newSearch')">New Search</div>
+            <div class="button" onclick="OpenPage('dashboard')">Completed</div>
+            <div class="button inverz" style="padding:0px; width: auto; padding-left:5px; padding-right:5px;"><i
+                class="fa fa-trash-o"></i></div>
+          </div>
+        </div>
+        <div class="content"
+          style="height : 300px; display: flex;align-items: center;justify-content: center;flex-direction: column;">
+          <div class="tokens-container">
+            <div class="token">
+              <div class="token-preview">
+                <h6>TOKEN</h6>
+                <h2>Generate CLIENT-TOKEN</h2>
+                <a href="#">View all Tokens <i class="fas fa-chevron-right"></i></a>
+              </div>
+              <div class="token-info">
+                <div class="progress-container">
+                  <div class="progress1"></div>
+                  <span class="progress-text">
+                    Connecting...
+                  </span>
+                </div>
+                <h6>TOKENS</h6>
+                <h2 id="tokenh">Y2byi82g8BO</h2>
+                <button class="btn11">Continue</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="view" id="results" style="display: none">
+        <div class="viewHeader">
+          <div class="title">Search Results</div>
+          <div class="functions">
+            <div class="button active" onclick="OpenPage('newSearch')">New Search</div>
+            <div class="button" onclick="OpenPage('dashboard')">Completed</div>
+            <div class="button inverz" style="padding:0px; width: auto; padding-left:5px; padding-right:5px;"><i
+                class="fa fa-trash-o"></i></div>
+          </div>
+        </div>
+        <div class="content">
+          <div class="progress"></div>
+          <h1>Origin : </h1>
+          <div class="scrollable" id="resultRender"></div>
+
+        </div>
+      </div>
+
+      <!--------------------------Platform----------------------------------------->
+
+
+
+      <div id="newSearch" class="view" style="display: none">
+
+        <div class="viewHeader">
+          <div class="title">New Search</div>
+          <div class="functions">
+            <div class="button active">New Search</div>
+            <div class="button" onclick="OpenPage('dashboard')">Completed</div>
+            <div class="button inverz" style="padding:0px; width: auto; padding-left:5px; padding-right:5px;"><i
+                class="fa fa-trash-o"></i></div>
+          </div>
+        </div>
+        <div class="content">
+          <link rel="stylesheet" href="main.css">
+          <link rel="stylesheet" href="buttons.css">
+
+
+          <h1></h1>
+          <div class="design">
+            <center>
+              <div>
+                <br><br><br>
+                <label for="browser">Enter Project Name:</label>&nbsp;&nbsp;
+
+                <input list="browsers" name="browser" id="browser" placeholder="Enter your project name">
+                <br><br><br>
+              </div>
+              <div>
+                <label for="platform">Choose a Platform:</label>&nbsp;&nbsp;
+
+                <select name="platform" id="platform">
+                  <option value="" disabled selected hidden>Choose</option>
+                  <option value="Twitter">Twitter</option>
+                  <option value="Instagram">Instagram</option>
+                  <option value="Reddit">Reddit</option>
+                </select>
+                <br><br><br>
+
+                <div>
+                  <label for="type_of_post">Choose the Type of Post:</label>&nbsp;&nbsp;
+
+                  <select name="img/text" id="img/text" placeholder="choose">
+                    <option value="" disabled selected hidden>Choose</option>
+                    <option value="Image">Image</option>
+                    <option value="Text">Text</option>
+                  </select>
+                  <br><br><br>
+                  <label for="type_of_post">Choose the Type of Input:</label>&nbsp;&nbsp;
+                  <select name="url_image" id="url_image">
+                    <option value="" disabled selected hidden>Choose</option>
+                    <option value=0>Url</option>
+                    <option value=1>Content</option>
+                  </select>
+
+                </div>
+
+                <br><br><br>
+                <button class="slide" onclick="change_pg()">CREATE</button>
+            </center>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="content_m" class="view" style="display: none">
+
+        <div class="viewHeader">
+          <div class="title">Platform</div>
+          <div class="functions">
+            <div class="button active">New Search</div>
+            <div class="button">Completed</div>
+            <div class="button inverz" style="padding:0px; width: auto; padding-left:5px; padding-right:5px;"><i
+                class="fa fa-trash-o"></i></div>
+          </div>
+        </div>
+        <div class="content">
+          <link rel="stylesheet" href="buttons.css">
+          <link rel="stylesheet" href="main.css">
+
+          <center>
+            <div class="Upload">
+              <h1 class='elegantshadow'>Upload Your Content</h1>
+              <br><br>
+              <div>
+                <input type="file" id="myFile" name="filename">
+                <br><br><br>
+                <div>
+                  <label for="platform">Choose a Related Hashtag:</label>
+                  <select name="hashtag" id="hashtag">
+                    <option value="" disabled selected hidden>Choose</option>
+                    <option>#abusive</option>
+                    <option>#femaleoffence</option>
+                    <option>#domesticviolenceawareness</option>
+                    <option>#narcissistabuse</option>
+                    <option>#toxiccovertnarcissist</option>
+                    <option>#physicalassault</option>
+                    <option> #badfriend</option>
+                  </select>
+                </div>
+                <br><br>
+                <button class="slide" onclick='Openpage("activity")'>SUBMIT</button>
+
+              </div>
+            </div>
+          </center>
+
+        </div>
+      </div>
+
+      <!--------------------------Platform------------------------------------------->
+      <div id="link" class="view" style="display: none">
+        <link rel="stylesheet" href="link.css">
+        <div class="viewHeader">
+          <div class="title">Link</div>
+          <div class="functions">
+            <div class="button active" onclick="OpenPage('newSearch')">New Search</div>
+            <div class="button" onclick="OpenPage('dashboard')">Completed</div>
+            <div class="button inverz" style="padding:0px; width: auto; padding-left:5px; padding-right:5px;"><i
+                class="fa fa-trash-o"></i></div>
+          </div>
+        </div>
+
+        <div class="content">
+
+          <link rel="stylesheet" href="buttons.css">
+          <link rel="stylesheet" href="main.css">
+
+          <center>
+            <h1 class='elegantshadow'>Enter the url</h1>
+
+            <div>
+              <br><br><br><br>
+              <input name="browser" id="browser" placeholder="url of the Post">
+              <br><br>
+            </div>
+
+            <button class="slide" onclick="Openpage('activity')">SUBMIT</button>
+
+          </center>
+        </div>
+      </div>
+
+
+      <!--------------------------Platform------------------------------------------->
+
+
+      <!-------------------------------------------------------->
+
+
+      <!-------------------------------------------------------->
+
+    </div>
+  </div>
+  </div>
+
+
+  <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase.js"></script>
+
+  <script src="https://www.gstatic.com/firebasejs/9.1.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.1.1/firebase-database.js"></script>
+
+
+
+
+
+
+  <script src="./renderer.js"></script>
+  <script>
+    createPreviewWindow();
+
+    function createPreviewWindow() {
+      mainPreviewWindow = new BrowserWindow({
+        width: 400,
+        height: 600,
+        webPreferences: {
+          preload: path.join(__dirname, 'preloadPreview.js')
+        }
+      })
+
+
+      mainPreviewWindow.loadURL('http://instagram.com')
+    }
+  </script>
+  <script>
+    const customTitlebar = require('custom-electron-titlebar');
+    let MyTitleBar = new customTitlebar.Titlebar({
+      backgroundColor: customTitlebar.Color.fromHex('#03a9f4')
+    });
+    MyTitleBar.updateTitle('Our Code World Tutorials Rock !');
+  </script>
+</body>
+<script src="javascript.js"></script>
+
+</html>

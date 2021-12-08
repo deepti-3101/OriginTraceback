@@ -611,7 +611,7 @@ input, textarea, select, options, button {
 }
 .card-wrap .tabs-wrap .tabs-info .tabs-info-stats {
   display: flex;
-  flex-direction: flex-row;
+  flex-direction:row;
   align-items: center;
   justify-content: space-between;
   padding: 1em;
