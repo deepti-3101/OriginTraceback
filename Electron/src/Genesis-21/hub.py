@@ -352,6 +352,7 @@ class agent:
             ref.update(postDetails)
             for i in time_retrive(postDetails):
                 print(i)
+                ref1.update({"origin": i})
                 break
             tag_bucket.addHashList(postDetails)
         else:
@@ -391,8 +392,6 @@ password = "orproject5"  # Be careful, don't accidentally expose your password w
 name = "D:/Genesis-21/Searches"
 target = input("Target Image Location (D:\\tmp\\1234.jpg) : ")
 main = OrderedDict()
-
-
 
 #test = pyspeedtest.SpeedTest("www.youtube.com")
 

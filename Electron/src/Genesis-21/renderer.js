@@ -67,6 +67,27 @@ function renderHTML11(value) {
 }
 
 
+function readSearchList() {
+    firebase.database().ref('searchlist/').on('value', (snap) => {
+        renderHTML11(snap.val());
+    })
+}
+var tte;
+function renderHTML11(value) {
+    var innerHTML1 = "";
+    for (i in value) {
+        tte = i;
+        innerHTML1 += "<li class='checked'><i class='fa fa-check-square-o'></i><span>";
+        innerHTML1 += value[i]["name"];
+        innerHTML1 += "</span><div class='info'><div class='button green'>Details</div><span>INITIATED on ";
+        innerHTML1 += value[i]["date"]
+        innerHTML1 += "</span></div></li>";
+    }
+    document.getElementById("searchlistcont").innerHTML = innerHTML1;
+
+}
+
+
 
 function writetofb() {
     console.log("Writing to firebase from GUI");
