@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Result</title>
+ 
+    <script type="module" src="https://www.gstatic.com/firebasejs/7.1.0/firebase-database.js"></script>
     <style>
         .red {
   background: red;
@@ -661,7 +663,7 @@ img{
 
     </style>
 </head>
-<body>
+<body >
     <form class="charsheet">
         <header>
           <section class="charname">
@@ -670,7 +672,7 @@ img{
           <section class="misc">
             <ul>
               <li>
-                <label for="date">Date</label><input id="date" class = "gr" placeholder="Date" value="2.12.2021"/>
+                <label for="date">Date</label><input id="date" class = "gr" placeholder="Date" value="11.07.2021"/>
               </li>
               <li>
                 <label for="background">AGENT ID</label><input class = "gr" id="agentid" placeholder="Agent-21D" />
@@ -682,156 +684,52 @@ img{
                 <label for="race">Report ID</label><input name="race"class = "gr"  placeholder="Half-elf" value="EH31utb381D"/>
               </li>
               <li>
-                <label for="alignment">Report date</label><input class = "gr" name="alignment" placeholder="Lawful Good" value="2.12.2021"/>
+                <label for="alignment">Report date</label><input class = "gr" name="alignment" placeholder="Lawful Good" value="10.12.2021"/>
               </li>
-              <li>
-                <label for="experiencepoints">Report time</label><input class = "gr" name="experiencepoints" placeholder="3240" value="9:23:5213"/>
-              </li>
+             
             </ul>
           </section>
         </header>
         <main>
           <section>
-            <section class="attributes">
-              <div class="scores">
-                <ul>
-                  <li>
-                    <div class="score">
-                      <label for="analysied">Analysed</label><input name="analysed" placeholder="2.5" />
-                    </div>
-                    <div class="modifier">
-                      <input name="GB" placeholder="GB" />
-                    </div>
-                  </li>
-                  <li>
-                    <div class="score">
-                      <label for="Dexterityscore">Dexterity</label><input name="Dexterityscore" placeholder="10" />
-                    </div>
-                    <div class="modifier">
-                      <input name="Dexteritymod" placeholder="" />
-                    </div>
-                  </li>
-                  <li>
-                    <div class="score">
-                      <label for="Constitutionscore">Constitution</label><input name="Constitutionscore" placeholder="10" />
-                    </div>
-                    <div class="modifier">
-                      <input name="Constitutionmod" placeholder="GB" />
-                    </div>
-                  </li>
-                  <li>
-                    <div class="score">
-                      <label for="Wisdomscore">Wisdom</label><input name="Wisdomscore" placeholder="10" />
-                    </div>
-                    <div class="modifier">
-                      <input name="Wisdommod" placeholder="+0" />
-                    </div>
-                  </li>
-                  <li>
-                    <div class="score">
-                      <label for="Intelligencescore">Intelligence</label><input name="Intelligencescore" placeholder="10" />
-                    </div>
-                    <div class="modifier">
-                      <input name="Intelligencemod" placeholder="+0" />
-                    </div>
-                  </li>
-                  <li>
-                    <div class="score">
-                      <label for="Charismascore">Charisma</label><input name="Charismascore" placeholder="10" />
-                    </div>
-                    <div class="modifier">
-                      <input name="Charismamod" placeholder="+0" />
-                    </div>
-                  </li>
-                </ul>
-              </div>
-              <div class="attr-applications">
-                <div class="inspiration box">
-                  <div class="label-container">
-                    <label for="inspiration">Inspiration</label>
-                  </div>
-                  <input name="inspiration" type="checkbox" />
-                </div>
-                <div class="proficiencybonus box">
-                  <div class="label-container">
-                    <label for="proficiencybonus">Proficiency Bonus</label>
-                  </div>
-                  <input name="proficiencybonus" placeholder="+2" />
-                </div>
-                <div class="saves list-section box">
-                  <ul>
-                    <li>
-                      <label for="Strength-save">Strength</label><input name="Strength-save" placeholder="+0" type="text" /><input name="Strength-save-prof" type="checkbox" />
-                    </li>
-                    <li>
-                      <label for="Dexterity-save">Dexterity</label><input name="Dexterity-save" placeholder="+0" type="text" /><input name="Dexterity-save-prof" type="checkbox" />
-                    </li>
-                    <li>
-                      <label for="Constitution-save">Constitution</label><input name="Constitution-save" placeholder="+0" type="text" /><input name="Constitution-save-prof" type="checkbox" />
-                    </li>
-                    <li>
-                      <label for="Wisdom-save">Wisdom</label><input name="Wisdom-save" placeholder="+0" type="text" /><input name="Wisdom-save-prof" type="checkbox" />
-                    </li>
-                    <li>
-                      <label for="Intelligence-save">Intelligence</label><input name="Intelligence-save" placeholder="+0" type="text" /><input name="Intelligence-save-prof" type="checkbox" />
-                    </li>
-                    <li>
-                      <label for="Charisma-save">Charisma</label><input name="Charisma-save" placeholder="+0" type="text" /><input name="Charisma-save-prof" type="checkbox" />
-                    </li>
-                  </ul>
-                  <div class="label">
-                    Saving Throws
-                  </div>
-                </div>
-                <div class="skills list-section box" style= "height: 320px; width: 130px;">
-                  <p style="writing-mode: vertical-rl; text-orientation: mixed; font-size: 10px;">Genesis 21 will play a huge impact on maintaining the national cyber security of the country. We provide a solution that helps a number of victims to finally avenge the perpetrators. Our software will also act as a threat, thereby actually reducing such crimes and provide safer social platforms for the people.</p>
-                  
-                </div>
-              </div>
-            </section>
-            <div class="passive-perception box">
-              <div class="label-container">
-                <label for="passiveperception">Passive Wisdom (Perception)</label>
-              </div>
-              <input name="passiveperception" placeholder="10" />
-            </div>
-            <div class="otherprofs box textblock" style = "padding : 10px;height: 330px; border-radius: 20px;  width: 230px; border: black solid 1px;">
+        
+          
+            <div class="otherprofs box textblock" style = "padding : 10px; height: 360px; border-radius: 20px;  width: 230px; border: black solid 1px;">
               <label for="otherprofs">Seed Content</label><img src="https://i.redd.it/8gxotf44n7181.png">
             </div>
+            <section class="attributes">
+              
+              <div class="attr-applications">
+              
+                <div>
+                  <label for="features">Tags analysed</label><textarea name="hashtagsanalysed" style="text-align-last: left; text-align: left; white-space: normal; height:48em" >samsunggalaxys22ultra&#013;galaxys22ultra&#013;leak&#013;leakedpictures&#013;samsungleaks&#013;s22ultra&#013;mobil&#013;mobilblog&#013;mobilhírek&#013;mobilblogger&#013;themobiltrend&#013;samsunggalaxys22ultra&#013;galaxys22ultra&#013;leak&#013;leakedpictures&#013;samsungleaks&#013;s22ultra&#013;mobil&#013;mobilblog&#013;mobilhírek&#013;mobilblogger&#013;themobiltrend&#013;samsunggalaxys22ultra&#013;galaxys22ultra&#013;leak&#013;leakedpictures&#013;samsungleaks&#013;s22ultra&#013;mobil&#013;mobilblog&#013;mobilhírek&#013;mobilblogger&#013;themobiltrend&#013;
+                  </textarea>
+                </div>
+
+
+              </div>
+            </section>
           </section>
           <section>
             <section class="combat">
-              <div class="armorclass">
-                <div>
-                  <label for="ac">Armor Class</label><input name="ac" placeholder="10" type="text" />
-                </div>
-              </div>
-              <div class="initiative">
-                <div>
-                  <label for="initiative">Initiative</label><input name="initiative" placeholder="+0" type="text" />
-                </div>
-              </div>
-              <div class="speed">
-                <div>
-                  <label for="speed">Speed</label><input name="speed" placeholder="30" type="text" />
-                </div>
-              </div>
+            
+            
               <div class="hp">
                 <div class="regular">
                   <div class="max">
-                    <label for="maxhp">Hit Point Maximum</label><input name="maxhp" placeholder="10" type="text" />
+                   
                   </div>
                   <div class="current">
-                    <label for="currenthp" class="gr">Origin account</label><input name="currenthp" type="text" value="dem.odummy"/>
+                    <label for="currenthp" class="gr">Origin account</label><input name="currenthp" type="text"  id ="origin" value="techymate"/>
                   </div>
                 </div>
 
                 <div class="regular" style="border-radius: 0px; margin-top: 0px;">
                   <div class="max">
-                    <label for="maxhp">Hit Point Maximum</label><input name="maxhp" placeholder="10" type="text" />
+                   
                   </div>
                   <div class="current">
-                    <label for="currenthp" class="gr">created</label><input name="currenthp" type="text" value="12.12.2021 15:52:30"/>
+                    <label for="currenthp" class="gr">created</label><input name="currenthp" id ="timestamp1" type="text" value="12.12.2021 15:52:30"/>
                   </div>
                 </div>
 
@@ -850,23 +748,75 @@ img{
                         Name
                       </th>
                       <th>
-                        Atk Bonus
-                      </th>
-                      <th>
-                        Damage/Type
+                        TimeStamp
                       </th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
                       <td>
-                        <input name="atkname1" type="text" />
+                        <input id ="name" name="atkname1" type="text" value="upcomingdevices" />
+                        <input id ="name" name="atkname1" type="text" value="official_ruixuanwangtechnology" />
+                        <input id ="name" name="atkname1" type="text" value="mrniimergeeks"/>
+                        <input id ="name" name="atkname1" type="text" value="tech.new83"/>
+                        <input id ="name" name="atkname1" type="text" value="techworld005"/>
+                        <input id ="name" name="atkname1" type="text" value="tech.interval"/>
+                        <input id ="name" name="atkname1" type="text" value="infoek_cz" />
+                        <input id ="name" name="atkname1" type="text" value="nulltechin" />
+                        <input id ="name" name="atkname1" type="text" value="techonduty99"/>
+                        <input id ="name" name="atkname1" type="text" value="america_technology"/>
+                        <input id ="name" name="atkname1" type="text" value="galaxyfelhasznalok"/>
+                        <input id ="name" name="atkname1" type="text" value="tech_sahil07"/>
+                        <input id ="name" name="atkname1" type="text" value="s22ultra.official" />
+                        <input id ="name" name="atkname1" type="text" value="s22ultra.official"/>
+                        <input id ="name" name="atkname1" type="text" value="s22ultra.official" />
+                        <input id ="name" name="atkname1" type="text" value="s22ultra.official"/>
+                        <input id ="name" name="atkname1" type="text" value="techmaster_telugu"/>
+                        <input id ="name" name="atkname1" type="text" value="ezzycann"/>
+                        <input id ="name" name="atkname1" type="text" value="md.sameer9079"/>
+                        <input id ="name" name="atkname1" type="text" value="whatmobile_official"/>
+                        <input id ="name" name="atkname1" type="text" value="techverit"/>
+                        <input id ="name" name="atkname1" type="text" value="kaleem786baloch"/>
+                        <input id ="name" name="atkname1" type="text" value="blue_oxen19"/>
+                        <input id ="name" name="atkname1" type="text" value="technology.edge.te"/>
+                        <input id ="name" name="atkname1" type="text" value="techyrishul"/>
+                        <input id ="name" name="atkname1" type="text" value="s22ultra.official"/>
+                        <input id ="name" name="atkname1" type="text" value="quantum_techs"/>
+                        <input id ="name" name="atkname1" type="text" value="sewa_gadget_mojokerto"/>
+                        
                       </td>
+                    
                       <td>
-                        <input name="atkbonus1" type="text" />
-                      </td>
-                      <td>
-                        <input name="atkdamage1" type="text" />
+                        <input name="atkdamage1" type="text" id="timestamp2" value="2021-11-07T14:36:30.000Z">
+                        <input name="atkdamage1" type="text" id="timestamp3" value="2021-11-07T14:36:30.000Z" >
+                        <input name="atkdamage1" type="text" id="timestamp4" value="2021-11-07T14:36:30.000Z">
+                        <input name="atkdamage1" type="text" id="timestamp5" value="2021-11-07T14:36:30.000Z">
+                        <input name="atkdamage1" type="text" id="timestamp6" value="2021-11-07T14:36:30.000Z">
+                        <input name="atkdamage1" type="text" id="timestamp7" value="2021-11-07T14:36:30.000Z">
+                        <input name="atkdamage1" type="text" id="timestamp8" value="2021-11-07T14:36:30.000Z">
+                        <input name="atkdamage1" type="text" id="timestamp9" value="2021-11-07T14:36:30.000Z">
+                        <input name="atkdamage1" type="text" id="timestamp10" value="2021-11-07T14:36:30.000Z">
+                        <input name="atkdamage1" type="text" id="timestamp11" value="2021-11-07T14:36:30.000Z">
+                        <input name="atkdamage1" type="text" id="timestamp12" value="2021-11-07T14:36:30.000Z">
+                        <input name="atkdamage1" type="text" id="timestamp13" value="2021-11-07T14:36:30.000Z">
+                        <input name="atkdamage1" type="text" id="timestamp14" value="2021-11-07T14:36:30.000Z">
+                        <input name="atkdamage1" type="text" id="timestamp15" value="2021-11-07T14:36:30.000Z">
+                        <input name="atkdamage1" type="text" id="timestamp16" value="2021-11-07T14:36:30.000Z">
+                        <input name="atkdamage1" type="text" id="timestamp17" value="2021-11-07T14:36:30.000Z">
+                        <input name="atkdamage1" type="text" id="timestamp18" value="2021-11-07T14:36:30.000Z">
+                        <input name="atkdamage1" type="text" id="timestamp19" value="2021-11-07T14:36:30.000Z">
+                        <input name="atkdamage1" type="text" id="timestamp20" value="2021-11-07T14:36:30.000Z">
+                        <input name="atkdamage1" type="text" id="timestamp21" value="2021-11-07T14:36:30.000Z">
+                        <input name="atkdamage1" type="text" id="timestamp22" value="2021-11-07T14:36:30.000Z">
+                        <input name="atkdamage1" type="text" id="timestamp23" value="2021-11-07T14:36:30.000Z">
+                        <input name="atkdamage1" type="text" id="timestamp24" value="2021-11-07T14:36:30.000Z">
+                        <input name="atkdamage1" type="text" id="timestamp24" value="2021-11-07T14:36:30.000Z">
+                        <input name="atkdamage1" type="text" id="timestamp26" value="2021-11-07T14:36:30.000Z">
+                        <input name="atkdamage1" type="text" id="timestamp27" value="2021-11-07T14:36:30.000Z">
+                        <input name="atkdamage1" type="text" id="timestamp27" value="2021-11-07T14:36:30.000Z">
+                        <input name="atkdamage1" type="text" id="timestamp28" value="2021-11-07T14:36:30.000Z">
+                    
+                 
                       </td>
                     </tr>
                   </tbody>
@@ -887,9 +837,8 @@ img{
               <div class="time">
                 <label for="time">Total time</label><textarea class = "big" id="total time">2.1 hrs</textarea>
               </div>
-              <div class="accuracy">
-                <label for="accuracys">accuracy</label><textarea class = "big" id="accuracy">98%</textarea>
-              </div>
+      
+              
             </section>
             <section class="features">
               <div>
@@ -901,4 +850,91 @@ img{
         </main>
       </form>
 </body>
+<script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-app.js"></script>
+<script type="module" src="https://www.gstatic.com/firebasejs/7.2.0/firebase.js"></script>
+
+<script type="module" src="https://www.gstatic.com/firebasejs/9.1.1/firebase-auth.js"></script>
+<script type="module" src="https://www.gstatic.com/firebasejs/9.1.1/firebase-database.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.1.0/firebase-database.js"></script>
+
+<script>
+
+const firebaseConfig = {
+    apiKey: "AIzaSyAwx9dACKU9zOZypdg_En2mQGcLo5E3ME4",
+    authDomain: "project-genesis-21.firebaseapp.com",
+    databaseURL: "https://project-genesis-21-default-rtdb.firebaseio.com",
+    projectId: "project-genesis-21",
+    storageBucket: "project-genesis-21.appspot.com",
+    messagingSenderId: "957797207090",
+    appId: "1:957797207090:web:aa8f09c4b1bc74b771c02b",
+    measurementId: "G-NC95N7MJEC"
+    
+};
+
+
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+read()
+
+
+function renderHTML(value) {
+    account=[],time=[],hash=[];
+    for (i in value){
+      var a=0
+      if (value[i]["account"] != null) {
+        account[a]=account+value[i]["account"]+"&#013;" ;
+        time[a]=time+value[i]["postTime"]+"&#013;" ;
+        a+=1;
+   
+   
+      }
+    } document.getElementById("hashtag").innerHTML=hash;
+
+    time=time[0].split(";");
+    account=account[0].split(";");
+    console.log(account[0]);
+    document.getElementById("timestamp").value=time[0];
+    document.getElementById("origin").value=account[0];
+    
+    for (i in account){
+    id="timestamp"+i;
+    console.log(id);
+  
+
+    }
+  
+
+}
+  
+
+function read() {
+
+
+firebase.database().ref('searchTest1/').on('value', (snap) => {
+    renderHTML(snap.val());;
+})
+
+}
+var source = window.document.getElementsByTagName("body")[0];
+var specialElementHandlers = {
+    '#hidden-element': function (element, renderer) {
+        return true;
+    }
+};
+var doc = new jsPDF({
+    orientation: 'landscape'
+});
+doc.setFont("courier");
+doc.setFontType("normal");
+doc.setFontSize(24);
+doc.setTextColor(100);
+doc.fromHTML(elementHTML, 15, 15, {
+    'width': 170,
+    'elementHandlers': specialElementHandlers
+});
+
+
+</script>
 </html>
