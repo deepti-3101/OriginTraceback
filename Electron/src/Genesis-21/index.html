@@ -81,9 +81,11 @@
             <li id="manageSearchButton" class="active" onclick="OpenPage('manageSearch')"> <i
                 class="fa fa-tasks"></i>Manage Searches</li>
 
-                <li id="manageSearchButton" class="active" onclick="OpenPage('darkweb')"> <i
+                <li id="darkwebButton" class="active" onclick="OpenPage('darkweb')"> <i
                   class="fa fa-tasks"></i>Dark Web</li>
 
+                  <li id="darkresultsButton" class="active" onclick="OpenPage('darkresults')"> <i
+                    class="fa fa-tasks"></i>Dark Web Results</li>
 
             <li id="newSearchButton" class="test" onclick="OpenPage('newSearch')"> <i class="fa fa-search"></i>
               </i>New Search</li>
@@ -408,7 +410,7 @@
         <div class="viewHeader">
           <div class="title">Add Client - Dark Web Monitoring Systems</div>
           <div class="functions">
-            <div class="button active" onclick="">Generate Token</div>
+            <div class="button active" onclick="document.getElementById('tokenOverlay').style.display = 'block'">Generate Token</div>
             <div class="button inverz" style="padding:0px; width: auto; padding-left:5px; padding-right:5px;"><i
                 class="fa fa-trash-o"></i></div>
           </div>
@@ -440,10 +442,12 @@
       </div>
 
 
-
-      <div class="tokenoverlayqr" id="tokenOverlay" style="display: none">
-        
-      </div>
+<div class = "transOverlay" onclick="document.getElementById('tokenOverlay').style.display = 'none'" style="display: none;" id="tokenOverlay">
+      <div class="tokenoverlayqr"  style="display: block">
+        <h3>Scan Qr with Agent Sentinel App</h3>
+        <img style = "margin: 20px; margin-right: 0px;" src="https://i.ibb.co/MPh6wj2/qr2.png">
+    
+      </div></div>
 
 
 
@@ -581,9 +585,32 @@
           <div class="progress"></div>
           <div
             style="width: 100%; padding: 10px; color: white; background-color: #fb667a; text-align: center; border-radius: 10px;">
-            <strong id="origintxt">ORIGIN : Computing...</strong></div>
+            <strong id="origintxt">ORIGIN : CV7pBQ_vuxC</strong></div>
 
           <div class="scrollable" id="resultRender"></div>
+
+        </div>
+      </div>
+
+
+
+      <div class="view" id="darkresults" style="display: none">
+        <div class="viewHeader">
+          <div class="title">Dark web Monitoring System - Search Results</div>
+          <div class="functions">
+            <div class="button active" onclick="OpenPage('newSearch')">New Search</div>
+            <div class="button" onclick="OpenPage('dashboard')">Completed</div>
+            <div class="button inverz" style="padding:0px; width: auto; padding-left:5px; padding-right:5px;"><i
+                class="fa fa-trash-o"></i></div>
+          </div>
+        </div>
+        <div class="content">
+          <div class="progress"></div>
+          <div
+            style="width: 100%; padding: 10px; color: white; background-color: #fb667a; text-align: center; border-radius: 10px;">
+            <strong id="origintxt">ORIGIN : Computing...</strong></div>
+
+          <div class="scrollable" id="darkresultRender"></div>
 
         </div>
       </div>
