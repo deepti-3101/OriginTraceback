@@ -1,4 +1,4 @@
-const pages = ["manageSearch", "dashboard", "activity", "documentation", "newSearch", "results","link", "addclient", "content_m"];
+const pages = ["manageSearch", "dashboard", "activity", "documentation", "newSearch", "results","link", "addclient", "content_m", "darkweb", "darkwebclient"];
 
 
 

@@ -22,7 +22,7 @@ import csv
 import io
 import pprint as pp
 
-cred = credentials.Certificate("D:\\documents\\GitHub\\OriginTraceback\\Electron\\src\\Genesis-21\\fb.json")
+cred = credentials.Certificate("D:\\GitHub\\OriginTraceback\\Electron\\src\\Genesis-21\\fb.json")
 
 firebase_admin.initialize_app(cred, {
     'databaseURL': 'https://project-genesis-21-default-rtdb.firebaseio.com/'
@@ -127,6 +127,7 @@ class agent:
         print("Init Scrapper")
 
         time.sleep(5.4)
+
         #postDetails = {}
 
         #hash_list = []

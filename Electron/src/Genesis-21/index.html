@@ -3,6 +3,8 @@
 
 <head>
   <link rel="stylesheet" href="dashboard.css" />
+  <!-- CSS only -->
+
   <script src="https://use.fontawesome.com/0b70c28bf1.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.1.0/firebase-database.js"></script>
   <meta charset="UTF-8">
@@ -78,6 +80,9 @@
             </li>
             <li id="manageSearchButton" class="active" onclick="OpenPage('manageSearch')"> <i
                 class="fa fa-tasks"></i>Manage Searches</li>
+
+                <li id="manageSearchButton" class="active" onclick="OpenPage('darkweb')"> <i
+                  class="fa fa-tasks"></i>Dark Web</li>
 
 
             <li id="newSearchButton" class="test" onclick="OpenPage('newSearch')"> <i class="fa fa-search"></i>
@@ -374,6 +379,77 @@
 
 
 
+
+      <div class="view" id="darkweb" style="display: none">
+        <div class="viewHeader">
+          <div class="title">Dark Web Monitoring Systems</div>
+          <div class="functions">
+            <div class="button active" onclick="OpenPage('darkwebclient')">Add Client</div>
+            <div class="button inverz" style="padding:0px; width: auto; padding-left:5px; padding-right:5px;"><i
+                class="fa fa-trash-o"></i></div>
+          </div>
+        </div>
+        <div class="content" style = "height: 300px;">
+
+          <div class="wrap">
+            <div class="search">
+               <input type="text" style = "height: 50px;" class="searchTerm" placeholder="Enter Search Term">
+               <button type="submit" class="searchButton">
+                 <i class="fa fa-search"></i>
+              </button>
+            </div>
+         </div>
+
+        </div>
+      </div>
+
+
+      <div class="view" id="darkwebclient" style="display: none">
+        <div class="viewHeader">
+          <div class="title">Add Client - Dark Web Monitoring Systems</div>
+          <div class="functions">
+            <div class="button active" onclick="">Generate Token</div>
+            <div class="button inverz" style="padding:0px; width: auto; padding-left:5px; padding-right:5px;"><i
+                class="fa fa-trash-o"></i></div>
+          </div>
+        </div>
+        <div class="content">
+          
+          <table class = "table1">
+            <thead class = "thead1">
+              <tr class = "tr1">
+                <th class = "th1">Agent Name</th>
+                <th class = "th1">Length</th>
+                <th class = "th1">Token</th>
+              </tr>
+            </thead>
+            <tbody class = "tbody1">
+
+
+              <tr class = "tr1">
+                <td  class = "td1"><strong>Agent-21D (Default)</strong></td>
+                <td  class = "td1">15</td>
+                <td  class = "td1">DYi83gboUo38</td>
+              </tr>
+             
+              
+            </tbody>
+          </table>
+          
+        </div>
+      </div>
+
+
+
+      <div class="tokenoverlayqr" id="tokenOverlay" style="display: none">
+        
+      </div>
+
+
+
+
+
+
       <div class="view" id="Configuration" style="display: none">
         <div class="viewHeader">
           <div class="title">Configuration</div>
@@ -503,8 +579,10 @@
         </div>
         <div class="content">
           <div class="progress"></div>
-          <div style = "width: 100%; padding: 10px; color: white; background-color: #fb667a; text-align: center; border-radius: 10px;"><strong id = "origintxt">ORIGIN : Computing...</strong></div>
-          
+          <div
+            style="width: 100%; padding: 10px; color: white; background-color: #fb667a; text-align: center; border-radius: 10px;">
+            <strong id="origintxt">ORIGIN : Computing...</strong></div>
+
           <div class="scrollable" id="resultRender"></div>
 
         </div>
