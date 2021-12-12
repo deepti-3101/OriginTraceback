@@ -5,12 +5,12 @@
   "keywords": [],
   "main": "./main.js",
   "version": "1.0.0",
-  "author": "aruna",
+  "author": "HP",
   "scripts": {
     "start": "electron ."
   },
   "dependencies": {},
   "devDependencies": {
-    "electron": "15.3.1"
+    "electron": "13.1.7"
   }
 }

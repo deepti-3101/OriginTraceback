@@ -56,7 +56,7 @@ function createWindow() {
 function createPreviewWindow() {
   mainPreviewWindow = new BrowserWindow({
     width: 400,
-    height: 600,
+    height: 700,
     show: true,
     parent: mainWindow,
     webPreferences: {

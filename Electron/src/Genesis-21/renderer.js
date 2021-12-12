@@ -1,4 +1,4 @@
-const pages = ["manageSearch", "dashboard", "activity", "documentation", "newSearch", "results","link", "addclient", "content_m", "darkweb", "darkwebclient"];
+const pages = ["manageSearch", "dashboard", "darkresults",  "activity", "documentation", "newSearch", "results","link", "addclient", "content_m", "darkweb", "darkwebclient"];
 
 
 
@@ -26,7 +26,7 @@ read()
 function read() {
 
 
-    firebase.database().ref('New-search_final/').on('value', (snap) => {
+    firebase.database().ref('New-search_final1/').on('value', (snap) => {
         renderHTML(snap.val());;
     })
 }
@@ -45,6 +45,32 @@ function renderHTML(value) {
     document.getElementById("resultRender").innerHTML = innerHTML;
 
 }
+/*
+
+readdark();
+
+function readdark() {
+
+
+    firebase.database().ref('darkweb/result/').on('value', (snap) => {
+        renderHTML(snap.val());;
+    })
+}
+
+function renderHTML(value) {
+    innerHTML = "<div class = 'boxContainer1'><div class='Cboxs'>";
+    for (i in value) {
+        if (value[i]["account"] != null) {
+            innerHTML += '<div class="Cbox" href="#"><span class="Cbox-summary">ID : ' + i + '<br>Value : ' + value[i] + '</span></div>'
+        }
+    }
+
+    innerHTML += "</div></div>"
+    document.getElementById("darkresultRender").innerHTML = innerHTML;
+
+}
+
+*/
 
 readSearchList();
 
