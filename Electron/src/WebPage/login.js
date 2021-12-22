@@ -58,5 +58,5 @@ showPasswordButton.addEventListener('click', event => {
 });
 
 function dashboard(){
-  
+  location.href ="https://dominicwalterlof.github.io/OriginTraceback/Electron/src/WebPage/ds";
 }
