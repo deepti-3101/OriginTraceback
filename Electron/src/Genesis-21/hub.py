@@ -42,7 +42,7 @@ class hashQueue:
                 self.pQueue[i] += 1
             elif i not in self.processed:
                 self.pQueue[i] = 1
-        print("Queue status : ", self.queueStatus())
+        print("Queue status : ")
         self.nextHash(0)
 
     def nextHash(self, mode):
@@ -56,7 +56,7 @@ class hashQueue:
                 self.assignHash(current)
                 return current
             else:
-                return current
+                return sort_orders
         else:
             return False
 
@@ -330,11 +330,9 @@ class agent:
                 for tags in postDetails[x]["des"].split("tagging ")[1].split(" "):
 
                     if "@" in tags:
-
                         tagginglist.append(tags[:-1])
 
                 postDetails[x]["tags"] = tagginglist
-
 
             postDetails[x]["account"] = \
                 content.split('<a class="sqdOP yWX7d     _8A5w5   ZIAjV " href="')[1].split("</a>")[0].split(
@@ -355,9 +353,18 @@ class agent:
                 ref1.update({"origin": i})
                 break
             tag_bucket.addHashList(postDetails)
+            self.routeSearch(tag_bucket.nextHash(0))
         else:
             print("Nothing Found")
         # print(postDetails)
+
+    def routeSearch(self, search_list):
+        if search_list[0][1] > 1:
+            print("Routing Search to : ", search_list[0][0], "\n\n")
+            self.clearWorkSpace()
+            self.initScrapper(tag_bucket.nextHash(1), fetch)
+        else:
+            print("\n=================\nSearch Terminated\n=================\n")
 
 
 def generateHTML(post_Details):
@@ -369,9 +376,14 @@ def generateHTML(post_Details):
     pass
 
 
+
+
+
 cred = credentials.Certificate("fb.json")
 
 timespeed = 0
+
+project_name = input("Enter Project Name : ")
 
 workingDirectory = input("Enter Working Directory (example : D:\\tmp\\Genesis-21\\): ")
 
@@ -393,7 +405,7 @@ name = "D:/Genesis-21/Searches"
 target = input("Target Image Location (D:\\tmp\\1234.jpg) : ")
 main = OrderedDict()
 
-#test = pyspeedtest.SpeedTest("www.youtube.com")
+# test = pyspeedtest.SpeedTest("www.youtube.com")
 
 readParameter = ref1.get()
 
@@ -404,5 +416,6 @@ print(readParameter["hashtag"])
 tag_bucket = hashQueue({readParameter["hashtag"]: 1})
 
 # speed = test.download()
+fetch = readParameter["fetch"]
 
-agent1 = agent(readParameter["fetch"])
+agent1 = agent(fetch)
