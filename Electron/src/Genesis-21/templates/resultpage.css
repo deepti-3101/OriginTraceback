@@ -12,13 +12,14 @@
   }
   
   body {
-    background-color: #202932;
+    background-color: #fff;
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     color: #102542;
     font-size: 1.6rem;
     font-family: 'Lato', sans-serif;
   }
+  
   body::-webkit-scrollbar {
     display: none;
   }
