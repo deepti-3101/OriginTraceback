@@ -1,0 +1,287 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  html.open, body.open {
+    height: 100%;
+    overflow: hidden;
+  }
+  
+  html {
+    font-size: 62.5%;
+  }
+  
+  body {
+    background-color: #202932;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    color: #102542;
+    font-size: 1.6rem;
+    font-family: 'Lato', sans-serif;
+  }
+  body::-webkit-scrollbar {
+    display: none;
+  }
+
+  p {
+    text-align: center;
+    margin: 20px 0 60px;
+  }
+  
+  main {
+    background-color: #2C3845;
+    margin: 20px;
+  }
+  
+  h1 {
+    text-align: center;
+    font-weight: 300;
+  }
+  
+  table {
+    display: block;
+  }
+  
+  tr, td, tbody, tfoot {
+    display: block;
+  }
+  
+  thead {
+    display: none;
+  }
+  
+  tr {
+    padding-bottom: 10px;
+  }
+  
+  td {
+    padding: 10px 10px 0;
+    text-align: center;
+  }
+  td:before {
+    content: attr(data-title);
+    color: #7a91aa;
+    text-transform: uppercase;
+    font-size: 1.4rem;
+    padding-right: 10px;
+    display: block;
+  }
+  
+  table {
+    width: 100%;
+    color: #fff;
+  }
+  
+  th {
+    text-align: left;
+    font-weight: 700;
+  }
+  
+  thead th {
+    background-color: #202932;
+    color: #fff;
+    border: 1px solid #202932;
+  }
+  
+  tfoot th {
+    display: block;
+    padding: 10px;
+    text-align: center;
+    color: #b8c4d2;
+  }
+  
+  .button {
+    line-height: 1;
+    display: inline-block;
+    font-size: 1.2rem;
+    text-decoration: none;
+    border-radius: 5px;
+    color: #fff;
+    padding: 8px;
+    background-color: #F87060;
+  }
+  
+  .select {
+    padding-bottom: 20px;
+    border-bottom: 1px solid #28333f;
+  }
+  .select:before {
+    display: none;
+  }
+  
+  @media (min-width: 460px) {
+    td {
+      text-align: left;
+    }
+    td:before {
+      display: inline-block;
+      text-align: right;
+      width: 140px;
+    }
+  
+    .select {
+      padding-left: 160px;
+    }
+  }
+  @media (min-width: 720px) {
+    table {
+      display: table;
+    }
+  
+    tr {
+      display: table-row;
+    }
+  
+    td, th {
+      display: table-cell;
+    }
+  
+    tbody {
+      display: table-row-group;
+    }
+  
+    thead {
+      display: table-header-group;
+    }
+  
+    tfoot {
+      display: table-footer-group;
+    }
+  
+    td {
+      border: 1px solid #28333f;
+    }
+    td:before {
+      display: none;
+    }
+  
+    td, th {
+      padding: 10px;
+    }
+  
+    tr:nth-child(2n+2) td {
+      background-color: #242e39;
+    }
+  
+    tfoot th {
+      display: table-cell;
+    }
+  
+    .select {
+      padding: 10px;
+    }
+}
+
+  nav {
+    box-shadow: 5px 4px 15px #000;
+  }
+
+.detailsOverlay{
+    z-index: 100;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.455);
+    align-items: center;
+    justify-content:center ;
+    
+  }
+
+  .mainCard{
+      background-color: white;
+      width: 80%;
+      height: 80%;
+      border-radius: 20px;
+      box-shadow: 5px 4px 15px #000;
+      top: 50%;
+      left: 50%;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+  
+  .transfer-bank-details-wrapper {
+    width: 100%;
+    height: 100%;
+    margin: 0px auto;
+    padding: 14px;
+    overflow-y: scroll;
+    
+  }
+
+  .transfer-bank-details-wrapper::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .tabTitle {
+    position: relative;
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  .tabText {
+    display: block;
+    width: 100%;
+    margin-bottom: 2px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding: 14px;
+    background-color: #102542;
+    color: #ffffff;
+  }
+  .tabText span {
+    font-size: 0.8rem;
+  }
+  
+  .inTab {
+    display: flex;
+    width: 100%;
+    margin-bottom: 2px;
+  }
+  .inTab .nowrap {
+    display: inline;
+    white-space: nowrap;
+  }
+  
+  .options-tag {
+    flex: 1 1 auto;
+    min-width: 100px;
+    max-width: 100px;
+    padding: 14px;
+    color: #ffffff;
+    text-align: center;
+    background-color: #F87060;
+  }
+  
+  .country-detail {
+    flex: 1 1 auto;
+    padding: 14px;
+    background-color: #f3f3f3;
+  }
+  .country-detail span {
+    font-size: 0.8rem;
+  }
+  
+  .clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+  }
+  
+  .clearfix {
+    display: inline-block;
+  }
+
+  * html .clearfix {
+    height: 1%;
+  }
+  
+  .clearfix {
+    display: block;
+  }

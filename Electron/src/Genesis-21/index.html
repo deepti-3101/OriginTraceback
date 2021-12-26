@@ -85,7 +85,7 @@
                   class="fa fa-tasks"></i>Dark Web</li>
 
                   <li id="darkresultsButton" class="active" onclick="OpenPage('darkresults')"> <i
-                    class="fa fa-tasks"></i>Dark Web Results</li>
+                    class="fa fa-tasks"></i>All Results</li>
 
             <li id="newSearchButton" class="test" onclick="OpenPage('newSearch')"> <i class="fa fa-search"></i>
               </i>New Search</li>
@@ -596,7 +596,7 @@
 
       <div class="view" id="darkresults" style="display: none">
         <div class="viewHeader">
-          <div class="title">Dark web Monitoring System - Search Results</div>
+          <div class="title">All Results</div>
           <div class="functions">
             <div class="button active" onclick="OpenPage('newSearch')">New Search</div>
             <div class="button" onclick="OpenPage('dashboard')">Completed</div>
@@ -604,13 +604,8 @@
                 class="fa fa-trash-o"></i></div>
           </div>
         </div>
-        <div class="content">
-          <div class="progress"></div>
-          <div
-            style="width: 100%; padding: 10px; color: white; background-color: #fb667a; text-align: center; border-radius: 10px;">
-            <strong id="origintxt">ORIGIN : Computing...</strong></div>
-
-          <div class="scrollable" id="darkresultRender"></div>
+        <div class="content" style="padding: 0%;background-color: #202932; position: absolute; top: 0%; height: 100vh;">
+          <iframe src="./templates/resultpage.html" frameborder="0" style="width: 100%; height: 500px; position: absolute; top: 0px;"></iframe>
 
         </div>
       </div>

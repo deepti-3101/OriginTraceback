@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Results - Genesis 21</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="./resultpage.css">
+    <script src="https://www.gstatic.com/firebasejs/7.1.0/firebase-database.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="">Export</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a href="">Open Externally</a></li>
+                    <li class="active"><a href="">All Results</a></li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </nav>
+    <main>
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        Project Name
+                    </th>
+                    <th>
+                        Platform
+                    </th>
+                    <th>
+                        Search Status
+                    </th>
+                    <th>
+                        Origin
+                    </th>
+                    <th>
+                        Details
+                    </th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <th colspan='5'>
+                        Database Connection Status : Connected
+                    </th>
+                </tr>
+            </tfoot>
+            <tbody id="mainList">
+            </tbody>
+        </table>
+
+        <div class="detailsOverlay" id = "mainOverlay" style="display: none;" >
+            <button onClick="closeOverlay()" style="z-index: -1; position:absolute; border : none; background-color: rgba(255, 255, 255, 0);width: 100%; height: 100%;">close</button>
+                <div class="mainCard">
+
+                    <div class="transfer-bank-details-wrapper">
+                        <div class="tabTitle clearfix">
+                          <div class="tabText">Hash Queue<span></span></div>
+                          <div class="inTab">
+                            <div class="options-tag">Origin</div>
+                            <div class="country-detail" id = "origintxt"></div>
+                          </div>
+                          <div class="inTab">
+                            <div class="options-tag">Status</div>
+                            <div class="country-detail" id = "statustxt"></div>
+                          </div>
+                          <div class="inTab">
+                            <div class="options-tag">Option 1:</div>
+                            <div class="country-detail"><div class="inTab">
+                            <div class="options-tag">Option 1:</div>
+                            <div class="country-detail">BIC / SWIFT <span>(11 digits)</span> <span class="plus">+</span> IBAN</div>
+                          </div><div class="inTab">
+                            <div class="options-tag">Option 1:</div>
+                            <div class="country-detail">BIC / SWIFT <span>(11 digits)</span> <span class="plus">+</span> IBAN</div>
+                          </div><div class="inTab">
+                            <div class="options-tag">Option 1:</div>
+                            <div class="country-detail">BIC / SWIFT <span>(11 digits)</span> <span class="plus">+</span> IBAN</div>
+                          </div><div class="inTab">
+                            <div class="options-tag">Option 1:</div>
+                            <div class="country-detail">BIC / SWIFT <span>(11 digits)</span> <span class="plus">+</span> IBAN</div>
+                          </div>
+                          </div>
+                        </div>
+                      
+                        <div class="tabTitle clearfix">
+                          <div class="tabText">United Kingdom <span>(GBP)</span></div>
+                          <div class="inTab">
+                            <div class="options-tag">Option 1:</div>
+                            <div class="country-detail"><div class="nowrap">BIC / SWIFT <span>(11 digits)</span></div> + <div class="nowrap">IBAN</div></div>
+                          </div>
+                          <div class="inTab">
+                            <div class="options-tag">Option 2:</div>
+                            <div class="country-detail">Sort Code <span>(6 digits)</span> + Account Number</div>
+                          </div>
+                        </div>
+                      </div>
+
+                </div>
+            
+        </div>
+
+
+    </main>
+    <!-- partial -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/9.1.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.1.1/firebase-database.js"></script>
+    <script src="./resultpage.js"></script>
+
+</body>
+
+</html>
