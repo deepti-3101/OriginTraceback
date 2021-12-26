@@ -149,7 +149,7 @@
     }
   
     td {
-      border: 1px solid #28333f;
+      border: 2px solid #28333f;
     }
     td:before {
       display: none;
@@ -255,10 +255,21 @@
     text-align: center;
     background-color: #F87060;
   }
+  .options-tag-n {
+    flex: 1 1 auto;
+    min-width: 200px;
+    max-width: 200px;
+    padding: 14px;
+    color: #ffffff;
+    text-align: center;
+    background-color: #F87060;
+  }
   
   .country-detail {
     flex: 1 1 auto;
     padding: 14px;
+    width: 100%;
+    border: 1px dashed #1025425f;
     background-color: #f3f3f3;
   }
   .country-detail span {

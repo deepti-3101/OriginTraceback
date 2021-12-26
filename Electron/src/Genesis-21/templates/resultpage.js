@@ -46,6 +46,26 @@ function showOverlay(){
 function renderTable(){
     document.getElementById("origintxt").innerHTML = response["iphone14"]["origin"];
     document.getElementById("statustxt").innerHTML = response["iphone14"]["Status"];
+    document.getElementById("projecttxt").innerHTML = response["iphone14"]["projectname"];
+    var incode = ""
+    for(i in response["iphone14"]["postdetails"]){
+        var inincode = "";
+        for(y in response["iphone14"]["postdetails"][i]){
+            if(y == "hash"){
+                var ininincode = "";
+                for(k in response["iphone14"]["postdetails"][i][y]){
+                    ininincode += "<div class='inTab'><div class='options-tag-n'>"+ k + "</div><div class='country-detail'>"+ response["iphone14"]["postdetails"][i][y][k] + "</div></div>";
+                }
+                inincode += "<div class='inTab'><div class='options-tag-n'>"+ y + "</div><div class='country-detail'>"+ ininincode + "</div></div>";
+            }
+            else{
+                inincode += "<div class='inTab'><div class='options-tag-n'>"+ y + "</div><div class='country-detail'>"+ response["iphone14"]["postdetails"][i][y] + "</div></div>";
+            }
+            
+        }
+        incode += "<div class='inTab'><div class='options-tag-n'>"+ i + "</div><div class='country-detail'>"+ inincode + "</div></div>";
+    }
+    document.getElementById("postslist").innerHTML = incode;
 }
 
 function closeOverlay(){

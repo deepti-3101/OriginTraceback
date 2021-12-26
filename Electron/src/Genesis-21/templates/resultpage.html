@@ -60,6 +60,7 @@
                 </tr>
             </thead>
             <tfoot>
+                <hr>
                 <tr>
                     <th colspan='5'>
                         Database Connection Status : Connected
@@ -70,55 +71,40 @@
             </tbody>
         </table>
 
-        <div class="detailsOverlay" id = "mainOverlay" style="display: none;" >
-            <button onClick="closeOverlay()" style="z-index: -1; position:absolute; border : none; background-color: rgba(255, 255, 255, 0);width: 100%; height: 100%;">close</button>
-                <div class="mainCard">
+        <div class="detailsOverlay" id="mainOverlay" style="display: none;">
+            <button onClick="closeOverlay()"
+                style="z-index: -1; position:absolute; border : none; background-color: rgba(255, 255, 255, 0);width: 100%; height: 100%;">close</button>
+            <div class="mainCard">
 
-                    <div class="transfer-bank-details-wrapper">
-                        <div class="tabTitle clearfix">
-                          <div class="tabText">Hash Queue<span></span></div>
-                          <div class="inTab">
-                            <div class="options-tag">Origin</div>
-                            <div class="country-detail" id = "origintxt"></div>
-                          </div>
-                          <div class="inTab">
+                <div class="transfer-bank-details-wrapper">
+                    <div class="tabTitle clearfix">
+                        <div class="tabText">Details<span></span></div>
+                        <div class="inTab">
+                            <div class="options-tag">Project</div>
+                            <div class="country-detail" id="projecttxt"></div>
+                        </div>
+                        <div class="inTab">
                             <div class="options-tag">Status</div>
-                            <div class="country-detail" id = "statustxt"></div>
-                          </div>
-                          <div class="inTab">
-                            <div class="options-tag">Option 1:</div>
-                            <div class="country-detail"><div class="inTab">
-                            <div class="options-tag">Option 1:</div>
-                            <div class="country-detail">BIC / SWIFT <span>(11 digits)</span> <span class="plus">+</span> IBAN</div>
-                          </div><div class="inTab">
-                            <div class="options-tag">Option 1:</div>
-                            <div class="country-detail">BIC / SWIFT <span>(11 digits)</span> <span class="plus">+</span> IBAN</div>
-                          </div><div class="inTab">
-                            <div class="options-tag">Option 1:</div>
-                            <div class="country-detail">BIC / SWIFT <span>(11 digits)</span> <span class="plus">+</span> IBAN</div>
-                          </div><div class="inTab">
-                            <div class="options-tag">Option 1:</div>
-                            <div class="country-detail">BIC / SWIFT <span>(11 digits)</span> <span class="plus">+</span> IBAN</div>
-                          </div>
-                          </div>
+                            <div class="country-detail" id="statustxt"></div>
                         </div>
-                      
+                        <div class="inTab">
+                            <div class="options-tag">Origin</div>
+                            <div class="country-detail" id="origintxt"></div>
+                        </div>
+
                         <div class="tabTitle clearfix">
-                          <div class="tabText">United Kingdom <span>(GBP)</span></div>
-                          <div class="inTab">
-                            <div class="options-tag">Option 1:</div>
-                            <div class="country-detail"><div class="nowrap">BIC / SWIFT <span>(11 digits)</span></div> + <div class="nowrap">IBAN</div></div>
-                          </div>
-                          <div class="inTab">
-                            <div class="options-tag">Option 2:</div>
-                            <div class="country-detail">Sort Code <span>(6 digits)</span> + Account Number</div>
-                          </div>
+                            <div class="tabText">Re-posts</div>
+                            <div class="inTab">
+                                <div class="country-detail" id="postslist">
+                                    
+                                </div>
+                            </div>
                         </div>
-                      </div>
+                    </div>
 
                 </div>
-            
-        </div>
+
+            </div>
 
 
     </main>
