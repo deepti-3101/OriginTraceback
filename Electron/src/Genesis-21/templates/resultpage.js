@@ -66,7 +66,7 @@ function renderTable(value){
             }
             
         }
-        incode += "<div class='inTab'><div class='options-tag-n'>"+ i + "</div><div class='country-detail'>"+ inincode + "</div></div><div class='html2pdf__page-break'></div>";
+        incode += "<div class='inTab'><div class='options-tag-n'>"+ i + "</div><div class='country-detail'>"+ inincode + "</div></div>";
     }
     document.getElementById("postslist").innerHTML = incode;
 
@@ -79,4 +79,16 @@ function renderTable(value){
 
 function closeOverlay(){
     document.getElementById("mainOverlay").style.display = "none";
+}
+
+function generatePDF() {
+    document.getElementById("postslist").style.border = "none";
+    const element = document.getElementById('mainCard');
+    html2pdf(element, {
+        margin: 10,
+        filename: 'Genesis-21(Result).pdf',
+        image: { type: 'jpeg', quality: 1 },
+        html2canvas: { scale: 3, logging: true, dpi: 216, letterRendering: true },
+        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+    });
 }
