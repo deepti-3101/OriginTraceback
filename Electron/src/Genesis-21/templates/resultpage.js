@@ -33,6 +33,8 @@ function renderHTML(value) {
         innerHTML += "<tr><td data-title='Project Name'>" + i + "</td><td data-title='Platform'>Instagram</td><td data-title='Search Status'>" + value[i]["Status"] + "</td><td data-title='Origin'>" + value[i]["origin"] + "</td><td class='select'><div class='button' onclick = 'showOverlay()'>INFO</div></td></tr>";
     }
     document.getElementById("mainList").innerHTML = innerHTML;
+    document.getElementById("stat").innerHTML = "Database Connection Status : Connected";
+    document.getElementById("stat").style.border = "3px solid lightgreen";
 
 }
 
@@ -54,18 +56,24 @@ function renderTable(){
             if(y == "hash"){
                 var ininincode = "";
                 for(k in response["iphone14"]["postdetails"][i][y]){
-                    ininincode += "<div class='inTab'><div class='options-tag-n'>"+ k + "</div><div class='country-detail'>"+ response["iphone14"]["postdetails"][i][y][k] + "</div></div>";
+                    ininincode += "<div class='inTab'><div class='options-tag-nnn'>"+ k + "</div><div class='country-detail'>"+ response["iphone14"]["postdetails"][i][y][k] + "</div></div>";
                 }
-                inincode += "<div class='inTab'><div class='options-tag-n'>"+ y + "</div><div class='country-detail'>"+ ininincode + "</div></div>";
+                inincode += "<div class='inTab'><div class='options-tag-nn'>"+ y + "</div><div class='country-detail'>"+ ininincode + "</div></div>";
             }
             else{
-                inincode += "<div class='inTab'><div class='options-tag-n'>"+ y + "</div><div class='country-detail'>"+ response["iphone14"]["postdetails"][i][y] + "</div></div>";
+                inincode += "<div class='inTab'><div class='options-tag-nn'>"+ y + "</div><div class='country-detail'>"+ response["iphone14"]["postdetails"][i][y] + "</div></div>";
             }
             
         }
         incode += "<div class='inTab'><div class='options-tag-n'>"+ i + "</div><div class='country-detail'>"+ inincode + "</div></div>";
     }
     document.getElementById("postslist").innerHTML = incode;
+
+    var ql = "";
+    for(i in response["iphone14"]["pQueue"]){
+        ql += "<div class='inTab'><div class='options-tag-nnn'>"+ i + "</div><div class='country-detail'>"+ response["iphone14"]["pQueue"][i][0] + "<div class='options-tag-nnn'>"+ response["iphone14"]["pQueue"][i][1] + "</div></div></div>";
+    }
+    document.getElementById("hashqueue").innerHTML = ql;
 }
 
 function closeOverlay(){

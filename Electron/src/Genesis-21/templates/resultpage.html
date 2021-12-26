@@ -62,12 +62,12 @@
             <tfoot>
                 <hr>
                 <tr>
-                    <th colspan='5'>
-                        Database Connection Status : Connected
+                    <th colspan='5' id = "stat" class="statsbox" onmouseover="">
+                        Database Connection Status : Connecting....
                     </th>
                 </tr>
             </tfoot>
-            <tbody id="mainList">
+            <tbody id="mainList" style="overflow-y: scroll;">
             </tbody>
         </table>
 
@@ -75,7 +75,6 @@
             <button onClick="closeOverlay()"
                 style="z-index: -1; position:absolute; border : none; background-color: rgba(255, 255, 255, 0);width: 100%; height: 100%;">close</button>
             <div class="mainCard">
-
                 <div class="transfer-bank-details-wrapper">
                     <div class="tabTitle clearfix">
                         <div class="tabText">Details<span></span></div>
@@ -96,10 +95,20 @@
                             <div class="tabText">Re-posts</div>
                             <div class="inTab">
                                 <div class="country-detail" id="postslist">
-                                    
+
                                 </div>
                             </div>
                         </div>
+
+                        <div class="tabTitle clearfix">
+                            <div class="tabText">Hash-Queue Log Trace</div>
+                            <div class="inTab">
+                                <div class="country-detail" id="hashqueue">
+
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
 
                 </div>

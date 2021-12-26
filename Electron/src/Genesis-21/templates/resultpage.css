@@ -191,8 +191,8 @@
 
   .mainCard{
       background-color: white;
-      width: 80%;
-      height: 80%;
+      width: 90%;
+      height: 90%;
       border-radius: 20px;
       box-shadow: 5px 4px 15px #000;
       top: 50%;
@@ -262,7 +262,27 @@
     padding: 14px;
     color: #ffffff;
     text-align: center;
-    background-color: #F87060;
+    background-color: #102542;
+  }
+
+  .options-tag-nn {
+    flex: 1 1 auto;
+    min-width: 100px;
+    max-width: 100px;
+    padding: 14px;
+    color: #102542;
+    text-align: center;
+    background-color: #CDD7D6  ;
+  }
+
+  .options-tag-nnn {
+    flex: 1 1 auto;
+    min-width: 50px;
+    max-width: 50px;
+    padding: 14px;
+    color: #ffffff;
+    text-align: center;
+    background-color: #F87060 ;
   }
   
   .country-detail {
@@ -295,4 +315,17 @@
   
   .clearfix {
     display: block;
+  }
+
+  .statsbox{
+    border: 3px solid red;
+     position:absolute;
+      bottom: 20px;
+       background-color: #242e39;
+       opacity: 0.8;
+  }
+
+  .statsbox:hover{
+      opacity: 0.1;
+      transition:cubic-bezier(0.55, 0.055, 0.675, 0.19)
   }
