@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="./resultpage.css">
     <script src="https://www.gstatic.com/firebasejs/7.1.0/firebase-database.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.js"
+        integrity="sha512-dBB2PGgYedA6vzize7rsf//Q6iuUuMPvXCDybHtZP3hQXCPCD/YVJXK3QYZ2v0p7YCfVurqr8IdcSuj4CCKnGg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 
 <body>
@@ -30,11 +33,8 @@
                 <ul class="nav navbar-nav">
                     <li><a href="">Open Externally</a></li>
                     <li class="active"><a href="">All Results</a></li>
-
                 </ul>
-
             </div>
-
         </div>
 
     </nav>
@@ -62,7 +62,7 @@
             <tfoot>
                 <hr>
                 <tr>
-                    <th colspan='5' id = "stat" class="statsbox" onmouseover="">
+                    <th colspan='5' id="stat" class="statsbox" onmouseover="">
                         Database Connection Status : Connecting....
                     </th>
                 </tr>
@@ -74,7 +74,21 @@
         <div class="detailsOverlay" id="mainOverlay" style="display: none;">
             <button onClick="closeOverlay()"
                 style="z-index: -1; position:absolute; border : none; background-color: rgba(255, 255, 255, 0);width: 100%; height: 100%;">close</button>
-            <div class="mainCard">
+            <div class="mainCard" style="width: 30%; margin-left: 20px;">
+                <div
+                    style=" margin-bottom:20px ;background-color: #F87060 ; color:white; border-radius: 5px;padding: 10px; text-align: center;">
+                    Preferences
+                </div>
+                <div
+                    style="align-items: center; justify-content: center; background-color:#242e39; color: white; width: 100%; height: 80%; border-radius: 20px;padding: 10px; text-align: center;">
+                    <div onclick="generatePDF()"
+                        style="color: black;background-color: antiquewhite; border-radius: 20px;padding: 10px; text-align: center;">
+                        Export PDF
+                    </div>
+                </div>
+
+            </div>
+            <div class="mainCard" id="mainCard" style="margin-right: 10px;">
                 <div class="transfer-bank-details-wrapper">
                     <div class="tabTitle clearfix">
                         <div class="tabText">Details<span></span></div>
@@ -90,12 +104,12 @@
                             <div class="options-tag">Origin</div>
                             <div class="country-detail" id="origintxt"></div>
                         </div>
-
+                        <div class="html2pdf__page-break"></div>
                         <div class="tabTitle clearfix">
                             <div class="tabText">Re-posts</div>
                             <div class="inTab">
-                                <div class="country-detail" id="postslist">
-
+                                <div class="country-detail" id="postslist"
+                                    style="border:1px solid black; background-color: rgba(255, 255, 255, 0);">
                                 </div>
                             </div>
                         </div>
@@ -108,16 +122,33 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
-
                 </div>
-
             </div>
-
-
     </main>
-    <!-- partial -->
+    <script>
+        function generatePDF() {
+            document.getElementById("postslist").style.border = "none";
+            const element = document.getElementById('mainCard');
+            console.log("wrq");
+            html2pdf(element, {
+                margin: 10,
+                filename: 'Genesis-21(Result).pdf',
+                image: { type: 'jpeg', quality: 1 },
+                html2canvas: { scale: 3, logging: true, dpi: 216, letterRendering: true },
+                jsPDF: { unit: 'mm', format: 'a2', orientation: 'landscape' }
+            });
+
+            //html2pdf().from(element).save();
+            console.log("wrq");
+
+        }
+    </script>
+
+
+
+
+
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
     <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase.js"></script>

@@ -193,6 +193,7 @@
       background-color: white;
       width: 90%;
       height: 90%;
+      padding: 10px;
       border-radius: 20px;
       box-shadow: 5px 4px 15px #000;
       top: 50%;
@@ -329,3 +330,5 @@
       opacity: 0.1;
       transition:cubic-bezier(0.55, 0.055, 0.675, 0.19)
   }
+
+  

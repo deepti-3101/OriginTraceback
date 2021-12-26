@@ -37,7 +37,7 @@ let mainPreviewWindow
 function createWindow() {
   mainWindow = new BrowserWindow({
     width: 1000,
-    height: 600,
+    height: 1000,
     backgroundColor:'#0000ffff',
     frame: false,
     transparent: true,

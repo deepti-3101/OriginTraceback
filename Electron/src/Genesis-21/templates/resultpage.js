@@ -65,7 +65,7 @@ function renderTable(){
             }
             
         }
-        incode += "<div class='inTab'><div class='options-tag-n'>"+ i + "</div><div class='country-detail'>"+ inincode + "</div></div>";
+        incode += "<div class='inTab'><div class='options-tag-n'>"+ i + "</div><div class='country-detail'>"+ inincode + "</div></div><div class='html2pdf__page-break'></div>";
     }
     document.getElementById("postslist").innerHTML = incode;
 
