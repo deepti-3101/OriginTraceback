@@ -30,7 +30,7 @@ function renderHTML(value) {
     innerHTML = "<div class = 'boxContainer1'><div class='Cboxs'>";
     for (i in value) {
         console.log(i);
-        innerHTML += "<tr><td data-title='Project Name'>" + i + "</td><td data-title='Platform'>Instagram</td><td data-title='Search Status'>" + value[i]["Status"] + "</td><td data-title='Origin'>" + value[i]["origin"] + "</td><td class='select'><div class='button' onclick = 'showOverlay()'>INFO</div></td></tr>";
+        innerHTML += "<tr><td data-title='Project Name'>" + i + "</td><td data-title='Platform'>Instagram</td><td data-title='Search Status'>" + value[i]["Status"] + "</td><td data-title='Origin'>" + value[i]["origin"] + "</td><td class='select'><div class='button' onclick = 'showOverlay(\"" + String(i) + "\")'>INFO</div></td></tr>";
     }
     document.getElementById("mainList").innerHTML = innerHTML;
     document.getElementById("stat").innerHTML = "Database Connection Status : Connected";
@@ -39,29 +39,30 @@ function renderHTML(value) {
 }
 
 
-function showOverlay(){
-    renderTable();
+function showOverlay(tag){
+    renderTable(tag);
     document.getElementById("mainOverlay").style.display = "flex";
 }
 
 
-function renderTable(){
-    document.getElementById("origintxt").innerHTML = response["iphone14"]["origin"];
-    document.getElementById("statustxt").innerHTML = response["iphone14"]["Status"];
-    document.getElementById("projecttxt").innerHTML = response["iphone14"]["projectname"];
+function renderTable(value){
+    
+    document.getElementById("origintxt").innerHTML = response[value]["origin"];
+    document.getElementById("statustxt").innerHTML = response[value]["Status"];
+    document.getElementById("projecttxt").innerHTML = response[value]["projectname"];
     var incode = ""
-    for(i in response["iphone14"]["postdetails"]){
+    for(i in response[value]["postdetails"]){
         var inincode = "";
-        for(y in response["iphone14"]["postdetails"][i]){
+        for(y in response[value]["postdetails"][i]){
             if(y == "hash"){
                 var ininincode = "";
-                for(k in response["iphone14"]["postdetails"][i][y]){
-                    ininincode += "<div class='inTab'><div class='options-tag-nnn'>"+ k + "</div><div class='country-detail'>"+ response["iphone14"]["postdetails"][i][y][k] + "</div></div>";
+                for(k in response[value]["postdetails"][i][y]){
+                    ininincode += "<div class='inTab'><div class='options-tag-nnn'>"+ k + "</div><div class='country-detail'>"+ response[value]["postdetails"][i][y][k] + "</div></div>";
                 }
                 inincode += "<div class='inTab'><div class='options-tag-nn'>"+ y + "</div><div class='country-detail'>"+ ininincode + "</div></div>";
             }
             else{
-                inincode += "<div class='inTab'><div class='options-tag-nn'>"+ y + "</div><div class='country-detail'>"+ response["iphone14"]["postdetails"][i][y] + "</div></div>";
+                inincode += "<div class='inTab'><div class='options-tag-nn'>"+ y + "</div><div class='country-detail'>"+ response[value]["postdetails"][i][y] + "</div></div>";
             }
             
         }
@@ -70,8 +71,8 @@ function renderTable(){
     document.getElementById("postslist").innerHTML = incode;
 
     var ql = "";
-    for(i in response["iphone14"]["pQueue"]){
-        ql += "<div class='inTab'><div class='options-tag-nnn'>"+ i + "</div><div class='country-detail'>"+ response["iphone14"]["pQueue"][i][0] + "<div class='options-tag-nnn'>"+ response["iphone14"]["pQueue"][i][1] + "</div></div></div>";
+    for(i in response[value]["pQueue"]){
+        ql += "<div class='inTab'><div class='options-tag-nnn'>"+ i + "</div><div class='country-detail'>"+ response[value]["pQueue"][i][0] + "<div class='options-tag-nnn'>"+ response[value]["pQueue"][i][1] + "</div></div></div>";
     }
     document.getElementById("hashqueue").innerHTML = ql;
 }
